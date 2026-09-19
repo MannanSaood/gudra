@@ -1,0 +1,9 @@
+.git
+target
+.env
+.env.*
+.codex
+.agents
+*.cubin
+*.ptx
+*.tileirbc

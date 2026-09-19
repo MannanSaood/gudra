@@ -1,0 +1,10 @@
+* text=auto
+
+# Keep Linux/container entry points executable and free of CRLF conversions.
+*.sh text eol=lf
+
+# Normalize source, configuration, and documentation across developer hosts.
+*.rs text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.md text eol=lf

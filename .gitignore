@@ -1,0 +1,20 @@
+/target/
+/.cutile-cache/
+*.cubin
+*.ptx
+*.tileirbc
+
+# Local credentials and machine-specific editor/agent state.
+.env
+.env.*
+!.env.example
+/.codex/
+/.agents/
+/.idea/
+/.vscode/
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db

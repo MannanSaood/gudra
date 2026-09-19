@@ -1,0 +1,33 @@
+[package]
+name = "gudra"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.89"
+publish = false
+description = "Alias-safe weighted Jacobi step over haloed grids with cuTile"
+
+[features]
+default = []
+gpu = ["dep:cutile"]
+
+[dependencies]
+cutile = { version = "=0.3.1", optional = true }
+
+[[example]]
+name = "vector_add"
+required-features = ["gpu"]
+
+[[example]]
+name = "poisson_step"
+required-features = ["gpu"]
+
+[[test]]
+name = "gpu_jacobi"
+required-features = ["gpu"]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
