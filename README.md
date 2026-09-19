@@ -53,7 +53,6 @@ cargo doc --locked --no-deps
 
 - `src/` — library and cuTile kernel
 - `tests/` — CPU and GPU integration tests
-- `examples/` — Poisson step and CUDA smoke example
+- `examples/` — one runnable Poisson-step example
 - `docs/` — setup and API guides
-- `scripts/` — GPU prerequisite checks and smoke runner
-- `.devcontainer/` — pinned CUDA development container
+- `scripts/` — GPU prerequisite checker

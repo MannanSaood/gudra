@@ -14,10 +14,6 @@ gpu = ["dep:cutile"]
 cutile = { version = "=0.3.1", optional = true }
 
 [[example]]
-name = "vector_add"
-required-features = ["gpu"]
-
-[[example]]
 name = "poisson_step"
 required-features = ["gpu"]
 

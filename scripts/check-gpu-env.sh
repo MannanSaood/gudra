@@ -100,12 +100,12 @@ if command -v nvidia-smi >/dev/null 2>&1; then
         fi
     fi
 else
-    fail "nvidia-smi missing; install an NVIDIA driver and expose the GPU to the container"
+    fail "nvidia-smi missing; install an NVIDIA driver and ensure the GPU is accessible"
 fi
 
 if (( failures > 0 )); then
     printf '\nGPU environment is NOT ready (%d failed check(s)).\n' "$failures" >&2
-    printf 'See docs/setup.md for native and devcontainer setup.\n' >&2
+    printf 'See docs/setup.md for setup instructions.\n' >&2
     exit 2
 fi
 
