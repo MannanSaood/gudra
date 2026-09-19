@@ -6,11 +6,11 @@ warning[license-not-encountered]: license was not encountered
 
 warning[duplicate]: found 2 duplicate entries for crate 'hashbrown'
    ┌─ <repo>/Cargo.lock:45:1
-   │  
+   │
 45 │ ╭ hashbrown 0.14.5 registry+https://github.com/rust-lang/crates.io-index
 46 │ │ hashbrown 0.17.1 registry+https://github.com/rust-lang/crates.io-index
    │ ╰──────────────────────────────────────────────────────────────────────┘ lock entries
-   │  
+   │
    ├ hashbrown v0.14.5
      └── dashmap v6.2.1
          ├── cuda-async v0.3.1
@@ -33,11 +33,11 @@ warning[duplicate]: found 2 duplicate entries for crate 'hashbrown'
 
 warning[duplicate]: found 2 duplicate entries for crate 'itertools'
    ┌─ <repo>/Cargo.lock:49:1
-   │  
+   │
 49 │ ╭ itertools 0.12.1 registry+https://github.com/rust-lang/crates.io-index
 50 │ │ itertools 0.14.0 registry+https://github.com/rust-lang/crates.io-index
    │ ╰──────────────────────────────────────────────────────────────────────┘ lock entries
-   │  
+   │
    ├ itertools v0.12.1
      └── bindgen v0.69.5
          └── (build) cuda-bindings v0.3.1
@@ -59,11 +59,11 @@ warning[duplicate]: found 2 duplicate entries for crate 'itertools'
 
 warning[duplicate]: found 2 duplicate entries for crate 'object'
    ┌─ <repo>/Cargo.lock:65:1
-   │  
+   │
 65 │ ╭ object 0.36.7 registry+https://github.com/rust-lang/crates.io-index
 66 │ │ object 0.39.1 registry+https://github.com/rust-lang/crates.io-index
    │ ╰───────────────────────────────────────────────────────────────────┘ lock entries
-   │  
+   │
    ├ object v0.36.7
      └── oxide-artifacts v0.2.1
          └── cuda-core v0.3.1
@@ -88,11 +88,11 @@ warning[duplicate]: found 2 duplicate entries for crate 'object'
 
 warning[duplicate]: found 2 duplicate entries for crate 'rustc-hash'
    ┌─ <repo>/Cargo.lock:86:1
-   │  
+   │
 86 │ ╭ rustc-hash 1.1.0 registry+https://github.com/rust-lang/crates.io-index
 87 │ │ rustc-hash 2.1.3 registry+https://github.com/rust-lang/crates.io-index
    │ ╰──────────────────────────────────────────────────────────────────────┘ lock entries
-   │  
+   │
    ├ rustc-hash v1.1.0
      └── bindgen v0.69.5
          └── (build) cuda-bindings v0.3.1
@@ -118,11 +118,11 @@ warning[duplicate]: found 2 duplicate entries for crate 'rustc-hash'
 
 warning[duplicate]: found 2 duplicate entries for crate 'shlex'
    ┌─ <repo>/Cargo.lock:95:1
-   │  
+   │
 95 │ ╭ shlex 1.3.0 registry+https://github.com/rust-lang/crates.io-index
 96 │ │ shlex 2.0.1 registry+https://github.com/rust-lang/crates.io-index
    │ ╰─────────────────────────────────────────────────────────────────┘ lock entries
-   │  
+   │
    ├ shlex v1.3.0
      └── bindgen v0.69.5
          └── (build) cuda-bindings v0.3.1
@@ -150,11 +150,11 @@ warning[duplicate]: found 2 duplicate entries for crate 'shlex'
 
 warning[duplicate]: found 2 duplicate entries for crate 'syn'
     ┌─ <repo>/Cargo.lock:101:1
-    │  
+    │
 101 │ ╭ syn 2.0.119 registry+https://github.com/rust-lang/crates.io-index
 102 │ │ syn 3.0.6 registry+https://github.com/rust-lang/crates.io-index
     │ ╰───────────────────────────────────────────────────────────────┘ lock entries
-    │  
+    │
     ├ syn v2.0.119
       ├── bindgen v0.69.5
       │   └── (build) cuda-bindings v0.3.1
@@ -219,11 +219,11 @@ warning[duplicate]: found 2 duplicate entries for crate 'syn'
 
 warning[duplicate]: found 2 duplicate entries for crate 'windows-sys'
     ┌─ <repo>/Cargo.lock:112:1
-    │  
+    │
 112 │ ╭ windows-sys 0.59.0 registry+https://github.com/rust-lang/crates.io-index
 113 │ │ windows-sys 0.61.2 registry+https://github.com/rust-lang/crates.io-index
     │ ╰────────────────────────────────────────────────────────────────────────┘ lock entries
-    │  
+    │
     ├ windows-sys v0.59.0
       └── rustix v0.38.44
           └── which v4.4.2

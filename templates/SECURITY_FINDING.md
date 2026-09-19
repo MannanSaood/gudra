@@ -46,4 +46,3 @@ List commands, tests, and configurations demonstrating that the fix works and do
 ## Disclosure
 
 Record coordination and publication decisions. Do not label a correctness bug a CVE without a defensible security impact and appropriate coordination.
-
