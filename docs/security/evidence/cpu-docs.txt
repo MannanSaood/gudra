@@ -1,0 +1,5 @@
+COMMAND: doc --offline --locked --no-deps
+EXIT: 0
+ Documenting gudra v0.0.0 (<repo>)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.31s
+   Generated <repo>\target\doc\gudra\index.html

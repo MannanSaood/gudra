@@ -85,7 +85,7 @@ matters. First poll may JIT synchronously; there is no bounded latency promise.
 ## Errors and limits
 
 The public CUDA-free `Error` enum distinguishes empty interiors, overflow,
-supported-domain limits, wrong lengths, mismatched 2D shapes, wrong sessions,
+supported-domain limits, resource admission, wrong lengths, mismatched 2D shapes, wrong sessions,
 invalid coefficients, and backend failures. `Display` retains the operation
 label and original backend diagnostic. Backend text is not a stable protocol.
 
@@ -108,11 +108,35 @@ does not cover compiler, driver, hardware, or external unsafe-code faults.
 
 ## Verification status
 
-CPU checks pass locally. GPU compilation stops in `cuda-bindings` because no
-CUDA Toolkit is installed, before type-checking this facade or generated
-launcher. GPU numerical, compile-fail, and async tests are supplied but remain
-unexecuted. See the [verification results](verification-results.md) for the exact
-checks and remaining acceptance gate.
+CPU checks pass locally. Earlier remote GPU evidence records the readback fix
+at `073f7c6`; those results do not validate the current budget changes. The local
+Windows GPU build remains blocked in `cuda-bindings` by missing CUDA, before
+facade type-checking. See [the security audit](security/audit-report.md) and
+[historical verification results](verification-results.md).
+
+## Resource admission and service use
+
+`Gpu::new` uses `ResourceLimits::default()`: 256 MiB per allocation, 1 GiB total
+logical live device storage, 64 buffers and 8 admitted operations per session.
+Use `Gpu::with_limits(ordinal, ResourceLimits::new(buffer_bytes, total_bytes,
+buffers, operations)?)` to choose positive limits. Constructors, readback and
+execution reject `Error::ResourceLimit` before backend work if admission fails.
+An owned async job reserves its operation at creation, including while unpolled.
+Its buffers and admission charge are released on normal completion/drop; forgetting
+owners/futures retains the charge. Async admission failure consumes its input owners.
+
+Call `limits.check_shape(shape)` before allocating host inputs for a three-buffer
+step. `Shape2D::interior_bytes()` and `haloed_bytes()` expose checked byte sizes.
+This static check is not a reservation; actual live usage is checked at allocation.
+The library cannot bound a host vector that was allocated before it was passed in.
+Host readback vectors, CUDA pools/deallocator backlog, native/compiler overhead,
+multiple sessions, time, request rate and retries require application/OS quotas.
+Logical accounting does not prove physical reclamation after driver faults.
+
+Start the entire GPU worker through `scripts/run-private-gpu.py` or equivalent
+private-temp setup before JIT. Do not enable a shared writable persistent cache.
+Map backend failures to a generic external error; detailed compiler/native errors
+can contain paths/topology and belong only in restricted operator logs.
 
 Generate public API documentation with `cargo doc --locked --no-default-features
 --no-deps`, or `cargo doc --locked --features gpu --no-deps` in the supported CUDA

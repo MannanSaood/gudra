@@ -9,6 +9,15 @@ use crate::Shape2D;
 #[derive(Debug)]
 #[non_exhaustive]
 pub enum Error {
+    /// Resource limits must be positive and per-buffer bytes must fit the total.
+    InvalidResourceLimits,
+    /// A session admission budget rejected work before backend submission.
+    ResourceLimit {
+        /// Logical resource whose budget would be exceeded.
+        resource: &'static str,
+        /// Configured inclusive maximum.
+        maximum: usize,
+    },
     /// An interior axis was zero.
     EmptyInterior {
         /// `height` or `width`.
@@ -79,6 +88,13 @@ pub type Result<T> = std::result::Result<T, Error>;
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
+            Self::InvalidResourceLimits => write!(
+                f,
+                "resource limits must be positive and buffer bytes must fit total bytes"
+            ),
+            Self::ResourceLimit { resource, maximum } => {
+                write!(f, "{resource} budget exceeded (maximum {maximum})")
+            }
             Self::InvalidBuffer { buffer } => write!(
                 f,
                 "{buffer} is unavailable after an incomplete backend operation; drop it"

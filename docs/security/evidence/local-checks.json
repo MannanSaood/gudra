@@ -1,0 +1,26 @@
+[
+  {
+    "check": "cpu-debug",
+    "exit": 0
+  },
+  {
+    "check": "cpu-release",
+    "exit": 0
+  },
+  {
+    "check": "cpu-ui",
+    "exit": 0
+  },
+  {
+    "check": "cpu-docs",
+    "exit": 0
+  },
+  {
+    "check": "dependency-policy",
+    "exit": 0
+  },
+  {
+    "check": "gpu-build",
+    "exit": 101
+  }
+]

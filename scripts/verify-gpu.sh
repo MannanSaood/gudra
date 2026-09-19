@@ -2,6 +2,9 @@
 # Required GPU gate: fail closed on any compiler, test, or sanitizer error.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+if [[ "${1:-}" != "--private-worker" ]]; then
+    exec python3 scripts/run-private-gpu.py -- bash scripts/verify-gpu.sh --private-worker
+fi
 bash scripts/check-gpu-env.sh
 cargo check --locked --features gpu --all-targets
 cargo clippy --locked --features gpu --all-targets -- -D warnings

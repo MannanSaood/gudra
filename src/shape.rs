@@ -99,6 +99,18 @@ impl Shape2D {
         self.haloed_len as usize
     }
 
+    /// Logical bytes in one interior device allocation, excluding backend overhead.
+    #[must_use]
+    pub fn interior_bytes(self) -> usize {
+        self.interior_bytes
+    }
+
+    /// Logical bytes in one haloed device allocation, excluding backend overhead.
+    #[must_use]
+    pub fn haloed_bytes(self) -> usize {
+        self.haloed_bytes
+    }
+
     #[cfg(feature = "gpu")]
     pub(crate) fn interior(self) -> [usize; 2] {
         self.interior.map(|axis| axis as usize)

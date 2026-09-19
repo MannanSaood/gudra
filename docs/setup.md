@@ -33,8 +33,8 @@ The project pins the following validation environment:
 
 The dependency's CUDA floor is documented in the
 [cuTile 0.3.1 release](https://github.com/NVlabs/cutile-rs/releases/tag/v0.3.1).
-The table above is the project's pinned target; the full GPU build/run remains
-unverified. Consult NVIDIA's [CUDA installation guide](https://docs.nvidia.com/cuda/archive/13.3.0/cuda-installation-guide-linux/index.html)
+The table above is the project's target. Prior remote evidence used Arch/CUDA 13.4;
+the current security changes still need final-revision validation. Consult NVIDIA's [CUDA installation guide](https://docs.nvidia.com/cuda/archive/13.3.0/cuda-installation-guide-linux/index.html)
 for driver and toolkit installation.
 
 ### Native setup
@@ -63,13 +63,14 @@ cargo doc --locked --features gpu --no-deps
 cargo test --locked --features gpu --doc
 ```
 
-With supported GPU hardware:
+With supported GPU hardware, start runtime commands with private JIT temporary
+storage (see [SECURITY.md](../SECURITY.md)):
 
 ```sh
-cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
-cargo test --locked --features gpu --lib -- --test-threads=1
-CUDA_ASYNC_SPIN_BUDGET_US=0 cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
-cargo run --locked --features gpu --example poisson_step
+python3 scripts/run-private-gpu.py -- cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
+python3 scripts/run-private-gpu.py -- cargo test --locked --features gpu --lib -- --test-threads=1
+CUDA_ASYNC_SPIN_BUDGET_US=0 python3 scripts/run-private-gpu.py -- cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
+python3 scripts/run-private-gpu.py -- cargo run --locked --features gpu --example poisson_step
 ```
 
 The Poisson example checks 323 output cells against the CPU reference and exits
@@ -88,7 +89,11 @@ they do not silently skip. First launch may compile the kernel with `tileiras`.
 
 See [verification results](verification-results.md) for current commands and
 results, including the local incomplete Rust installation workaround. The GPU
-dependency build is blocked by missing CUDA before facade type-checking. Numerical,
-directional, UI, and async GPU tests remain unverified. Run
+dependency build is blocked by missing CUDA before facade type-checking. Earlier
+remote GPU results are recorded separately; final-revision security changes need
+fresh numerical, directional, UI, async and resource-budget verification. Run
 `bash scripts/verify-gpu.sh` for the complete gate, including library view tests,
 repetitions, and memcheck/initcheck; see [the strategy](test-strategy.md).
+The runner automatically creates a private Linux JIT temp directory. Use only a
+reviewed revision and dependencies on an isolated GPU worker without release or
+production credentials; never execute downloaded PR-produced cubins or binaries.

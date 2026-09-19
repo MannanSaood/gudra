@@ -7,8 +7,10 @@ Private source and output owners prevent safe callers from aliasing immutable
 inputs with mutable output. The caller supplies halo values; Gudra does not
 manage boundary conditions or implement an iterative solver.
 
-**Status:** experimental. CPU tests pass. GPU compilation and execution still
-require validation on the supported CUDA environment.
+**Status:** experimental; **security release gate: FAIL**. CPU checks pass and
+earlier GPU readback fixes have recorded remote sanitizer evidence. The current
+security changes require final-revision GPU verification and dependency fault-path
+closure. See [SECURITY.md](SECURITY.md) and the [audit report](docs/security/audit-report.md).
 
 ## Quick start
 
@@ -22,7 +24,7 @@ cargo test --locked
 On a configured NVIDIA/CUDA system:
 
 ```sh
-cargo run --locked --features gpu --example poisson_step
+python3 scripts/run-private-gpu.py -- cargo run --locked --features gpu --example poisson_step
 ```
 
 The example performs one update on a 17x19 interior and compares every output
@@ -39,6 +41,10 @@ output    = (1 - omega) * center + omega * candidate
 `gpu::Gpu` provides blocking `step` and `step_into`, and an owned
 `step_into_async`. Uploads and readback block. See the [API guide](docs/api.md)
 for ownership, synchronization, errors, and limits.
+
+GPU sessions apply default logical resource budgets; configure `ResourceLimits`
+for the application. Untrusted-request services also need input/process quotas,
+private JIT temporary storage and an independently validated GPU isolation policy.
 
 ## Development
 
