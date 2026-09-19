@@ -8,11 +8,13 @@ Install Rust 1.89.0 with formatting and linting tools:
 rustup toolchain install 1.89.0 --profile minimal --component rustfmt --component clippy
 cargo build --locked
 cargo test --locked
+python3 scripts/check-ui.py
 cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 ```
 
-The default feature set does not compile CUDA dependencies. `Cargo.lock` is
+The default feature set does not compile CUDA dependencies. The separate UI
+runner requires Python 3 and no third-party Python packages. `Cargo.lock` is
 committed to keep development dependencies reproducible.
 
 ## GPU environment
@@ -54,6 +56,7 @@ With the toolkit installed:
 
 ```sh
 cargo check --locked --features gpu --all-targets
+python3 scripts/check-ui.py --gpu
 cargo clippy --locked --features gpu --all-targets -- -D warnings
 cargo build --locked --features gpu --all-targets
 cargo doc --locked --features gpu --no-deps
@@ -64,6 +67,7 @@ With supported GPU hardware:
 
 ```sh
 cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
+cargo test --locked --features gpu --lib -- --test-threads=1
 CUDA_ASYNC_SPIN_BUDGET_US=0 cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
 cargo run --locked --features gpu --example poisson_step
 ```
@@ -82,9 +86,9 @@ they do not silently skip. First launch may compile the kernel with `tileiras`.
 
 ## Validation status
 
-CPU formatting, linting, build, 9 tests, and one doctest pass after cleanup. Initial
-CPU build/tests/docs also passed with Rust 1.89's compiler.
-GPU checking stopped in the dependency build because the development machine
-lacked CUDA headers, before the GPU facade was type-checked. GPU numerical,
-aliasing doctest, and async lifecycle behavior remain unverified. The commands
-above are the required checks on a supported system.
+See [verification results](verification-results.md) for current commands and
+results, including the local incomplete Rust installation workaround. The GPU
+dependency build is blocked by missing CUDA before facade type-checking. Numerical,
+directional, UI, and async GPU tests remain unverified. Run
+`bash scripts/verify-gpu.sh` for the complete gate, including library view tests,
+repetitions, and memcheck/initcheck; see [the strategy](test-strategy.md).

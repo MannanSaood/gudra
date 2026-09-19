@@ -1,0 +1,2 @@
+PASS cpu/pass.rs: compiles
+PASS cpu/alias_rhs.rs: ['E0502']

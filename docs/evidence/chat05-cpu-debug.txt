@@ -1,0 +1,44 @@
+   Compiling gudra v0.0.0 (C:\Users\DELL\Documents\incuda\gudra)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.32s
+     Running unittests src\lib.rs (target\debug\deps\gudra-4037b0fa82fe3ce3.exe)
+
+running 6 tests
+test completion::tests::only_success_restores_readiness ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+test params::tests::coefficient_domain ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\numerical.rs (target\debug\deps\numerical-0e75a3508ec8ee6b.exe)
+
+running 7 tests
+test coefficients_report_the_rejected_parameter ... ok
+test nonfinite_data_policy_is_explicit_and_zero_does_not_short_circuit ... ok
+test every_checked_arithmetic_stage_rejects_without_allocation ... ok
+test short_and_long_buffers_fail_atomically ... ok
+test seeded_zero_weight_preserves_every_finite_center ... ok
+test deterministic_properties_cover_tile_boundaries_and_quadratic_solution ... ok
+test oracle_matches_independent_f64_windows_over_shape_and_parameter_matrix ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running tests\reference.rs (target\debug\deps\reference-87cdcdd78dcf7c2b.exe)
+
+running 5 tests
+test one_cell_uses_all_four_halos_and_negative_rhs_term ... ok
+test rectangular_row_major_indexing_and_weighting ... ok
+test narrow_and_partial_domains_preserve_constant_field ... ok
+test zero_weight_does_not_hide_nan ... ok
+test wrong_lengths_leave_output_untouched ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests gudra
+
+running 1 test
+test src\reference.rs - reference::jacobi_into (line 25) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.61s

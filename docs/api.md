@@ -62,8 +62,10 @@ mutable views, or storage clones are exposed. A distinct `Gpu` instance is a
 distinct session even on the same device ordinal.
 
 The source role cannot be used as output. Rust also rejects simultaneous shared
-and mutable borrows of the RHS. A complete compile-fail fixture is attached to
-`Gpu::step_into` in rustdoc; GPU-feature doctests must run to validate it.
+and mutable borrows of the RHS. The [UI runner](../scripts/check-ui.py) checks
+the real public API against diagnostic codes and compile-success controls;
+run it with `--gpu` in the supported toolchain. The rustdoc compile-fail example
+is supplementary. See the [safety model](safety-model.md) for the proof boundary.
 
 For async use, first obtain an initialized output with `gpu.zeros(shape)?`:
 
@@ -94,8 +96,11 @@ element counts fit positive `i32`. Neither tiled axis exceeds 65,535 blocks.
 finite; `h_squared` must be finite and nonnegative. Both may be zero, and no
 convergence interval is imposed on `omega`.
 
-Validation leaves borrowed output untouched. Execution failure can leave it
-partially updated; there is no rollback or retry. Driver/context fault recovery
+Validation leaves borrowed output untouched. Before backend execution, borrowed
+output is marked uncertain. Only successful completion restores it; an execution
+error or unwind leaves it invalidated. Readback and reuse as RHS/output then
+return `InvalidBuffer`; only metadata access and drop remain available. There is
+no rollback or retry. Driver/context fault recovery
 is outside this contract. In particular, the pinned async dependency's failure
 to drain does not establish retention of the outer owned frame; that failure
 path requires further dependency review. The memory-access claim depends on cuTile/CUDA and
@@ -106,7 +111,8 @@ does not cover compiler, driver, hardware, or external unsafe-code faults.
 CPU checks pass locally. GPU compilation stops in `cuda-bindings` because no
 CUDA Toolkit is installed, before type-checking this facade or generated
 launcher. GPU numerical, compile-fail, and async tests are supplied but remain
-unexecuted. See the [setup guide](setup.md#validation-status) for validation status.
+unexecuted. See the [verification results](verification-results.md) for the exact
+checks and remaining acceptance gate.
 
 Generate public API documentation with `cargo doc --locked --no-default-features
 --no-deps`, or `cargo doc --locked --features gpu --no-deps` in the supported CUDA

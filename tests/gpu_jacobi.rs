@@ -13,46 +13,31 @@ use gudra::{
     Error, JacobiParams, Shape2D,
 };
 
-fn fixture(shape: Shape2D) -> (Vec<f32>, Vec<f32>) {
-    // Nonconstant/asymmetric values exercise view offsets, row stride and edges.
-    let halo = [1.0, 7.0, -2.0, 3.0, 0.5, 9.0, -4.0, 2.0, 8.0, 5.0, -1.0]
-        .into_iter()
-        .cycle()
-        .take(shape.haloed_len())
-        .collect();
-    let rhs = [0.0, 1.0, -2.0, 0.5, 3.0]
-        .into_iter()
-        .cycle()
-        .take(shape.interior_len())
-        .collect();
-    (halo, rhs)
-}
-
-fn assert_close(actual: &[f32], expected: &[f32]) {
-    assert_eq!(actual.len(), expected.len());
-    for (i, (&a, &e)) in actual.iter().zip(expected).enumerate() {
-        assert!(
-            a.is_finite() && (a - e).abs() <= 1.0e-5 + 1.0e-5 * e.abs(),
-            "cell {i}: GPU={a}, CPU={e}"
-        );
-    }
-}
+mod support;
+use support::{assert_close, fixture, nonfinite_cases, SHAPES};
 
 #[test]
 fn blocking_steps_match_reference() -> gudra::Result<()> {
     let gpu = Gpu::new(0)?;
     let p = JacobiParams::new(2.0 / 3.0, 0.25)?;
-    for (height, width) in [(1, 1), (1, 19), (19, 1), (16, 16), (17, 19)] {
+    for &(height, width) in SHAPES {
         let shape = Shape2D::new(height, width)?;
-        let (halo, host_rhs) = fixture(shape);
+        let (halo, host_rhs) = fixture(shape, 0x5eed_0005);
         let mut expected = vec![0.0; shape.interior_len()];
         jacobi_into(shape, &halo, &host_rhs, &mut expected, p)?;
         let source = gpu.upload_halo(shape, halo)?;
-        let rhs = gpu.upload_field(shape, host_rhs)?;
-        assert_close(&gpu.step(&source, &rhs, p)?.into_host()?, &expected);
-        let mut output = gpu.upload_field(shape, vec![f32::NAN; shape.interior_len()])?;
-        gpu.step_into(&source, &rhs, &mut output, p)?;
-        assert_close(&output.into_host()?, &expected);
+        let rhs = gpu.upload_field(shape, host_rhs.clone())?;
+        // Fresh poison detects unwritten edge cells; each repetition uses the
+        // CPU oracle, never a possibly wrong first GPU result.
+        for _ in 0..3 {
+            assert_close(&gpu.step(&source, &rhs, p)?.into_host()?, &expected);
+            let mut output = gpu.upload_field(shape, vec![f32::NAN; shape.interior_len()])?;
+            for _ in 0..3 {
+                gpu.step_into(&source, &rhs, &mut output, p)?;
+            }
+            assert_close(&output.into_host()?, &expected);
+        }
+        assert_eq!(rhs.into_host()?, host_rhs);
     }
     Ok(())
 }
@@ -117,7 +102,7 @@ fn owned_async_returns_usable_buffers_on_another_thread() -> gudra::Result<()> {
     let gpu = Gpu::new(0)?;
     let shape = Shape2D::new(17, 19)?;
     let p = JacobiParams::new(0.5, 0.25)?;
-    let (halo, host_rhs) = fixture(shape);
+    let (halo, host_rhs) = fixture(shape, 0x5eed_0005);
     let mut expected = vec![0.0; shape.interior_len()];
     jacobi_into(shape, &halo, &host_rhs, &mut expected, p)?;
     let source = gpu.upload_halo(shape, halo)?;
@@ -141,7 +126,7 @@ fn owned_job_can_be_dropped_before_or_after_first_poll() -> gudra::Result<()> {
     let gpu = Gpu::new(0)?;
     let shape = Shape2D::new(17, 19)?;
     let p = JacobiParams::new(0.5, 0.25)?;
-    for poll_once in [false, true] {
+    for poll_once in [false, true].into_iter().cycle().take(10) {
         let source = gpu.upload_halo(shape, vec![4.0; shape.haloed_len()])?;
         let rhs = gpu.zeros(shape)?;
         let output = gpu.zeros(shape)?;
@@ -163,5 +148,122 @@ fn owned_job_can_be_dropped_before_or_after_first_poll() -> gudra::Result<()> {
     // This is a lifecycle smoke test, not proof that the first poll was Pending
     // or that no work submitted before polling. Further verification needs instrumentation,
     // forced-pending cancellation and isolated-process forget tests.
+    Ok(())
+}
+
+#[test]
+fn unusual_finite_coefficients_match_oracle() -> gudra::Result<()> {
+    let gpu = Gpu::new(0)?;
+    let shape = Shape2D::new(17, 19)?;
+    for (omega, h2) in [
+        (-2.0, 0.25),
+        (0.0, 0.0),
+        (1.0, 0.0),
+        (2.0, 0.5),
+        (-1.0, 1.0),
+    ] {
+        let (halo, rhs_host) = fixture(shape, 123);
+        let p = JacobiParams::new(omega, h2)?;
+        let mut expected = vec![f32::NAN; shape.interior_len()];
+        jacobi_into(shape, &halo, &rhs_host, &mut expected, p)?;
+        let source = gpu.upload_halo(shape, halo)?;
+        let rhs = gpu.upload_field(shape, rhs_host)?;
+        assert_close(&gpu.step(&source, &rhs, p)?.into_host()?, &expected);
+    }
+    Ok(())
+}
+
+#[test]
+fn nonfinite_policy_matches_oracle_and_stated_classification() -> gudra::Result<()> {
+    let gpu = Gpu::new(0)?;
+    let shape = Shape2D::new(1, 1)?;
+    for (halo, rhs_value, omega, h2, expected) in nonfinite_cases() {
+        let p = JacobiParams::new(omega, h2)?;
+        let mut cpu = [0.0];
+        jacobi_into(shape, &halo, &[rhs_value], &mut cpu, p)?;
+        assert_close(&cpu, &[expected]);
+        let source = gpu.upload_halo(shape, halo.to_vec())?;
+        let rhs = gpu.upload_field(shape, vec![rhs_value])?;
+        assert_close(&gpu.step(&source, &rhs, p)?.into_host()?, &cpu);
+    }
+    Ok(())
+}
+
+#[test]
+fn every_validation_role_leaves_output_unchanged_and_session_usable() -> gudra::Result<()> {
+    let gpu = Gpu::new(0)?;
+    let other = Gpu::new(0)?;
+    let shape = Shape2D::new(2, 3)?;
+    let transposed = Shape2D::new(3, 2)?;
+    let p = JacobiParams::new(0.5, 1.0)?;
+    assert!(matches!(
+        gpu.upload_halo(shape, vec![0.0; 19]),
+        Err(Error::LengthMismatch {
+            buffer: "source",
+            ..
+        })
+    ));
+    assert!(matches!(
+        gpu.upload_field(shape, vec![0.0; 7]),
+        Err(Error::LengthMismatch {
+            buffer: "field",
+            ..
+        })
+    ));
+    let source = gpu.upload_halo(shape, vec![4.0; shape.haloed_len()])?;
+    let rhs = gpu.zeros(shape)?;
+    let foreign_source = other.upload_halo(shape, vec![4.0; shape.haloed_len()])?;
+    let foreign_rhs = other.zeros(shape)?;
+    for role in ["source", "rhs", "output", "shape"] {
+        let mut output = if role == "output" {
+            other.upload_field(shape, vec![123.0; shape.interior_len()])?
+        } else {
+            gpu.upload_field(
+                if role == "shape" { transposed } else { shape },
+                vec![123.0; shape.interior_len()],
+            )?
+        };
+        let result = gpu.step_into(
+            if role == "source" {
+                &foreign_source
+            } else {
+                &source
+            },
+            if role == "rhs" { &foreign_rhs } else { &rhs },
+            &mut output,
+            p,
+        );
+        if role == "shape" {
+            assert!(matches!(
+                result,
+                Err(Error::ShapeMismatch {
+                    buffer: "output",
+                    ..
+                })
+            ));
+        } else {
+            assert!(matches!(result, Err(Error::ContextMismatch { buffer }) if buffer == role));
+        }
+        assert_eq!(output.into_host()?, vec![123.0; shape.interior_len()]);
+        assert_eq!(
+            gpu.step(&source, &rhs, p)?.into_host()?,
+            vec![4.0; shape.interior_len()]
+        );
+    }
+    let bad_rhs = gpu.zeros(transposed)?;
+    assert!(matches!(
+        gpu.step(&source, &bad_rhs, p),
+        Err(Error::ShapeMismatch { buffer: "rhs", .. })
+    ));
+    let output = gpu.zeros(shape)?;
+    assert!(matches!(
+        gpu.step_into_async(source, bad_rhs, output, p),
+        Err(Error::ShapeMismatch { buffer: "rhs", .. })
+    ));
+    assert_eq!(rhs.into_host()?, vec![0.0; shape.interior_len()]);
+    assert_eq!(
+        gpu.zeros(shape)?.into_host()?,
+        vec![0.0; shape.interior_len()]
+    );
     Ok(())
 }

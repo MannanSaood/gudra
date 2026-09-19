@@ -49,6 +49,11 @@ cargo test --locked
 cargo doc --locked --no-deps
 ```
 
+The [safety model](docs/safety-model.md) states guarantees and non-guarantees.
+See the [test strategy](docs/test-strategy.md), [recorded results](docs/verification-results.md),
+and [Chat 05 handoff](docs/handoffs/05-safety-proof-and-tests.md) for executable
+ownership/numerical checks and the remaining GPU acceptance gate.
+
 ## Layout
 
 - `src/` — library and cuTile kernel

@@ -1,0 +1,44 @@
+   Compiling gudra v0.0.0 (C:\Users\DELL\Documents\incuda\gudra)
+    Finished `release` profile [optimized] target(s) in 3.17s
+     Running unittests src\lib.rs (target\release\deps\gudra-664f0ad25ef9e8c3.exe)
+
+running 6 tests
+test completion::tests::only_success_restores_readiness ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\numerical.rs (target\release\deps\numerical-172fe150e78b4321.exe)
+
+running 7 tests
+test coefficients_report_the_rejected_parameter ... ok
+test every_checked_arithmetic_stage_rejects_without_allocation ... ok
+test nonfinite_data_policy_is_explicit_and_zero_does_not_short_circuit ... ok
+test short_and_long_buffers_fail_atomically ... ok
+test seeded_zero_weight_preserves_every_finite_center ... ok
+test deterministic_properties_cover_tile_boundaries_and_quadratic_solution ... ok
+test oracle_matches_independent_f64_windows_over_shape_and_parameter_matrix ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests\reference.rs (target\release\deps\reference-2d899940d3aabde6.exe)
+
+running 5 tests
+test narrow_and_partial_domains_preserve_constant_field ... ok
+test one_cell_uses_all_four_halos_and_negative_rhs_term ... ok
+test rectangular_row_major_indexing_and_weighting ... ok
+test wrong_lengths_leave_output_untouched ... ok
+test zero_weight_does_not_hide_nan ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests gudra
+
+running 1 test
+test src\reference.rs - reference::jacobi_into (line 25) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.07s

@@ -1,0 +1,21 @@
+   Compiling cuda-bindings v0.3.1
+error: failed to run custom build command for `cuda-bindings v0.3.1`
+
+Caused by:
+  process didn't exit successfully: `C:\Users\DELL\Documents\incuda\gudra\target\debug\build\cuda-bindings-a3a83b5565600d04\build-script-build` (exit code: 1)
+  --- stdout
+  cargo:rerun-if-changed=wrapper.h
+  cargo:rerun-if-changed=toolkit_target.rs
+  cargo:rerun-if-env-changed=CUDA_TOOLKIT_PATH
+  cargo:rerun-if-env-changed=CUDA_HOME
+  cargo:rerun-if-env-changed=CUDA_TOOLKIT_TARGET_DIR
+  cargo:rerun-if-env-changed=CUTILE_SETUP_DIAGNOSTICS
+
+  --- stderr
+  Neither CUDA_TOOLKIT_PATH nor CUDA_HOME is set, and no CUDA 13.0+ toolkit was found in default locations:
+    - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3 is not a directory
+    - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.2: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.2 is not a directory
+  Set CUDA_TOOLKIT_PATH or CUDA_HOME to a CUDA 13.0+ toolkit directory.
+warning: build failed, waiting for other jobs to finish...
+
+BLOCKED: library did not compile; no UI fixture counted as passed.

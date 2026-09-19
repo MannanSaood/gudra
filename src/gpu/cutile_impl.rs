@@ -9,9 +9,14 @@ use cutile::{
     },
 };
 
+use crate::completion::Completion;
 use crate::{error::check_len, shape::TILE, Error, JacobiParams, Result, Shape2D};
 
 use super::{kernels::jacobi_kernel, Field2D, Gpu, HaloGrid2D, StepBuffers};
+
+#[cfg(test)]
+#[path = "verification.rs"]
+mod verification;
 
 pub(super) struct Session {
     device: Arc<Device>,
@@ -24,6 +29,7 @@ pub(super) struct Buffer {
     tensor: Tensor<f32>,
     shape: Shape2D,
     session: Arc<Session>,
+    completion: Completion,
 }
 
 fn backend(operation: &'static str, error: impl Display) -> Error {
@@ -96,6 +102,7 @@ impl Gpu {
             tensor,
             shape,
             session: Arc::clone(&self.session),
+            completion: Completion::default(),
         })
     }
 
@@ -113,6 +120,7 @@ impl Gpu {
                 tensor,
                 shape,
                 session: Arc::clone(&self.session),
+                completion: Completion::default(),
             },
         })
     }
@@ -145,8 +153,9 @@ impl Gpu {
     ///
     /// # Errors
     /// Shape/session/metadata validation leaves output untouched. A backend
-    /// execution error may leave output partially updated; no rollback or retry
-    /// is attempted. Driver/context faults can make the session unusable.
+    /// execution error invalidates output: readback and reuse return
+    /// [`Error::InvalidBuffer`]. No rollback or retry is attempted. Driver/context
+    /// faults can make the session unusable; invalidation is not fault recovery.
     ///
     /// The same RHS cannot also be the mutable output:
     ///
@@ -166,21 +175,26 @@ impl Gpu {
         validate_step(&self.session, source, rhs, Some(output))?;
         self.session.bind()?;
         let views = directional_views(source)?;
-        // Keep the entire recovered argument tuple until the sync terminal ends.
-        let _completed = jacobi_kernel::jacobi(
-            (&mut output.storage.tensor).partition([TILE, TILE]),
-            &views.center,
-            &views.north,
-            &views.south,
-            &views.east,
-            &views.west,
-            &rhs.storage.tensor,
-            params.omega,
-            params.h_squared,
-        )
-        .sync_on(&self.session.stream)
-        .map_err(|e| backend("execute Jacobi step", e))?;
-        Ok(())
+        let Buffer {
+            tensor, completion, ..
+        } = &mut output.storage;
+        completion.run(|| {
+            // Keep the recovered argument tuple until the sync terminal ends.
+            let _completed = jacobi_kernel::jacobi(
+                (&mut *tensor).partition([TILE, TILE]),
+                &views.center,
+                &views.north,
+                &views.south,
+                &views.east,
+                &views.west,
+                &rhs.storage.tensor,
+                params.omega,
+                params.h_squared,
+            )
+            .sync_on(&self.session.stream)
+            .map_err(|e| backend("execute Jacobi step", e))?;
+            Ok(())
+        })
     }
 
     /// Validates immediately, then returns a lazy future owning all three buffers.
@@ -257,12 +271,15 @@ impl Field2D {
     /// alive through readback, even if the original [`Gpu`] has been dropped.
     ///
     /// # Errors
-    /// Returns [`Error::Backend`] on device binding, copy, or completion failure.
+    /// Returns [`Error::InvalidBuffer`] before device work for invalidated fields,
+    /// or [`Error::Backend`] on device binding, copy, or completion failure.
     pub fn into_host(self) -> Result<Vec<f32>> {
+        self.storage.completion.ensure_ready("field")?;
         let Buffer {
             tensor,
             shape: _,
             session,
+            completion: _,
         } = self.storage;
         session.bind()?;
         tensor
@@ -296,6 +313,7 @@ fn validate_step(
         ("output", output.map(|field| &field.storage)),
     ] {
         if let Some(buffer) = buffer {
+            buffer.completion.ensure_ready(role)?;
             if !Arc::ptr_eq(session, &buffer.session) {
                 return Err(Error::ContextMismatch { buffer: role });
             }

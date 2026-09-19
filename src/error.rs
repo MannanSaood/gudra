@@ -51,6 +51,12 @@ pub enum Error {
         /// Buffer role.
         buffer: &'static str,
     },
+    /// A prior backend execution did not establish completion for this field.
+    /// It can be dropped or queried for shape, but never read or reused.
+    InvalidBuffer {
+        /// Attempted role (`rhs`, `output`, or `field` for readback).
+        buffer: &'static str,
+    },
     /// A coefficient is nonfinite, or `h_squared` is negative.
     InvalidParameter {
         /// Coefficient name.
@@ -73,6 +79,10 @@ pub type Result<T> = std::result::Result<T, Error>;
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
+            Self::InvalidBuffer { buffer } => write!(
+                f,
+                "{buffer} is unavailable after an incomplete backend operation; drop it"
+            ),
             Self::EmptyInterior { axis } => write!(f, "interior {axis} must be positive"),
             Self::ShapeOverflow { operation } => {
                 write!(f, "shape arithmetic overflow: {operation}")

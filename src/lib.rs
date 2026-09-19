@@ -13,6 +13,8 @@
 
 #![deny(missing_docs)]
 
+#[cfg(any(feature = "gpu", test))]
+mod completion;
 mod error;
 mod params;
 mod shape;
