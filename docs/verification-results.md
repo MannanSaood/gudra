@@ -1,7 +1,8 @@
 # Chat 05 verification results
 
-**Current status: readback defect resolved in the tested setup; final-revision
-process repetitions remain pending.**
+**Current status: readback defect resolved in the tested setup; post-fix process
+repetitions also pass.** The repetition log omits the exact commit identity;
+retain the provenance limits below when describing this evidence.
 The original local results below remain a historical record. A friend supplied
 successful initial GPU results on Arch; see the follow-up here. CPU results alone
 are not treated as GPU evidence.
@@ -34,10 +35,34 @@ repair. The reported readback defect is resolved for these tested paths and
 environment; this is not a proof of driver-fault recovery or universal race freedom.
 
 The five earlier process repetitions were on the pre-readback-fix revision.
-Do not attribute them to `073f7c6`. Repeat them on the final code revision before
-closing the remaining repetition gate. UI/doctest evidence is also from earlier
+Do not attribute them to `073f7c6`. The later repetition evidence is recorded
+separately below. UI/doctest evidence is also from earlier
 revisions; the negative CUDA control remains documented but unexecuted. The
 strict Ubuntu/CUDA 13.3 target has not been tested by this Arch run.
+
+## Post-fix repetitions (latest follow-up)
+
+The user supplied `gpu-final-checks (1).log`, stored as
+[chat05-gpu-final-repetitions.log](evidence/chat05-gpu-final-repetitions.log).
+Original SHA-256:
+`FEEA5FE419FEDC499E78F1BF053AA12270C4A5A1C6A3FEB4BAACD46A8EF2BA19`.
+The committed copy normalizes line endings and trailing whitespace.
+
+- All five labeled process repetitions pass: 8 library + 8 GPU integration
+  tests per repetition, or 80 successful test executions before sanitizers.
+- The new `readback_retains_allocation_until_copy_completes` test passes in
+  each repetition, identifying the post-fix test suite rather than the older
+  seven-test integration suite.
+- Four sanitizer invocations each pass eight tests and report zero errors.
+  No ignored or failed tests appear. The opening dev-profile command completes.
+
+This log does not print a commit SHA, sanitizer version, or tool labels. Its
+library/library/integration/integration ordering matches the previously supplied
+Memcheck/Initcheck loop, but that command attribution is contextual. Do not infer
+an exact checkout hash from executable filenames. The earlier labeled sanitizer
+log separately establishes clean Memcheck/Initcheck results on `073f7c6`.
+The requested repetitions are now observed passing for the post-fix test suite;
+exact-revision provenance would require recording `git rev-parse HEAD` in that run.
 
 ## Readback sanitizer follow-up
 

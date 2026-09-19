@@ -17,9 +17,15 @@ eight tests and zero errors each. GPU Clippy and the readback regression pass.
 The reported defect is resolved on this setup, based on remote user-supplied
 evidence. The local Windows machine still has no CUDA runtime verification.
 
-Remaining: five ordinary process repetitions on the repaired revision (earlier
-repetitions preceded the fix), final-revision UI/doctest refresh for a complete
-release record, and optional execution of the documented negative control.
+The later [repetition log](../evidence/chat05-gpu-final-repetitions.log) records
+five passing repetitions of 8 library + 8 integration tests, including the new
+readback regression, plus four zero-error sanitizer summaries. This file omits
+the exact commit and sanitizer tool labels; the earlier labeled log establishes
+the sanitizer result on `073f7c6` separately.
+
+Remaining for a complete release record: exact-revision provenance for the
+repetition run, final-revision UI/doctest refresh, and optional execution of the
+documented negative control.
 Driver-fault recovery remains separate work. Proceed to Chat 06 Security Review
 with these limits and the [updated results](../verification-results.md).
 

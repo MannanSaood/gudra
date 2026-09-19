@@ -106,6 +106,9 @@ package names or silently skip failures. The strict pinned runner delegates its
 sanitizer stage to the same script.
 
 The readback sanitizer closure requirement has been met by the recorded remote
-run. Five ordinary process repetitions on the repaired revision are still pending.
+run. A later [repetition log](evidence/chat05-gpu-final-repetitions.log) also records
+five passing repetitions of the post-fix test suite and four zero-error sanitizer
+summaries. It omits a commit hash and tool labels; see the provenance limits in
+the results record rather than treating it as exact-revision evidence.
 For future reruns, save the complete log even on failure. Do not disable tracking
 or suppress these reports to obtain a pass.

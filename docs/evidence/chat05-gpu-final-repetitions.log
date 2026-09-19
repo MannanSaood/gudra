@@ -1,0 +1,211 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s
+GPU repetition 1/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.92s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.35s
+
+GPU repetition 2/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.24s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.16s
+
+GPU repetition 3/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.28s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.04s
+
+GPU repetition 4/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.21s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.01s
+
+GPU repetition 5/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.23s
+
+========= COMPUTE-SANITIZER
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.47s
+
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.46s
+
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.32s
+
+========= ERROR SUMMARY: 0 errors
+========= COMPUTE-SANITIZER
+
+running 8 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test readback_retains_allocation_until_copy_completes ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.23s
+
+========= ERROR SUMMARY: 0 errors
