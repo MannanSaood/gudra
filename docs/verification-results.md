@@ -1,8 +1,8 @@
 # Chat 05 verification results
 
 **Current status: readback defect resolved in the tested setup; post-fix process
-repetitions also pass.** The repetition log omits the exact commit identity;
-retain the provenance limits below when describing this evidence.
+repetitions also pass on `073f7c6`, as confirmed by the user.** Commit attribution
+for the repetition run is user-confirmed rather than printed in that log.
 The original local results below remain a historical record. A friend supplied
 successful initial GPU results on Arch; see the follow-up here. CPU results alone
 are not treated as GPU evidence.
@@ -61,8 +61,11 @@ library/library/integration/integration ordering matches the previously supplied
 Memcheck/Initcheck loop, but that command attribution is contextual. Do not infer
 an exact checkout hash from executable filenames. The earlier labeled sanitizer
 log separately establishes clean Memcheck/Initcheck results on `073f7c6`.
-The requested repetitions are now observed passing for the post-fix test suite;
-exact-revision provenance would require recording `git rev-parse HEAD` in that run.
+The user subsequently confirmed that the repetition run used the same commit,
+`073f7c61fc488ca589efe602006aa67c9e75e478`, before the documentation-only updates.
+Record the five passing repetitions against that revision with user-confirmed
+attribution; no additional run is needed solely to establish the commit identity.
+The log itself remains unchanged and does not print that hash.
 
 ## Readback sanitizer follow-up
 

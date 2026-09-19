@@ -21,10 +21,12 @@ The later [repetition log](../evidence/chat05-gpu-final-repetitions.log) records
 five passing repetitions of 8 library + 8 integration tests, including the new
 readback regression, plus four zero-error sanitizer summaries. This file omits
 the exact commit and sanitizer tool labels; the earlier labeled log establishes
-the sanitizer result on `073f7c6` separately.
+the sanitizer result on `073f7c6` separately. The user subsequently confirmed the
+repetition run also used `073f7c6`, before the documentation-only updates. Its
+commit attribution is therefore user-confirmed, not an unresolved blocker.
 
-Remaining for a complete release record: exact-revision provenance for the
-repetition run, final-revision UI/doctest refresh, and optional execution of the
+Remaining for a complete release record: final-revision UI/doctest refresh and
+optional execution of the
 documented negative control.
 Driver-fault recovery remains separate work. Proceed to Chat 06 Security Review
 with these limits and the [updated results](../verification-results.md).

@@ -108,7 +108,8 @@ sanitizer stage to the same script.
 The readback sanitizer closure requirement has been met by the recorded remote
 run. A later [repetition log](evidence/chat05-gpu-final-repetitions.log) also records
 five passing repetitions of the post-fix test suite and four zero-error sanitizer
-summaries. It omits a commit hash and tool labels; see the provenance limits in
-the results record rather than treating it as exact-revision evidence.
+summaries. The user confirmed it ran on the same `073f7c6` revision, before the
+documentation-only updates. The commit attribution is user-confirmed; the log
+itself omits the hash and tool labels. See the results record for that distinction.
 For future reruns, save the complete log even on failure. Do not disable tracking
 or suppress these reports to obtain a pass.
