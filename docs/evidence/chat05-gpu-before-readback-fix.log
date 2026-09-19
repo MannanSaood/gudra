@@ -1,0 +1,1443 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
+GPU repetition 1/5
+   Compiling gudra v0.0.0 (/home/arnav/gudra)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.32s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.75s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 7 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.95s
+
+GPU repetition 2/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.21s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 7 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.89s
+
+GPU repetition 3/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 7 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.88s
+
+GPU repetition 4/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.19s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 7 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.94s
+
+GPU repetition 5/5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/gudra-2105ba2dc9977538)
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+
+     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-7f2363b3f204f666)
+
+running 7 tests
+test blocking_steps_match_reference ... ok
+test every_validation_role_leaves_output_unchanged_and_session_usable ... ok
+test nonfinite_policy_matches_oracle_and_stated_classification ... ok
+test owned_async_returns_usable_buffers_on_another_thread ... ok
+test owned_job_can_be_dropped_before_or_after_first_poll ... ok
+test unusual_finite_coefficients_match_oracle ... ok
+test validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.95s
+
+========= COMPUTE-SANITIZER
+
+running 8 tests
+test completion::tests::only_success_restores_readiness ... ok
+test completion::tests::unwind_keeps_output_unavailable ... ok
+test gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ========= Use-after-free on allocation of size 4 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 4 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 4 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 4 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 4 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 24 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 24 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 24 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 24 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 24 bytes at 0x700000200
+=========     Address 0x700000200 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 1,292 bytes at 0x700000800
+=========     Address 0x700000800 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 1,292 bytes at 0x700000800
+=========     Address 0x700000800 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 1,292 bytes at 0x700000800
+=========     Address 0x700000800 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 1,292 bytes at 0x700000800
+=========     Address 0x700000800 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 1,292 bytes at 0x700000800
+=========     Address 0x700000800 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 6,204 bytes at 0x700001c00
+=========     Address 0x700001c00 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 6,204 bytes at 0x700001c00
+=========     Address 0x700001c00 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 6,204 bytes at 0x700001c00
+=========     Address 0x700001c00 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 6,204 bytes at 0x700001c00
+=========     Address 0x700001c00 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+========= Use-after-free on allocation of size 6,204 bytes at 0x700001c00
+=========     Address 0x700001c00 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::h42e0e130d45ed82e in verification.rs:47 [0x17354c] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels::_$u7b$$u7b$closure$u7d$$u7d$::hbd59064cda16bebf in verification.rs:18 [0x1564b2] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::h6d0b26f51a7ba766 in function.rs:250 [0x164aa5] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+ok
+test gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ========= Use-after-free on allocation of size 4 bytes at 0x700000600
+=========     Address 0x700000600 is potentially accessed after it is free'd
+=========
+=========     Saved host backtrace up to driver entry point at cudaMemcpy time
+=========         Host Frame: cuMemcpyDtoHAsync_v2 [0x3f1879] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemcpyDtoHAsync_v2::hc7de22473ba27510 in cuda_driver_shims.rs:2540 [0x12e103] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::memcpy_dtoh_async::h69f5b035ef10c947 in cudarc_shim.rs:765 [0x16742c] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::memcpy_dtoh_async::h47e23c37f7cede17 in api.rs:153 [0x15a444] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:343 [0x162703] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path::h8a21b0a41eebbab7 in verification.rs:84 [0x1748bc] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path::_$u7b$$u7b$closure$u7d$$u7d$::h446014866fb9b969 in verification.rs:54 [0x156742] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::he49e0bd89b796c26 in function.rs:250 [0x164c05] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+=========     Saved host backtrace up to driver entry point at cudaFreeAsync time
+=========         Host Frame: cuMemFreeAsync [0x3f3ad9] in libcuda.so.1
+=========         Host Frame: cuda_bindings::dyn_load::cuMemFreeAsync::h81a56cc14b114c0c in cuda_driver_shims.rs:3656 [0xb208bf] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::cudarc_shim::memory::free_async::h2b5fb2a13cdcf51b in cudarc_shim.rs:690 [0xb2b442] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_core::api::free_async::h53a862cc57e4108c in api.rs:122 [0xb22221] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::_$u7b$$u7b$closure$u7d$$u7d$::h7a4a156f70280c40 in device_buffer.rs:145 [0xaf935e] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::_$u7b$$u7b$closure$u7d$$u7d$::ha9842e6462304d47 in device_context.rs:370 [0xaf5362] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::_$u7b$$u7b$closure$u7d$$u7d$::h4268213558138e3e in device_context.rs:332 [0xaf5099] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::_$u7b$$u7b$closure$u7d$$u7d$::habccab58b31e5f95 in device_context.rs:304 [0xaf4cb8] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::try_with::hc240f0e7f0beccab in local.rs:315 [0xafffc3] in gudra-2105ba2dc9977538
+=========         Host Frame: std::thread::local::LocalKey$LT$T$GT$::with::h89dceadef92ab1e0 in local.rs:279 [0xaff96d] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_context_map::h04dcb3db25db9afa in device_context.rs:290 [0xaf433f] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_global_device_context::hee9a9b0df24bb2a6 in device_context.rs:327 [0xaf4e87] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_context::with_deallocator_stream::h009c8c99ddd2416d in device_context.rs:369 [0xaf533a] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cuda_async..device_buffer..DeviceBuffer$u20$as$u20$core..ops..drop..Drop$GT$::drop::h1cc9e4d00085b89d in device_buffer.rs:145 [0xaf932b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cuda_async..device_buffer..DeviceBuffer$GT$::hdb5f9061c75d8b41 in mod.rs:799 [0x1d5586] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Storage$GT$::ha074e0c83c6e35ff in mod.rs:799 [0x1d4f3d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h25dbce1be63d82ed in sync.rs:1943 [0x1cbd41] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::hb458d32453dc18ef in sync.rs:2686 [0x1cc26c] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Storage$GT$$GT$::he3ba33a586d99ec9 in mod.rs:799 [0x1d591a] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$::hb03cad8a809a8dc7 in mod.rs:799 [0x1d506d] in gudra-2105ba2dc9977538
+=========         Host Frame: alloc::sync::Arc$LT$T$C$A$GT$::drop_slow::h67bdde84ced40de7 in sync.rs:1943 [0x156cd1] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::he3800f6cba435765 in sync.rs:2686 [0x16681b] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$cutile..tensor..Tensor$LT$f32$GT$$GT$$GT$::h52e8dd337893e01a in mod.rs:799 [0x166029] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ptr::drop_in_place$LT$cutile..api..CopyDeviceToHostVec$LT$f32$GT$$GT$::h1bc2009137a46b79 in mod.rs:799 [0x165ef9] in gudra-2105ba2dc9977538
+=========         Host Frame: _$LT$cutile..api..CopyDeviceToHostVec$LT$T$GT$$u20$as$u20$cuda_async..device_operation..DeviceOp$GT$::execute::h6c3fbe35a2bbba23 in api.rs:352 [0x1627d9] in gudra-2105ba2dc9977538
+=========         Host Frame: cuda_async::device_operation::DeviceOp::sync_on::h33331f0b8b942e84 in device_operation.rs:432 [0x162efa] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::_$LT$impl$u20$gudra..gpu..Field2D$GT$::into_host::h9d833c5b50fd1e07 in cutile_impl.rs:287 [0x1417b1] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path::h8a21b0a41eebbab7 in verification.rs:84 [0x1748bc] in gudra-2105ba2dc9977538
+=========         Host Frame: gudra::gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path::_$u7b$$u7b$closure$u7d$$u7d$::h446014866fb9b969 in verification.rs:54 [0x156742] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once::he49e0bd89b796c26 in function.rs:250 [0x164c05] in gudra-2105ba2dc9977538
+=========         Host Frame: test::__rust_begin_short_backtrace::h5403e9ff57c40dab in lib.rs:648 [0x1b387a] in gudra-2105ba2dc9977538
+=========         Host Frame: test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::hc41d5e32018fb032 in lib.rs:592 [0x1b2afd] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::backtrace::__rust_begin_short_backtrace::h725872d9e0edd537 in backtrace.rs:152 [0x1778d3] in gudra-2105ba2dc9977538
+=========         Host Frame: core::ops::function::FnOnce::call_once$u7b$$u7b$vtable.shim$u7d$$u7d$::h7c65d33fb6595d81 in function.rs:250 [0x17b059] in gudra-2105ba2dc9977538
+=========         Host Frame: std::sys::pal::unix::thread::Thread::new::thread_start::h1ff51d6e85162efd in thread.rs:107 [0xcbd6ae] in gudra-2105ba2dc9977538
+=========         Host Frame:  [0x980a1] in libc.so.6
+=========         Host Frame:  [0x12080b] in libc.so.6
+=========
+ok
+test params::tests::coefficient_domain ... ok
+test shape::tests::bounds_total_elements_and_each_grid_axis ... ok
+test shape::tests::rectangular_geometry_and_ceil_grid ... ok
+test shape::tests::rejects_zero_before_overflow ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.50s
+
+========= ERROR SUMMARY: 21 errors

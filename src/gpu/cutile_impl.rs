@@ -282,10 +282,13 @@ impl Field2D {
             completion: _,
         } = self.storage;
         session.bind()?;
-        tensor
-            .to_host_vec()
-            .sync_on(&session.stream)
-            .map_err(|e| backend("read back field", e))
+        // cuTile 0.3.1 consumes the copy operation (and its tensor Arc) inside
+        // execute(), before sync_on synchronizes. Keep a separate private owner
+        // so its deallocator stream cannot free storage during the copy.
+        let retained = Arc::new(tensor);
+        let result = (&retained).to_host_vec().sync_on(&session.stream);
+        drop(retained);
+        result.map_err(|e| backend("read back field", e))
     }
 }
 

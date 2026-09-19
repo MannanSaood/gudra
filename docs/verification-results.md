@@ -1,9 +1,23 @@
 # Chat 05 verification results
 
-**Acceptance gate: pending GPU lint, process repetitions, and sanitizer closure.**
+**Acceptance gate: failed Memcheck; readback lifetime patch awaits GPU verification.**
 The original local results below remain a historical record. A friend supplied
 successful initial GPU results on Arch; see the follow-up here. CPU results alone
 are not treated as GPU evidence.
+
+## Readback sanitizer follow-up
+
+After `71f2486`, the user reported GPU Clippy success and supplied
+[the complete closure log](evidence/chat05-gpu-before-readback-fix.log).
+All five repetitions passed (8 library + 7 GPU integration tests each). The first
+Memcheck invocation then reported **21 use-after-free errors** during readback.
+Initcheck and the integration executable's sanitizer runs were not reached.
+Passing numerical assertions do not override those errors.
+
+The patch retains a private tensor owner until the copy stream's synchronization
+returns, and adds a kernel-independent readback regression plus a portable
+sanitizer runner. [Investigation, exact rerun commands, and remaining limits](readback-lifetime.md)
+describe why this is a candidate repair rather than verified closure.
 
 ## Arch follow-up (user-supplied output)
 

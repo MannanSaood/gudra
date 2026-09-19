@@ -16,6 +16,33 @@ use gudra::{
 mod support;
 use support::{assert_close, fixture, nonfinite_cases, SHAPES};
 
+// Numerical assertions alone did not catch early deallocation. Run this test
+// under memcheck with stream-ordered race tracking as well as normally.
+#[test]
+fn readback_retains_allocation_until_copy_completes() -> gudra::Result<()> {
+    for (height, width) in [(1, 1), (2, 3), (17, 19), (33, 47), (257, 263)] {
+        let gpu = Gpu::new(0)?;
+        let shape = Shape2D::new(height, width)?;
+        for seed in 0..16 {
+            let (_, expected) = fixture(shape, seed);
+            let field = gpu.upload_field(shape, expected.clone())?;
+            assert_eq!(field.into_host()?, expected);
+            assert_eq!(
+                gpu.zeros(shape)?.into_host()?,
+                vec![0.0; shape.interior_len()]
+            );
+        }
+        let (_, expected) = fixture(shape, 123);
+        let field = gpu.upload_field(shape, expected.clone())?;
+        drop(gpu);
+        let actual = std::thread::spawn(move || field.into_host())
+            .join()
+            .expect("readback worker panicked")?;
+        assert_eq!(actual, expected);
+    }
+    Ok(())
+}
+
 #[test]
 fn blocking_steps_match_reference() -> gudra::Result<()> {
     let gpu = Gpu::new(0)?;
