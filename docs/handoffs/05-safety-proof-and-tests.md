@@ -6,7 +6,27 @@
 - Date: 2026-09-19
 - Repository: `gudra`, base `7166630`, uncommitted Chat 05 working-tree changes
 
-## Outcome
+## Current follow-up status
+
+The user supplied GPU verification from Arch Linux / RTX 5060 Laptop / CUDA 13.4.
+Initial ownership and numerical checks passed. Subsequent Memcheck found 21
+readback use-after-free reports; commit `073f7c6` repaired owner retention through
+synchronization. [The post-fix log](../evidence/chat05-gpu-readback-fix.log) identifies
+that commit and records all four Memcheck/Initcheck invocations passing with
+eight tests and zero errors each. GPU Clippy and the readback regression pass.
+The reported defect is resolved on this setup, based on remote user-supplied
+evidence. The local Windows machine still has no CUDA runtime verification.
+
+Remaining: five ordinary process repetitions on the repaired revision (earlier
+repetitions preceded the fix), final-revision UI/doctest refresh for a complete
+release record, and optional execution of the documented negative control.
+Driver-fault recovery remains separate work. Proceed to Chat 06 Security Review
+with these limits and the [updated results](../verification-results.md).
+
+The original handoff below is retained as historical context; its missing-GPU
+status does not describe the later remote evidence.
+
+## Original outcome
 
 Partially complete; acceptance is blocked by missing CUDA build/runtime access.
 CPU debug and release suites each pass 18 tests plus one doctest. The CPU public

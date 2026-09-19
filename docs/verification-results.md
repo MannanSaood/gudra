@@ -1,9 +1,43 @@
 # Chat 05 verification results
 
-**Acceptance gate: failed Memcheck; readback lifetime patch awaits GPU verification.**
+**Current status: readback defect resolved in the tested setup; final-revision
+process repetitions remain pending.**
 The original local results below remain a historical record. A friend supplied
 successful initial GPU results on Arch; see the follow-up here. CPU results alone
 are not treated as GPU evidence.
+
+## Successful readback verification (latest evidence)
+
+The user supplied [gpu-readback-fix.log](evidence/chat05-gpu-readback-fix.log).
+It identifies tested commit `073f7c61fc488ca589efe602006aa67c9e75e478` and
+Compute Sanitizer **2026.3.0.0**, build **38637409**. The previously reported host
+is Arch Linux, RTX 5060 Laptop GPU, driver 615.71.09, CUDA 13.4, Rust 1.89.0,
+Clang 22.1.8. Those host details come from earlier supplied output, not from
+new hardware queries in this log. Execution timestamp and loaded libclang
+version were not captured. This is user-supplied remote evidence.
+
+Original attachment SHA-256:
+`44D8D824C979AC902D85B8634253A7CCC96AD1833F056FCA1ED080E460D88429`.
+The committed copy normalizes line endings and trailing whitespace.
+
+| Check on `073f7c6` | Observed result | Log lines |
+|---|---|---|
+| GPU Clippy (preceding command supplied by user) | PASS | 1-2 |
+| GPU integration executable, Memcheck | 8 tests pass; 0 errors | 9-24 |
+| GPU integration executable, Initcheck | 8 tests pass; 0 errors | 25-40 |
+| Library executable, Memcheck | 8 tests pass; 0 errors | 41-56 |
+| Library executable, Initcheck | 8 tests pass; 0 errors | 57-72 |
+
+Both tools passed the new readback regression. The original library readback
+paths also passed with zero errors, versus 21 use-after-free reports before the
+repair. The reported readback defect is resolved for these tested paths and
+environment; this is not a proof of driver-fault recovery or universal race freedom.
+
+The five earlier process repetitions were on the pre-readback-fix revision.
+Do not attribute them to `073f7c6`. Repeat them on the final code revision before
+closing the remaining repetition gate. UI/doctest evidence is also from earlier
+revisions; the negative CUDA control remains documented but unexecuted. The
+strict Ubuntu/CUDA 13.3 target has not been tested by this Arch run.
 
 ## Readback sanitizer follow-up
 
@@ -17,7 +51,8 @@ Passing numerical assertions do not override those errors.
 The patch retains a private tensor owner until the copy stream's synchronization
 returns, and adds a kernel-independent readback regression plus a portable
 sanitizer runner. [Investigation, exact rerun commands, and remaining limits](readback-lifetime.md)
-describe why this is a candidate repair rather than verified closure.
+describe the repair and its verification limits. The successful rerun above
+supersedes the earlier pending sanitizer status.
 
 ## Arch follow-up (user-supplied output)
 
@@ -97,7 +132,7 @@ environment from this session. Local CPU tests need no CUDA library, driver,
 device, or fake backend. Pinning lint verification to 1.89 on a fully installed
 toolchain remains part of the Linux closure gate.
 
-## Gate disposition
+## Original local gate disposition (historical; superseded by latest evidence above)
 
 | Acceptance criterion | Status |
 |---|---|
@@ -111,7 +146,7 @@ invalidation after a failed or unwound borrowed backend execution. CPU state tes
 pass. The wiring into the actual GPU API must still pass its GPU unit test; it
 does not establish safety after a failed device drain.
 
-## Closure required
+## Original pinned-environment closure instructions
 
 On the pinned supported Linux/CUDA host, run `bash scripts/verify-gpu.sh` and the
 [negative-control commands](../fixtures/README.md). Save compiler/driver/toolkit/

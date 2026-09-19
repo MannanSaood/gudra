@@ -1,7 +1,13 @@
-# Readback lifetime repair: verification pending
+# Readback lifetime repair: verified on the reported GPU setup
 
-Outcome: **blocked verification**, with a candidate repair implemented. The
-original report has not yet been shown absent on the patched GPU build.
+Outcome: **fixed for the reported readback paths on the tested setup**.
+The user-supplied [post-fix log](evidence/chat05-gpu-readback-fix.log) identifies
+commit `073f7c61fc488ca589efe602006aa67c9e75e478`. Both library and GPU integration
+executables pass Memcheck and Initcheck: eight tests per invocation, zero errors
+in all four runs, including the new regression. GPU Clippy also passed.
+The earlier 21 use-after-free reports no longer reproduce in that run.
+See [the results record](verification-results.md#successful-readback-verification-latest-evidence)
+for provenance, environment, checksum, and remaining project-wide gates.
 
 ## Evidence and boundary
 
@@ -69,7 +75,9 @@ tests plus one doctest, and both CPU UI fixtures passed. Tests used Rust 1.89
 with the previously documented installed Cargo workaround; linting used 1.90.
 `cargo check --locked --offline --features gpu --all-targets` remains blocked
 in cuda-bindings by missing CUDA Toolkit, before patched GPU code type-checking.
-No clean sanitizer result or post-patch GPU behavior is claimed.
+At patch preparation no post-patch GPU results were available. The later remote
+results at the top of this report supersede that verification blocker; they do
+not turn the local Windows checks into GPU execution evidence.
 
 ## Rerun on the friend's machine
 
@@ -97,6 +105,7 @@ and fails on sanitizer errors with exit code 99. It does not enforce Ubuntu
 package names or silently skip failures. The strict pinned runner delegates its
 sanitizer stage to the same script.
 
-Closure requires successful updated GPU tests and all four sanitizer invocations
-with zero errors. Send the complete log even on failure. Do not disable tracking
+The readback sanitizer closure requirement has been met by the recorded remote
+run. Five ordinary process repetitions on the repaired revision are still pending.
+For future reruns, save the complete log even on failure. Do not disable tracking
 or suppress these reports to obtain a pass.
