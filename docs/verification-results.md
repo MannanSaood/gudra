@@ -1,8 +1,34 @@
 # Chat 05 verification results
 
-**Acceptance gate: BLOCKED on the GPU environment, not passed.** CPU evidence and
-verification artifacts are complete. GPU ownership rejection, numerical agreement,
-directional views, and lifecycle behavior cannot be certified from CPU results.
+**Acceptance gate: pending GPU lint, process repetitions, and sanitizer closure.**
+The original local results below remain a historical record. A friend supplied
+successful initial GPU results on Arch; see the follow-up here. CPU results alone
+are not treated as GPU evidence.
+
+## Arch follow-up (user-supplied output)
+
+Reported environment: Arch Linux x86_64, RTX 5060 Laptop GPU (compute capability
+12.0), driver 615.71.09, CUDA/nvcc/tileiras 13.4, Rust 1.89.0, Clang 22.1.8.
+The loaded libclang version and checkout commit hash were not captured in the
+submitted test log. These are remote observations supplied by the user, not
+GPU runs performed on this local host.
+
+The initial run passed all eight UI fixtures, three doctests, eight library tests
+(including actual directional views and invalidated-field rejection), seven GPU
+integration tests, and the 323-cell Poisson example (reported max absolute error
+zero). The subsequent closure command stopped at GPU-feature Clippy: single-letter
+kernel names, wildcard imports, and exclusive ranges triggered pedantic lints.
+No process repetitions or sanitizer checks ran in that command.
+
+The follow-up patch renames kernel locals without changing arithmetic, scopes
+wildcard-import exceptions to the cuTile DSL imports, and allows `range_plus_one`
+only on the view constructor because `Tensor::slice` requires `Range<usize>`.
+Local CPU linting, formatting, and diff checks pass. GPU lint and execution of
+the patched source must be rerun; prior numerical results do not certify the
+new revision. The strict Ubuntu/CUDA 13.3 checker still does not accept this Arch
+environment, so its failure is separate from the observed runtime results.
+
+## Original local environment
 
 Recorded 2026-09-19 against base `7166630` plus the Chat 05 working-tree changes.
 Host: Windows x86_64. Rust compiler/rustdoc: 1.89.0 (29483883e, LLVM 20.1.7).

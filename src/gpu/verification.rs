@@ -3,6 +3,8 @@ use super::*;
 
 #[cutile::module]
 mod probe {
+    // Match the production DSL prelude, including macro-generated tensor types.
+    #[allow(clippy::wildcard_imports)]
     use cutile::core::*;
 
     #[cutile::entry()]

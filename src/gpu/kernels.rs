@@ -1,6 +1,8 @@
 // cuTile captures this device syntax; the host sees only the generated launcher.
 #[cutile::module]
 pub(super) mod jacobi_kernel {
+    // The DSL rewrites Tensor into rank-specific types and uses core traits.
+    #[allow(clippy::wildcard_imports)]
     use cutile::core::*;
 
     #[cutile::entry()]
@@ -15,17 +17,19 @@ pub(super) mod jacobi_kernel {
         omega: f32,
         h_squared: f32,
     ) {
-        let c = center.load_like(output);
-        let n = north.load_like(output);
-        let s = south.load_like(output);
-        let e = east.load_like(output);
-        let w = west.load_like(output);
-        let r = rhs.load_like(output);
-        let om = omega.broadcast(output.shape());
-        let h2 = h_squared.broadcast(output.shape());
+        let center_values = center.load_like(output);
+        let north_values = north.load_like(output);
+        let south_values = south.load_like(output);
+        let east_values = east.load_like(output);
+        let west_values = west.load_like(output);
+        let rhs_values = rhs.load_like(output);
+        let weight = omega.broadcast(output.shape());
+        let spacing_squared = h_squared.broadcast(output.shape());
         let one = 1.0_f32.broadcast(output.shape());
         let quarter = 0.25_f32.broadcast(output.shape());
-        let candidate = quarter * (n + s + e + w - h2 * r);
-        output.store((one - om) * c + om * candidate);
+        let candidate = quarter
+            * (north_values + south_values + east_values + west_values
+                - spacing_squared * rhs_values);
+        output.store((one - weight) * center_values + weight * candidate);
     }
 }

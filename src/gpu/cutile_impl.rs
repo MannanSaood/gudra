@@ -352,6 +352,8 @@ struct ReadViews<'a> {
     west: TensorView<'a, f32>,
 }
 
+// Tensor::slice accepts Range<usize>, not RangeInclusive<usize>.
+#[allow(clippy::range_plus_one)]
 fn directional_views(source: &HaloGrid2D) -> Result<ReadViews<'_>> {
     let shape = source.shape();
     let [height, width] = shape.interior();
