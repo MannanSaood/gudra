@@ -1,63 +1,149 @@
 # Gudra
 
-A Rust crate for one weighted five-point Jacobi step on a two-dimensional grid
-with a one-cell halo. The GPU implementation uses cuTile and `f32` arithmetic.
+**Weighted Jacobi stencils on NVIDIA GPUs, with Rust ownership at the API boundary.**
 
-Private source and output owners prevent safe callers from aliasing immutable
-inputs with mutable output. The caller supplies halo values; Gudra does not
-manage boundary conditions or implement an iterative solver.
+Gudra is a Rust library for a weighted five-point Jacobi update on a two-dimensional
+grid. It uses [cuTile](https://github.com/NVlabs/cutile-rs) for GPU execution and
+provides an independent CPU reference implementation for validation. Data is
+row-major `f32`, with an explicit one-cell halo around the input grid.
 
-**Status:** experimental. CPU tests pass. GPU compilation and execution still
-require validation on the supported CUDA environment.
+[Quick start](#quick-start) · [API guide](docs/api.md) · [Setup](docs/setup.md) ·
+[Safety model](docs/safety-model.md) · [Verification results](docs/verification-results.md)
+
+> **Status:** Experimental and distributed from source, with crate publishing
+> disabled. Recorded GPU results apply to the revisions and hardware
+> listed in the verification report; production release validation remains open.
+
+## Features
+
+- **Checked grid metadata:** dimensions, halo sizes, element counts, and byte counts
+  are validated before use.
+- **Separate input and output ownership:** private device storage and distinct
+  buffer roles prevent safe callers from creating overlapping mutable views.
+- **Blocking and asynchronous execution:** allocate a result with `step`, reuse an
+  output with `step_into`, or transfer ownership into `step_into_async`.
+- **Explicit boundary data:** callers supply the halo and right-hand side for
+  predictable stencil behavior.
+- **CUDA-free development:** the default build includes the scalar reference,
+  shape validation, and CPU tests without compiling the GPU dependencies.
+
+Gudra performs one update. Applications provide boundary conditions, refresh halos,
+and control iteration and convergence. Multi-GPU execution and peer transport are
+not part of the current public API.
 
 ## Quick start
 
-Rust is pinned to 1.89.0. CUDA is optional for CPU development:
+Clone the repository and run the CPU tests:
 
 ```sh
+git clone https://github.com/MannanSaood/gudra.git
+cd gudra
 cargo build --locked
 cargo test --locked
 ```
 
-On a configured NVIDIA/CUDA system:
+The repository pins Rust **1.89.0** and commits `Cargo.lock` for reproducible
+dependency resolution. Use a Rust installation managed by `rustup`.
+
+### Run on a GPU
+
+Enable the optional `gpu` feature on a configured Linux NVIDIA system. The
+[setup guide](docs/setup.md) documents the target environment, CUDA toolkit,
+driver, GPU, and Clang prerequisites. The GPU backend pins cuTile **0.3.1**.
 
 ```sh
+./scripts/check-gpu-env.sh
 cargo run --locked --features gpu --example poisson_step
 ```
 
-The example performs one update on a 17x19 interior and compares every output
-cell with the CPU reference. See the [setup guide](docs/setup.md) for prerequisites.
+The example updates a **17 × 19** interior with nonzero, asymmetric halo values
+and compares all **323** output cells with the CPU reference. It exits with a
+nonzero status if validation fails. The first GPU operation may compile the
+kernel, so initial execution can take longer than later calls.
 
-## Operation
+Use a trusted, isolated development environment for GPU execution. Shared GPU
+services need application-level resource limits and a separately validated
+isolation policy; Rust buffer ownership alone does not provide tenant isolation.
+
+## API example
+
+With the `gpu` feature enabled:
+
+```rust,no_run
+use gudra::{gpu::Gpu, JacobiParams, Shape2D};
+
+fn main() -> gudra::Result<()> {
+    let shape = Shape2D::new(17, 19)?;
+    let params = JacobiParams::new(2.0 / 3.0, 0.01)?;
+    let gpu = Gpu::new(0)?;
+
+    // The source includes a one-cell halo on every side.
+    let source = gpu.upload_halo(shape, vec![1.0; shape.haloed_len()])?;
+    let rhs = gpu.upload_field(shape, vec![0.0; shape.interior_len()])?;
+
+    let output = gpu.step(&source, &rhs, params)?;
+    let values = output.into_host()?;
+    assert_eq!(values.len(), 323);
+    Ok(())
+}
+```
+
+Uploads, `step`, and readback in this example block until their work completes.
+For buffer reuse, asynchronous ownership, cancellation, and error behavior, see
+the [API guide](docs/api.md). The [complete example](examples/poisson_step.rs)
+also demonstrates validation against `reference::jacobi_into`.
+
+## Numerical operation
+
+For each interior cell:
 
 ```text
 candidate = 0.25 * (north + south + east + west - h_squared * rhs)
 output    = (1 - omega) * center + omega * candidate
 ```
 
-`Shape2D` validates dimensions; `JacobiParams` validates coefficients.
-`gpu::Gpu` provides blocking `step` and `step_into`, and an owned
-`step_into_async`. Uploads and readback block. See the [API guide](docs/api.md)
-for ownership, synchronization, errors, and limits.
+`Shape2D::new(height, width)` describes the interior. Source storage has
+`(height + 2) × (width + 2)` elements; RHS and output each have `height × width`
+elements. Rows increase southward and columns eastward.
 
-## Development
+`JacobiParams` requires finite `omega` and finite, nonnegative `h_squared`.
+It does not impose a convergence interval on `omega`. Input NaNs, infinities,
+and floating-point overflow can propagate; callers remain responsible for the
+numerical suitability of their data and solver.
+
+## Validation and development
+
+Run the CPU development checks without a CUDA installation:
 
 ```sh
 cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked
+cargo test --locked --release
+python3 scripts/check-ui.py
 cargo doc --locked --no-deps
 ```
 
-The [safety model](docs/safety-model.md) states guarantees and non-guarantees.
-See the [test strategy](docs/test-strategy.md), [recorded results](docs/verification-results.md),
-and [Chat 05 handoff](docs/handoffs/05-safety-proof-and-tests.md) for executable
-ownership/numerical checks and the remaining GPU acceptance gate.
+On the configured GPU environment, run the numerical tests and example:
 
-## Layout
+```sh
+cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
+cargo run --locked --features gpu --example poisson_step
+```
 
-- `src/` — library and cuTile kernel
-- `tests/` — CPU and GPU integration tests
-- `examples/` — one runnable Poisson-step example
-- `docs/` — setup and API guides
-- `scripts/` — GPU prerequisite checker
+The [test strategy](docs/test-strategy.md) covers compile-fail ownership checks,
+GPU repetitions, and Compute Sanitizer checks. The [verification report](docs/verification-results.md)
+records commands, revisions, environments, and results. Passing numerical tests
+does not by itself establish memory safety or isolation; the
+[safety model](docs/safety-model.md) describes the dependency boundary and the
+limits of the guarantees.
+
+## Repository guide
+
+| Path | Contents |
+|---|---|
+| [`src/`](src/) | Public API, CPU reference, and cuTile kernel |
+| [`tests/`](tests/) | Numerical, GPU, and compile-fail ownership checks |
+| [`examples/`](examples/) | Runnable Poisson-step example |
+| [`docs/`](docs/) | Setup, API, safety, and verification documentation |
+| [`scripts/`](scripts/) | Environment checks and verification tooling |
