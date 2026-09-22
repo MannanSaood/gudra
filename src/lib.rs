@@ -16,6 +16,7 @@
 #[cfg(any(feature = "gpu", test))]
 mod completion;
 mod error;
+mod limits;
 mod params;
 mod shape;
 
@@ -25,5 +26,6 @@ pub mod reference;
 pub mod gpu;
 
 pub use error::{Error, Result};
+pub use limits::ResourceLimits;
 pub use params::JacobiParams;
 pub use shape::Shape2D;

@@ -10,11 +10,58 @@ use std::{
 use gudra::{
     gpu::{Gpu, StepBuffers},
     reference::jacobi_into,
-    Error, JacobiParams, Shape2D,
+    Error, JacobiParams, ResourceLimits, Shape2D,
 };
 
 mod support;
 use support::{assert_close, fixture, nonfinite_cases, SHAPES};
+
+#[test]
+fn budgets_reject_before_allocation_or_submission_and_release_on_drop() -> gudra::Result<()> {
+    let gpu = Gpu::with_limits(0, ResourceLimits::new(36, 88, 6, 1)?)?;
+    assert!(matches!(
+        gpu.zeros(Shape2D::new(32768, 32768)?),
+        Err(Error::ResourceLimit { .. })
+    ));
+    let shape = Shape2D::new(1, 1)?;
+    let p = JacobiParams::new(0.5, 1.0)?;
+    let first = (
+        gpu.upload_halo(shape, vec![1.0; 9])?,
+        gpu.zeros(shape)?,
+        gpu.zeros(shape)?,
+    );
+    let second = (
+        gpu.upload_halo(shape, vec![1.0; 9])?,
+        gpu.zeros(shape)?,
+        gpu.zeros(shape)?,
+    );
+    assert!(matches!(gpu.zeros(shape), Err(Error::ResourceLimit { .. })));
+    let future = gpu.step_into_async(first.0, first.1, first.2, p)?;
+    let (source, rhs, mut output) = second;
+    assert!(matches!(
+        gpu.step_into(&source, &rhs, &mut output, p),
+        Err(Error::ResourceLimit {
+            resource: "operations",
+            ..
+        })
+    ));
+    drop(future); // unpolled: restores admission and all three storage charges
+    let replacement = (
+        gpu.upload_halo(shape, vec![1.0; 9])?,
+        gpu.zeros(shape)?,
+        gpu.zeros(shape)?,
+    );
+    assert!(matches!(gpu.zeros(shape), Err(Error::ResourceLimit { .. })));
+    drop(replacement);
+    assert_eq!(output.into_host()?, vec![0.0]);
+    let mut output = gpu.zeros(shape)?;
+    gpu.step_into(&source, &rhs, &mut output, p)?;
+    assert_eq!(output.into_host()?, vec![1.0]);
+    let output = gpu.zeros(shape)?;
+    let buffers = complete(gpu.step_into_async(source, rhs, output, p)?)?;
+    assert_eq!(buffers.output.into_host()?, vec![1.0]);
+    Ok(())
+}
 
 // Numerical assertions alone did not catch early deallocation. Run this test
 // under memcheck with stream-ordered race tracking as well as normally.

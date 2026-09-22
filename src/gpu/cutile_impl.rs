@@ -10,7 +10,8 @@ use cutile::{
 };
 
 use crate::completion::Completion;
-use crate::{error::check_len, shape::TILE, Error, JacobiParams, Result, Shape2D};
+use crate::limits::admission::{Budget, Reservation};
+use crate::{error::check_len, shape::TILE, Error, JacobiParams, ResourceLimits, Result, Shape2D};
 
 use super::{kernels::jacobi_kernel, Field2D, Gpu, HaloGrid2D, StepBuffers};
 
@@ -21,6 +22,7 @@ mod verification;
 pub(super) struct Session {
     device: Arc<Device>,
     stream: Arc<Stream>,
+    budget: Arc<Budget>,
 }
 
 pub(super) struct Buffer {
@@ -30,6 +32,8 @@ pub(super) struct Buffer {
     shape: Shape2D,
     session: Arc<Session>,
     completion: Completion,
+    // Last field: release the logical charge only after storage is dropped.
+    reservation: Reservation,
 }
 
 fn backend(operation: &'static str, error: impl Display) -> Error {
@@ -54,12 +58,26 @@ impl Gpu {
     /// Returns [`Error::Backend`] if the ordinal, driver, device, or stream
     /// initialization fails. Requires the documented CUDA/cuTile environment.
     pub fn new(device_ordinal: usize) -> Result<Self> {
+        Self::with_limits(device_ordinal, ResourceLimits::default())
+    }
+
+    /// Creates a private session with explicit resource admission limits.
+    ///
+    /// Limits count logical storage and active/admitted operations, including
+    /// unpolled futures. They do not isolate tenants or include backend overhead.
+    /// # Errors
+    /// Returns [`Error::Backend`] when device or stream initialization fails.
+    pub fn with_limits(device_ordinal: usize, limits: ResourceLimits) -> Result<Self> {
         let device = Device::new(device_ordinal).map_err(|e| backend("create device", e))?;
         let stream = device
             .new_stream()
             .map_err(|e| backend("create stream", e))?;
         Ok(Self {
-            session: Arc::new(Session { device, stream }),
+            session: Arc::new(Session {
+                device,
+                stream,
+                budget: Budget::new(limits),
+            }),
         })
     }
 
@@ -70,7 +88,7 @@ impl Gpu {
     ///
     /// # Errors
     /// Returns [`Error::LengthMismatch`] before device work for the wrong length,
-    /// or [`Error::Backend`] on binding, upload, or reshape failure.
+    /// [`Error::ResourceLimit`] on admission, or [`Error::Backend`] on backend failure.
     pub fn upload_halo(&self, shape: Shape2D, data: Vec<f32>) -> Result<HaloGrid2D> {
         check_len("source", shape.haloed_len(), data.len())?;
         Ok(HaloGrid2D {
@@ -82,7 +100,7 @@ impl Gpu {
     ///
     /// # Errors
     /// Returns [`Error::LengthMismatch`] before device work for the wrong length,
-    /// or [`Error::Backend`] on binding, upload, or reshape failure.
+    /// [`Error::ResourceLimit`] on admission, or [`Error::Backend`] on backend failure.
     pub fn upload_field(&self, shape: Shape2D, data: Vec<f32>) -> Result<Field2D> {
         check_len("field", shape.interior_len(), data.len())?;
         Ok(Field2D {
@@ -91,6 +109,8 @@ impl Gpu {
     }
 
     fn upload(&self, shape: Shape2D, data: Vec<f32>, extent: &[usize; 2]) -> Result<Buffer> {
+        let reservation = self.session.budget.buffer(data.len() * size_of::<f32>())?;
+        let _operation = self.session.budget.operation()?;
         self.session.bind()?;
         let host = Arc::new(data);
         let tensor = api::copy_host_vec_to_device(&host)
@@ -103,14 +123,17 @@ impl Gpu {
             shape,
             session: Arc::clone(&self.session),
             completion: Completion::default(),
+            reservation,
         })
     }
 
     /// Allocates a fresh interior field and blocks until zero initialization ends.
     ///
     /// # Errors
-    /// Returns [`Error::Backend`] on binding, allocation, or initialization failure.
+    /// Returns [`Error::ResourceLimit`] on admission, or [`Error::Backend`] on backend failure.
     pub fn zeros(&self, shape: Shape2D) -> Result<Field2D> {
+        let reservation = self.session.budget.buffer(shape.interior_bytes())?;
+        let _operation = self.session.budget.operation()?;
         self.session.bind()?;
         let tensor = api::zeros::<f32>(&shape.interior())
             .sync_on(&self.session.stream)
@@ -121,6 +144,7 @@ impl Gpu {
                 shape,
                 session: Arc::clone(&self.session),
                 completion: Completion::default(),
+                reservation,
             },
         })
     }
@@ -132,7 +156,7 @@ impl Gpu {
     ///
     /// # Errors
     /// Shape/session/metadata failures precede output allocation. Backend errors
-    /// include allocation, JIT, launch, and completion; no partial field returns.
+    /// include admission, allocation, JIT, launch and completion; no partial field returns.
     pub fn step(
         &self,
         source: &HaloGrid2D,
@@ -152,7 +176,7 @@ impl Gpu {
     /// complete operation retains all borrows through synchronization.
     ///
     /// # Errors
-    /// Shape/session/metadata validation leaves output untouched. A backend
+    /// Shape/session/metadata/admission rejection leaves output untouched. A backend
     /// execution error invalidates output: readback and reuse return
     /// [`Error::InvalidBuffer`]. No rollback or retry is attempted. Driver/context
     /// faults can make the session unusable; invalidation is not fault recovery.
@@ -173,6 +197,7 @@ impl Gpu {
         params: JacobiParams,
     ) -> Result<()> {
         validate_step(&self.session, source, rhs, Some(output))?;
+        let _operation = self.session.budget.operation()?;
         self.session.bind()?;
         let views = directional_views(source)?;
         let Buffer {
@@ -206,7 +231,7 @@ impl Gpu {
     /// Forgetting the future retains/leaks its buffers and session.
     ///
     /// # Errors
-    /// Validation consumes the buffers even on `Err`. Execution failure or
+    /// Validation/admission consumes the buffers even on `Err`. Execution failure or
     /// cancellation does not return them. Use [`Self::step_into`] to retain inputs
     /// on failure. Driver/context fault recovery is unsupported: cuTile's failed
     /// drain path does not prove retention of the outer owners. The safety claim
@@ -219,8 +244,11 @@ impl Gpu {
         params: JacobiParams,
     ) -> Result<impl Future<Output = Result<StepBuffers>> + Send + 'static> {
         validate_step(&self.session, &source, &rhs, Some(&output))?;
+        let operation = self.session.budget.operation()?;
         let session = Arc::clone(&self.session);
         Ok(async move {
+            // Bind the guard inside the frame so unpolled jobs retain admission.
+            let _operation = operation;
             session.bind()?;
             {
                 let views = directional_views(&source)?;
@@ -272,14 +300,16 @@ impl Field2D {
     ///
     /// # Errors
     /// Returns [`Error::InvalidBuffer`] before device work for invalidated fields,
-    /// or [`Error::Backend`] on device binding, copy, or completion failure.
+    /// [`Error::ResourceLimit`] on admission, or [`Error::Backend`] on backend failure.
     pub fn into_host(self) -> Result<Vec<f32>> {
         self.storage.completion.ensure_ready("field")?;
+        let _operation = self.storage.session.budget.operation()?;
         let Buffer {
             tensor,
             shape: _,
             session,
             completion: _,
+            reservation: _reservation,
         } = self.storage;
         session.bind()?;
         // cuTile 0.3.1 consumes the copy operation (and its tensor Arc) inside
