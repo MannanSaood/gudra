@@ -1,0 +1,100 @@
+{
+  "jobs": [
+    {
+      "name": "security",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned Rust and verified audit tools",
+          "conclusion": "success"
+        },
+        {
+          "name": "RustSec advisories, licenses, dependency bans and sources (including GPU)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Current source and available history secrets (redacted)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 scripts/check-vendor.py",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 scripts/test-security-tools.py",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 scripts/test-private-launcher-linux.py",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "cpu",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned Rust",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 scripts/check-ui.py",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo doc --locked --no-deps",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

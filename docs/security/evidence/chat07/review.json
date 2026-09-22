@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-22",
+  "advisory_database_revision": "17af77682cecd2afa72b217ad7c6c30585d5003f",
+  "advisory_license_bans_sources": "pass",
+  "tools": {
+    "cargo-deny": "0.20.2",
+    "gitleaks": "8.30.1",
+    "test_rustc": "1.89.0",
+    "local_cargo_clippy": "1.90.0"
+  },
+  "independent_review": "No concrete distinct-UID JIT bypass found; integration and actual GPU execution unavailable locally. SEC-004 remains unresolved in synchronous and asynchronous dependency terminals.",
+  "publication": "Only remediation-public history rooted at live remote 81d0efb was pushed. Private audits excluded.",
+  "local_failures": [
+    "WSL access denied",
+    "Docker daemon unavailable",
+    "GPU build exit 101: missing CUDA toolkit",
+    "branch-protection API HTTP 401"
+  ],
+  "secret_scan": "Initial checksum manifest triggered generic-api-key rule on compile_api filename plus SHA256. Triaged as generated hash; reformatted digest records, no exclusions or scanner weakening. Final source/history scan zero findings.",
+  "sbom_scope": "locked Rust packages only; native tool/runtime inventory pending"
+}

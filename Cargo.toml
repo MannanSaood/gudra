@@ -4,6 +4,7 @@ version = "0.0.0"
 edition = "2021"
 rust-version = "1.89"
 publish = false
+license = "MIT"
 description = "Alias-safe weighted Jacobi step over haloed grids with cuTile"
 
 [features]
@@ -27,3 +28,6 @@ unsafe_code = "forbid"
 [lints.clippy]
 all = { level = "deny", priority = -1 }
 pedantic = { level = "deny", priority = -1 }
+
+[patch.crates-io]
+cutile-compiler = { path = "vendor/cutile-compiler" }

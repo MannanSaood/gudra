@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-19",
+  "date": "2026-09-22",
   "decision": "fail",
-  "baseline": "22f7ff122706bb200bf57749fba96d16d0c74654",
-  "source_sha256": "246b367eaf3163f21e21f46d4ef4d57fcdaa3fc9a15b501ba9d9b227c70a9076",
+  "baseline": "f38c566",
+  "source_sha256": "fc695d4df6a7af543b52ce321e0bac75ceae66867bdc22db9b1c333e64417f3a",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -10,11 +10,13 @@
     },
     {
       "id": "SEC-001-private-jit-boundary",
-      "status": "pending"
+      "status": "pending",
+      "reason": "Private compiler patch and Linux helper/separate-UID tests available; actual compiler lifecycle and GPU integration unexecuted."
     },
     {
       "id": "SEC-004-failed-drain-retention",
-      "status": "pending"
+      "status": "pending",
+      "reason": "No defensible dependency-level owner retention/fail-stop implementation or fault-path evidence yet."
     },
     {
       "id": "final-revision-gpu",
@@ -22,11 +24,14 @@
     },
     {
       "id": "linux-and-hosted-ci",
-      "status": "pending"
+      "status": "pass",
+      "scope": "Public candidate 401b665: hosted CPU/security, Linux launcher and separate-UID helper tests passed. Private audit-only workflow inventory step is locally verified, not published."
     },
     {
       "id": "release-reporting-provenance-ownership",
       "status": "pending"
     }
-  ]
+  ],
+  "public_candidate": "401b66526c22a862d8aeaa8ac82a2a1175ac18df",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/35736906616"
 }

@@ -14,6 +14,16 @@ TOOLS = [
 ]
 
 
+def verified_binary(payload, name, expected):
+    if hashlib.sha256(payload).hexdigest() != expected:
+        raise ValueError(f"Checksum mismatch for {name}; nothing executed.")
+    with tarfile.open(fileobj=io.BytesIO(payload)) as archive:
+        members = [m for m in archive.getmembers() if Path(m.name).name == name and m.isfile()]
+        if len(members) != 1:
+            raise ValueError(f"Ambiguous binary in {name} archive.")
+        return archive.extractfile(members[0]).read()
+
+
 def main():
     if sys.platform != "linux" or platform.machine() not in ("x86_64", "amd64"):
         raise SystemExit("Pinned installer supports Linux x86_64 only.")
@@ -22,13 +32,7 @@ def main():
     for name, url, expected in TOOLS:
         with urllib.request.urlopen(url, timeout=60) as response:
             payload = response.read(64 * 1024 * 1024 + 1)
-        if hashlib.sha256(payload).hexdigest() != expected:
-            raise SystemExit(f"Checksum mismatch for {name}; nothing executed.")
-        with tarfile.open(fileobj=io.BytesIO(payload)) as archive:
-            members = [m for m in archive.getmembers() if Path(m.name).name == name and m.isfile()]
-            if len(members) != 1:
-                raise SystemExit(f"Ambiguous binary in {name} archive.")
-            binary = archive.extractfile(members[0]).read()
+        binary = verified_binary(payload, name, expected)
         path = destination / name
         path.write_bytes(binary)
         path.chmod(0o755)

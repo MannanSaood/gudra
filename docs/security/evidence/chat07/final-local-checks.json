@@ -1,0 +1,31 @@
+[
+  {
+    "command": [
+      "cargo",
+      "+stable",
+      "test",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s\n     Running unittests src\\lib.rs (target\\debug\\deps\\gudra-4037b0fa82fe3ce3.exe)\n\nrunning 11 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest params::tests::coefficient_domain ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests\\numerical.rs (target\\debug\\deps\\numerical-0e75a3508ec8ee6b.exe)\n\nrunning 7 tests\ntest coefficients_report_the_rejected_parameter ... ok\ntest nonfinite_data_policy_is_explicit_and_zero_does_not_short_circuit ... ok\ntest every_checked_arithmetic_stage_rejects_without_allocation ... ok\ntest short_and_long_buffers_fail_atomically ... ok\ntest seeded_zero_weight_preserves_every_finite_center ... ok\ntest deterministic_properties_cover_tile_boundaries_and_quadratic_solution ... ok\ntest oracle_matches_independent_f64_windows_over_shape_and_parameter_matrix ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s\n\n     Running tests\\reference.rs (target\\debug\\deps\\reference-87cdcdd78dcf7c2b.exe)\n\nrunning 5 tests\ntest wrong_lengths_leave_output_untouched ... ok\ntest narrow_and_partial_domains_preserve_constant_field ... ok\ntest rectangular_row_major_indexing_and_weighting ... ok\ntest zero_weight_does_not_hide_nan ... ok\ntest one_cell_uses_all_four_halos_and_negative_rhs_term ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests gudra\n\nrunning 1 test\ntest src\\reference.rs - reference::jacobi_into (line 25) ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s\n\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check-dependency-policy.py"
+    ],
+    "exit_code": 0,
+    "output": "PASS: 134 reviewed dependencies; only the pinned compiler path override is allowed; capability inventory unchanged.\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check-secrets.py",
+      "--gitleaks",
+      "../tmp/security-tools/gitleaks.exe"
+    ],
+    "exit_code": 0,
+    "output": "current: scanner_exit=0, findings=0\nhistory: scanner_exit=0, findings=0\navailable_history_commits=13\n"
+  }
+]

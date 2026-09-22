@@ -262,8 +262,8 @@
   {
     "name": "cutile-compiler",
     "version": "0.3.1",
-    "source": "registry+https://github.com/rust-lang/crates.io-index",
-    "checksum": "7cbc52ad2ae4e8a4440800673f8ccde58909f25c705d82d4925e025f6c3f3565",
+    "source": null,
+    "checksum": null,
     "license": "Apache-2.0",
     "build_script": true,
     "proc_macro": false,

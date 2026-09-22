@@ -1,5 +1,34 @@
 # Security audit and release gate
 
+## Chat 07 candidate update — 2026-09-22
+
+This update supersedes older statements above about the unchanged registry compiler
+and absence of a project license. Release remains **FAIL**. SEC-001 has a local
+Apache-2.0 compiler override: both run_tileiras and version probing use private
+0700 directories under root-owned /tmp, exclusive bytecode creation, regular-file
+output checks and cleanup on return/unwind. Root, compiler and same-UID processes
+remain trusted. SIGKILL/abort can leave private directories; operator cleanup is
+required only after child exit. No process-global environment mutation was added.
+Linux helper unit/separate-UID tests passed in hosted CI at 401b665. Actual compiler integration and real GPU execution are pending;
+this is implemented mitigation, not verified closure.
+
+SEC-004 remains unresolved. Independent review traced synchronous sync_on dropping
+results on failed synchronization, execute error/unwind before a result is retained,
+and borrowed async result leaks that fail to retain outer allocations/session.
+No partial outer-owner guard was represented as a solution. No destructive device
+fault was injected. No critical/high exploit was established by this review.
+
+Current CPU debug/release, UI, docs, formatting, Clippy, installer tamper controls,
+locked dependency inventory, advisory/license/source/bans and secret checks passed
+locally. GPU build exits 101 before facade/compiler verification due to missing
+CUDA. Hosted CPU/security CI, Linux launcher tests, verified installer and separate-UID helper tests passed at public candidate 401b665 (run 35736906616). Repository protections, private-reporting functionality and signed provenance remain unverified. MIT was chosen under explicit
+owner authorization. See the private Chat 07 handoff for candidate identities,
+publication separation, exact remaining commands and acceptance criteria.
+
+## Historical review record
+
+The following records prior observations. Current changes and limitations are above.
+
 **Decision: FAIL for release.** Reviewed 2026-09-19, from baseline `22f7ff122706bb200bf57749fba96d16d0c74654` plus this local remediation. No confirmed critical/high finding was established. One medium dependency isolation finding remains conditionally mitigated, and required GPU/unsafe fault-path evidence is incomplete. Experimental CPU development can continue; this is not approval for production or mutually untrusted GPU tenants.
 
 ## Scope and method

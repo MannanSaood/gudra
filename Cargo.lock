@@ -243,8 +243,6 @@ dependencies = [
 [[package]]
 name = "cutile-compiler"
 version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7cbc52ad2ae4e8a4440800673f8ccde58909f25c705d82d4925e025f6c3f3565"
 dependencies = [
  "anyhow",
  "cuda-async",
@@ -463,6 +461,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e4eba85ea1d0a966a983acd07deee566e67395d2d96b6fb39e62b5a833f1eb0b"
 
 [[package]]
+name = "gudra"
+version = "0.0.0"
+dependencies = [
+ "cutile",
+]
+
+[[package]]
 name = "half"
 version = "2.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -471,13 +476,6 @@ dependencies = [
  "cfg-if",
  "crunchy",
  "zerocopy",
-]
-
-[[package]]
-name = "gudra"
-version = "0.0.0"
-dependencies = [
- "cutile",
 ]
 
 [[package]]

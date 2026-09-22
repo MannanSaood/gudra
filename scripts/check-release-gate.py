@@ -5,11 +5,16 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+REQUIRED = {
+    "local-cpu-and-policy", "SEC-001-private-jit-boundary",
+    "SEC-004-failed-drain-retention", "final-revision-gpu",
+    "linux-and-hosted-ci", "release-reporting-provenance-ownership",
+}
 
 
 def source_digest():
-    paths = [ROOT / name for name in ("Cargo.toml", "Cargo.lock", "rust-toolchain.toml", "deny.toml")]
-    for directory in ("src", "tests", "scripts", ".github"):
+    paths = [ROOT / name for name in ("Cargo.toml", "Cargo.lock", "rust-toolchain.toml", "deny.toml", "LICENSE", "SECURITY.md", ".gitignore")]
+    for directory in ("src", "tests", "scripts", ".github", "vendor"):
         paths.extend(p for p in (ROOT / directory).rglob("*") if p.is_file()
                      and "__pycache__" not in p.parts and p.suffix != ".pyc")
     digest = hashlib.sha256()
@@ -24,6 +29,8 @@ def main():
     if gate.get("source_sha256") != source_digest():
         raise SystemExit("FAIL: source/configuration changed since the recorded release review.")
     required = gate.get("required_checks", [])
+    if len(required) != len(REQUIRED) or {item.get("id") for item in required} != REQUIRED:
+        raise SystemExit("FAIL: missing, duplicate, or unexpected required checks.")
     pending = [item["id"] for item in required if item.get("status") != "pass"]
     if gate.get("decision") != "pass" or not required or pending:
         print("FAIL: release is not approved. Open checks: " + ", ".join(pending))

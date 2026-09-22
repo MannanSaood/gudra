@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fail on unexpected dependency sources or executable build capabilities."""
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -18,13 +19,14 @@ def inventory(metadata):
     for package in metadata["packages"]:
         if package["id"] in metadata["workspace_members"] and package["name"] == "gudra":
             continue
-        if package.get("source") != REGISTRY or not checksums.get((package["name"], package["version"])):
+        vendored = package["name"] == "cutile-compiler" and package["version"] == "0.3.1" and Path(package["manifest_path"]).resolve() == (ROOT / "vendor/cutile-compiler/Cargo.toml").resolve()
+        if not vendored and (package.get("source") != REGISTRY or not checksums.get((package["name"], package["version"]))):
             raise SystemExit("Unexpected Git/path/registry dependency or missing checksum.")
         base = Path(package["manifest_path"]).parent
         kinds = {kind for target in package["targets"] for kind in target["kind"]}
         result.append({
             "name": package["name"], "version": package["version"], "source": package["source"],
-            "checksum": checksums[(package["name"], package["version"])], "license": package.get("license"),
+            "checksum": checksums.get((package["name"], package["version"])), "license": package.get("license"),
             "build_script": "custom-build" in kinds, "proc_macro": "proc-macro" in kinds,
             "links": package.get("links"),
             "native_files": sorted(str(path.relative_to(base)).replace("\\", "/") for path in base.rglob("*")
@@ -34,13 +36,19 @@ def inventory(metadata):
 
 
 def main():
+    expected_vendor = json.loads((ROOT / "vendor/checksums.json").read_text())
+    for name, expected_files in expected_vendor.items():
+        base = ROOT / "vendor" / name
+        actual_files = {p.relative_to(base).as_posix(): hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest() for p in base.rglob("*") if p.is_file()}
+        if actual_files != {path: item["sha256"] for path, item in expected_files.items()}:
+            raise SystemExit("Vendored source digest mismatch; review local changes.")
     cargo = os.environ.get("CARGO", "cargo")
     metadata = json.loads(subprocess.check_output([cargo, "metadata", "--locked", "--all-features", "--format-version", "1"], cwd=ROOT))
     actual = inventory(metadata)
     expected = json.loads((ROOT / "docs/security/dependency-inventory.json").read_text(encoding="utf-8"))
     if actual != expected:
         raise SystemExit("Dependency inventory changed: review licenses, native/build/proc-macro authority and source digests, then update the reviewed inventory.")
-    print(f"PASS: {len(actual)} checksummed registry dependencies; no Git/path dependencies; capability inventory unchanged.")
+    print(f"PASS: {len(actual)} reviewed dependencies; only the pinned compiler path override is allowed; capability inventory unchanged.")
 
 
 if __name__ == "__main__":
