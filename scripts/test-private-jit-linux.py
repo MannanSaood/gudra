@@ -11,6 +11,7 @@ import tempfile
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--disposable', action='store_true', required=True)
+    parser.add_argument('--rustc', default='rustc')
     parser.add_argument('--victim', required=True)
     parser.add_argument('--attacker', required=True)
     args = parser.parse_args()
@@ -33,8 +34,8 @@ fn main() {
     std::io::stdin().read_line(&mut line).unwrap();
 }
 ''')
-        subprocess.run(['rustc', '--edition=2021', str(work/'main.rs'), '-o', str(work/'probe')], check=True)
-        subprocess.run(['rustc', '--edition=2021', '--test', str(module), '-o', str(work/'unit')], check=True)
+        subprocess.run([args.rustc, '--edition=2021', str(work/'main.rs'), '-o', str(work/'probe')], check=True)
+        subprocess.run([args.rustc, '--edition=2021', '--test', str(module), '-o', str(work/'unit')], check=True)
         subprocess.run([str(work/'unit')], check=True)
         process = subprocess.Popen([str(work/'probe')], user=victim.pw_uid, group=victim.pw_gid,
                                    extra_groups=[], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)

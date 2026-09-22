@@ -55,6 +55,11 @@ jobs:
       - run: python3 scripts/check-vendor.py
       - run: python3 scripts/test-security-tools.py
       - run: python3 scripts/test-private-launcher-linux.py
+      - name: Separate-user private storage checks on disposable hosted runner
+        run: |
+          sudo useradd --no-create-home --shell /usr/sbin/nologin jit-victim
+          sudo useradd --no-create-home --shell /usr/sbin/nologin jit-attacker
+          sudo python3 scripts/test-private-jit-linux.py --disposable --victim jit-victim --attacker jit-attacker --rustc "$(rustup which rustc)"
 
 # No release credentials, self-hosted runner, executable artifact import or
 # artifact upload. GPU checks require a reviewed revision on an isolated worker.
