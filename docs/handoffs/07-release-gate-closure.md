@@ -1,5 +1,56 @@
 # Chat 07: release gate remains FAIL
 
+## 2026-09-25 remediation candidate
+
+Public candidate `1ee62e582912590ae27af6256b6da9c6262aed1c` contains three
+separately reviewable commits: GPU completion ownership, the final GPU
+validation lane, and the immutable checkout v7.0.1 workflow pin. Hosted run
+https://github.com/MannanSaood/gudra/actions/runs/36125581179 passed both CPU
+and security jobs. This includes Linux launcher tests, separate-UID private JIT
+tests, current RustSec/license/source policy, vendor digests, history secret
+scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
+
+SEC-004 now has a reviewed Gudra-facade implementation. Root blocking and async
+terminals quarantine backend allocations and foreign owners until synchronization,
+callback, query, or successful cancellation drain proves completion. Partial
+submission errors drain before returning; failed drains and unwinds abort the
+worker before owners can drop. Upload wraps raw allocation before the fallible
+copy, readback protects its host destination, and zero initialization uses the
+retained upload path. An independent review found and caused correction of an
+early async-quarantine release; its final pass found no Gudra-public bypass.
+Direct applications that separately depend on backend crates are outside Gudra's
+supported facade.
+
+This is implemented mitigation awaiting final device evidence, not closure.
+The current revision must compile and run on Linux/CUDA, including the host
+state-machine tests, forced-pending cancellation, sticky device-fault subprocess,
+and Compute Sanitizer. SEC-001 likewise still needs the actual compiler/JIT
+lifecycle on that revision. Repository reporting/protection/account/MFA/package
+ownership/retention and signed provenance settings remain externally unverified.
+The gate therefore remains **FAIL**.
+
+## Current remaining validation
+
+On a trusted ordinary Arch Linux/NVIDIA workstation, run the non-destructive
+candidate lane at an exact clean checkout:
+
+```sh
+git pull --ff-only
+test "$(git rev-parse HEAD)" = "1ee62e582912590ae27af6256b6da9c6262aed1c"
+python3 scripts/run-private-gpu.py -- python3 scripts/verify-gpu-candidate.py --arch-experimental
+sha256sum target/gpu-candidate-evidence.json
+```
+
+Return the JSON evidence and its SHA-256 digest. This does not close the sticky
+device-fault requirement. Only an explicitly authorized disposable isolated
+worker may run `bash scripts/verify-gpu.sh`, which adds the fault subprocess and
+may poison a CUDA context. Release administration also remains pending: private
+reporting, protected refs and required checks/reviews, maintainer MFA, minimal
+package ownership, log/artifact access and retention, native redistribution
+rights, clean immutable builds, SBOM, artifact checksums, and signed provenance.
+
+## Historical 2026-09-22 record
+
 Date: 2026-09-22. Private baseline f38c566; this handoff belongs to the local
 remediation commit. Public candidate: `401b66526c22a862d8aeaa8ac82a2a1175ac18df`.
 See `docs/security/evidence/chat07/source-binding.json` for source binding.

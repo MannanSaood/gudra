@@ -1,6 +1,23 @@
 # Gudra threat model
 
-## Chat 07 candidate update — 2026-09-22
+## 2026-09-25 remediation status
+
+The supported trust boundary is Gudra's public GPU facade. It keeps backend
+objects private, validates session identity and resource limits, and retains or
+quarantines owners until completion is proven. When a submitted operation
+cannot be drained after an error or unwind, the enforced contract is process
+fail-stop so the address space cannot free or reuse memory that the GPU may
+still access. Direct use of separately declared `cutile` or `cuda-async`
+dependencies expands the boundary and is outside Gudra's support contract.
+
+The final candidate passed hosted CPU/security and separate-UID JIT helper
+tests. Real CUDA behavior remains unverified. Ordinary GPU validation may run
+on a trusted non-production workstation; the sticky device-fault test must run
+only in an explicitly authorized disposable worker with no production data,
+credentials, or unrelated workloads. Until those runs and the external release
+administration checks complete, the release gate remains **FAIL**.
+
+## Chat 07 candidate update â€” 2026-09-22
 
 This update supersedes older statements above about the unchanged registry compiler
 and absence of a project license. Release remains **FAIL**. SEC-001 has a local

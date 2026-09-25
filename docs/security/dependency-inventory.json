@@ -207,8 +207,8 @@
   {
     "name": "cuda-async",
     "version": "0.3.1",
-    "source": "registry+https://github.com/rust-lang/crates.io-index",
-    "checksum": "a6d51fe2c9b1a89f4ac760d72a197761789f4e60db1d07d3f4d48de65a78adc9",
+    "source": null,
+    "checksum": null,
     "license": "Apache-2.0",
     "build_script": false,
     "proc_macro": false,
@@ -251,8 +251,8 @@
   {
     "name": "cutile",
     "version": "0.3.1",
-    "source": "registry+https://github.com/rust-lang/crates.io-index",
-    "checksum": "422c8fb32ac648113eb032a6d818f09b0862812224bd4a0ed563fc174f6f5264",
+    "source": null,
+    "checksum": null,
     "license": "Apache-2.0",
     "build_script": false,
     "proc_macro": false,

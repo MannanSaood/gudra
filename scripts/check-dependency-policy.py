@@ -19,7 +19,13 @@ def inventory(metadata):
     for package in metadata["packages"]:
         if package["id"] in metadata["workspace_members"] and package["name"] == "gudra":
             continue
-        vendored = package["name"] == "cutile-compiler" and package["version"] == "0.3.1" and Path(package["manifest_path"]).resolve() == (ROOT / "vendor/cutile-compiler/Cargo.toml").resolve()
+        vendored_names = {"cuda-async", "cutile", "cutile-compiler"}
+        vendored = (
+            package["name"] in vendored_names
+            and package["version"] == "0.3.1"
+            and Path(package["manifest_path"]).resolve()
+            == (ROOT / f"vendor/{package['name']}/Cargo.toml").resolve()
+        )
         if not vendored and (package.get("source") != REGISTRY or not checksums.get((package["name"], package["version"]))):
             raise SystemExit("Unexpected Git/path/registry dependency or missing checksum.")
         base = Path(package["manifest_path"]).parent
@@ -48,7 +54,7 @@ def main():
     expected = json.loads((ROOT / "docs/security/dependency-inventory.json").read_text(encoding="utf-8"))
     if actual != expected:
         raise SystemExit("Dependency inventory changed: review licenses, native/build/proc-macro authority and source digests, then update the reviewed inventory.")
-    print(f"PASS: {len(actual)} reviewed dependencies; only the pinned compiler path override is allowed; capability inventory unchanged.")
+    print(f"PASS: {len(actual)} reviewed dependencies; only the three pinned source overrides are allowed; capability inventory unchanged.")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,22 @@
 # Scoped release follow-ups
 
-## Chat 07 candidate update � 2026-09-22
+## Final public candidate update — 2026-09-25
+
+Public candidate `1ee62e582912590ae27af6256b6da9c6262aed1c` is live on
+`main`; hosted CPU/security run 36125581179 passed. SEC-004 has a reviewed
+fail-stop/quarantine implementation for Gudra's safe GPU facade, including
+blocking, async, cancellation, upload, readback, and raw-allocation error paths.
+It remains pending until this exact revision passes the supplied real-device
+state, fault, numerical, cancellation, and sanitizer tests. SEC-001 remains
+pending for the same final-revision compiler/JIT execution. No historical GPU
+result is attributed to this candidate.
+
+The release decision remains **FAIL**. Private reporting, branch/release-ref
+protection, required reviews/check enforcement, maintainer MFA/minimal package
+owners, retention, and signed provenance remain external owner checks. These
+private audit records were not included in the public commits.
+
+## Chat 07 candidate update — 2026-09-22
 
 This update supersedes older statements above about the unchanged registry compiler
 and absence of a project license. Release remains **FAIL**. SEC-001 has a local

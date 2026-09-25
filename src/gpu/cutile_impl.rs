@@ -110,6 +110,16 @@ impl Gpu {
 
     fn upload(&self, shape: Shape2D, data: Vec<f32>, extent: &[usize; 2]) -> Result<Buffer> {
         let reservation = self.session.budget.buffer(data.len() * size_of::<f32>())?;
+        self.upload_reserved(shape, data, extent, reservation)
+    }
+
+    fn upload_reserved(
+        &self,
+        shape: Shape2D,
+        data: Vec<f32>,
+        extent: &[usize; 2],
+        reservation: Reservation,
+    ) -> Result<Buffer> {
         let _operation = self.session.budget.operation()?;
         self.session.bind()?;
         let host = Arc::new(data);
@@ -133,19 +143,12 @@ impl Gpu {
     /// Returns [`Error::ResourceLimit`] on admission, or [`Error::Backend`] on backend failure.
     pub fn zeros(&self, shape: Shape2D) -> Result<Field2D> {
         let reservation = self.session.budget.buffer(shape.interior_bytes())?;
-        let _operation = self.session.budget.operation()?;
-        self.session.bind()?;
-        let tensor = api::zeros::<f32>(&shape.interior())
-            .sync_on(&self.session.stream)
-            .map_err(|e| backend("allocate zero field", e))?;
+        // Use the retained host-upload path instead of cuTile's composed
+        // allocate-then-fill operation. A later composed-stage error could
+        // otherwise drop its intermediate tensor before the terminal drains.
+        let data = vec![0.0; shape.interior_len()];
         Ok(Field2D {
-            storage: Buffer {
-                tensor,
-                shape,
-                session: Arc::clone(&self.session),
-                completion: Completion::default(),
-                reservation,
-            },
+            storage: self.upload_reserved(shape, data, &shape.interior(), reservation)?,
         })
     }
 
@@ -178,8 +181,8 @@ impl Gpu {
     /// # Errors
     /// Shape/session/metadata/admission rejection leaves output untouched. A backend
     /// execution error invalidates output: readback and reuse return
-    /// [`Error::InvalidBuffer`]. No rollback or retry is attempted. Driver/context
-    /// faults can make the session unusable; invalidation is not fault recovery.
+    /// [`Error::InvalidBuffer`]. No rollback or retry is attempted. If completion
+    /// cannot be proven, the process aborts before allocation owners are released.
     ///
     /// The same RHS cannot also be the mutable output:
     ///
@@ -233,9 +236,9 @@ impl Gpu {
     /// # Errors
     /// Validation/admission consumes the buffers even on `Err`. Execution failure or
     /// cancellation does not return them. Use [`Self::step_into`] to retain inputs
-    /// on failure. Driver/context fault recovery is unsupported: cuTile's failed
-    /// drain path does not prove retention of the outer owners. The safety claim
-    /// depends on the underlying CUDA/cuTile implementation, not fault recovery.
+    /// on failure. Driver/context fault recovery is unsupported. A failed drain,
+    /// panic, or otherwise uncertain completion aborts the process before retained
+    /// owners can be released. Run GPU work in an isolated disposable worker.
     pub fn step_into_async(
         &self,
         source: HaloGrid2D,

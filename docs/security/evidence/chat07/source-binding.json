@@ -1,9 +1,10 @@
 {
-  "private_source_sha256": "fc695d4df6a7af543b52ce321e0bac75ceae66867bdc22db9b1c333e64417f3a",
-  "private_base_revision": "f38c5666fe5b4047a02d9afd47026f206dfa1a29",
+  "private_source_sha256": "009dd346f06eebe6f12cb6409e099a775e74bfcc8a4ea9cb1d1ac5ee26f02691",
+  "private_base_revision": "c1e44f47d0d5a6aae7a4977f7fa810140a63ae2a",
   "private_dirty_at_tests": true,
-  "public_candidate": "401b66526c22a862d8aeaa8ac82a2a1175ac18df",
+  "public_candidate": "1ee62e582912590ae27af6256b6da9c6262aed1c",
   "public_dirty": false,
   "binding": "Private source/config digest covers manifests, policy, license, src, tests, scripts, .github and all vendor files. Historical logs are not attributed to changed GPU code. Public CI identity is separately pinned.",
-  "remaining_gpu_evidence": "pending"
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36125581179",
+  "remaining_gpu_evidence": "pending: final-revision normal GPU suite plus disposable sticky-fault lane"
 }

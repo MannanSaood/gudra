@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-22",
+  "date": "2026-09-25",
   "decision": "fail",
-  "baseline": "f38c566",
-  "source_sha256": "fc695d4df6a7af543b52ce321e0bac75ceae66867bdc22db9b1c333e64417f3a",
+  "baseline": "private c1e44f4 plus public candidate 1ee62e5 merge",
+  "source_sha256": "009dd346f06eebe6f12cb6409e099a775e74bfcc8a4ea9cb1d1ac5ee26f02691",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -11,12 +11,12 @@
     {
       "id": "SEC-001-private-jit-boundary",
       "status": "pending",
-      "reason": "Private compiler patch and Linux helper/separate-UID tests available; actual compiler lifecycle and GPU integration unexecuted."
+      "reason": "Private compiler patch and hosted Linux helper/separate-UID tests pass at 1ee62e5; actual compiler/JIT lifecycle on that final GPU candidate is unexecuted."
     },
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pending",
-      "reason": "No defensible dependency-level owner retention/fail-stop implementation or fault-path evidence yet."
+      "reason": "Gudra-facade fail-stop/quarantine implementation and deterministic tests are reviewed; patched GPU dependencies and real-device fault path remain unexecuted on the final candidate."
     },
     {
       "id": "final-revision-gpu",
@@ -25,13 +25,13 @@
     {
       "id": "linux-and-hosted-ci",
       "status": "pass",
-      "scope": "Public candidate 401b665: hosted CPU/security, Linux launcher and separate-UID helper tests passed. Private audit-only workflow inventory step is locally verified, not published."
+      "scope": "Public candidate 1ee62e5 passed hosted CPU/security, Linux launcher, separate-UID helper, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36125581179. Private audit-only dependency inventory is locally verified, not published."
     },
     {
       "id": "release-reporting-provenance-ownership",
       "status": "pending"
     }
   ],
-  "public_candidate": "401b66526c22a862d8aeaa8ac82a2a1175ac18df",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/35736906616"
+  "public_candidate": "1ee62e582912590ae27af6256b6da9c6262aed1c",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36125581179"
 }

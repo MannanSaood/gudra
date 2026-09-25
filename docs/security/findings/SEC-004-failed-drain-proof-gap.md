@@ -51,3 +51,16 @@ Local follow-up only. No upstream report, exploit test outside project scope, or
 ## Chat 07 review
 
 Still unresolved, release blocking. An independent review confirmed the proof gap extends beyond async drop: cuda-async device_operation.rs sync_on drops its result when synchronization fails; execute unwind skips synchronization. DeviceFuture consumes its operation before storing a result, so partial submission errors/unwinds lack retention. Backend-local host DMA destinations also prevent a first-party outer guard from proving safety. A reviewed dependency-level ownership/fail-stop redesign and actual fault seam tests are still required. No exploit or severity escalation is asserted. Owner acceptance remains pending; deadline 2026-09-26.
+
+## 2026-09-25 remediation status
+
+Implementation is complete for Gudra's supported public GPU facade at public
+candidate `1ee62e582912590ae27af6256b6da9c6262aed1c`. Patched root terminals
+retain results and a transferred allocation quarantine until completion is
+proven; partial-submit errors synchronize; failed drains/unwinds abort before
+owner release. Upload, readback, zero initialization, session retention, and
+logical reservations were reviewed together. A first independent review found
+an early async quarantine release, which was corrected; final review found no
+Gudra-public bypass. Status remains verification pending until the exact
+candidate passes the supplied real-device fault and sanitizer lane. This remains
+a proof gap under validation, not a confirmed exploit or severity escalation.

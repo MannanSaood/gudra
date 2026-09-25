@@ -30,4 +30,6 @@ all = { level = "deny", priority = -1 }
 pedantic = { level = "deny", priority = -1 }
 
 [patch.crates-io]
+cuda-async = { path = "vendor/cuda-async" }
+cutile = { path = "vendor/cutile" }
 cutile-compiler = { path = "vendor/cutile-compiler" }

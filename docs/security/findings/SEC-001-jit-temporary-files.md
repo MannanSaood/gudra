@@ -52,7 +52,7 @@ Private launcher source and syntax reviewed; Linux execution and hostile-princip
 
 Local report only. No issue, upstream disclosure, vulnerability publication or CVE requested. Coordinate privately only with explicit user authorization.
 
-## Chat 07 candidate update — 2026-09-22
+## Chat 07 candidate update â€” 2026-09-22
 
 This update supersedes older statements above about the unchanged registry compiler
 and absence of a project license. Release remains **FAIL**. SEC-001 has a local
@@ -76,3 +76,11 @@ locally. GPU build exits 101 before facade/compiler verification due to missing
 CUDA. Hosted CPU/security CI, Linux launcher tests, verified installer and separate-UID helper tests passed at public candidate 401b665 (run 35736906616). Repository protections, private-reporting functionality and signed provenance remain unverified. MIT was chosen under explicit
 owner authorization. See the private Chat 07 handoff for candidate identities,
 publication separation, exact remaining commands and acceptance criteria.
+
+## 2026-09-25 verification status
+
+Hosted Linux CPU/security validation passed for final public candidate
+`1ee62e582912590ae27af6256b6da9c6262aed1c`, including separate-UID private
+storage and launcher cleanup/rejection tests. The actual cuTile compiler/JIT
+lifecycle is part of the final GPU runner and has not executed on this revision.
+SEC-001 therefore remains verification pending rather than closed.

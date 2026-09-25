@@ -1,6 +1,24 @@
 # Unsafe and execution boundary review
 
-## Chat 07 candidate update — 2026-09-22
+## 2026-09-25 remediation status
+
+Gudra's supported GPU facade now retains backend allocations, foreign owners,
+session state, and host transfer destinations while execution may still be in
+flight. A successful synchronization, callback, query, or cancellation drain
+releases the quarantine. An error or unwind that cannot prove completion aborts
+the worker before an owner may be destroyed or reused. Allocation ownership is
+established before fallible host-to-device copies, closing the prior physical
+allocation and logical-accounting gap.
+
+Deterministic CPU tests establish state transitions and owner retention,
+including the corrected asynchronous handoff. They cannot establish driver
+stream ordering, real CUDA fault behavior, or sanitizer cleanliness; those
+properties remain pending on the exact final revision. Gudra keeps backend
+fields private and does not expose raw operations, graph construction, SIMT
+APIs, or cuTile tensor constructors. Applications that separately depend on
+`cutile` or `cuda-async` must review and support those additional boundaries.
+
+## Chat 07 candidate update â€” 2026-09-22
 
 This update supersedes older statements above about the unchanged registry compiler
 and absence of a project license. Release remains **FAIL**. SEC-001 has a local

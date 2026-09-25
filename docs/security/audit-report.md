@@ -1,6 +1,25 @@
 # Security audit and release gate
 
-## Chat 07 candidate update — 2026-09-22
+## 2026-09-25 remediation status
+
+Public candidate `1ee62e582912590ae27af6256b6da9c6262aed1c` passed its
+hosted CPU and security workflow in run 36125581179. The SEC-004 ownership
+implementation was independently reviewed; an early asynchronous quarantine
+release was found and fixed, and final review found no bypass through Gudra's
+supported public GPU facade. CPU state-machine and retention tests pass. The
+patched dependencies, actual JIT compiler lifecycle, normal GPU suite,
+forced-pending cancellation, sticky device-fault subprocess, and Compute
+Sanitizer still require final-revision device execution.
+
+SEC-001's private compilation storage passed hosted Linux helper and
+separate-UID tests on the final candidate. It remains pending until the actual
+compiler creates, consumes, loads, and cleans its artifacts on that candidate.
+No critical or high vulnerability has been confirmed. Repository protections,
+private reporting, maintainer and package-owner controls, retention, native
+redistribution rights, and signed release provenance remain externally
+unverified. The release decision therefore remains **FAIL**.
+
+## Chat 07 candidate update â€” 2026-09-22
 
 This update supersedes older statements above about the unchanged registry compiler
 and absence of a project license. Release remains **FAIL**. SEC-001 has a local
