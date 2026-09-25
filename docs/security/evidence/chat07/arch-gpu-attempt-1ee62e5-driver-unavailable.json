@@ -1,0 +1,52 @@
+{
+  "revision": "1ee62e582912590ae27af6256b6da9c6262aed1c",
+  "dirty": false,
+  "lane": "arch-experimental",
+  "started_utc": "2026-09-25T11:27:14Z",
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "output": "rustc 1.89.0 (29483883e 2025-08-04)\nbinary: rustc\ncommit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2\ncommit-date: 2025-08-04\nhost: x86_64-unknown-linux-gnu\nrelease: 1.89.0\nLLVM version: 20.1.7\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "exit_code": 0,
+      "output": "cargo 1.89.0 (c24e10642 2025-06-23)\n"
+    },
+    {
+      "command": [
+        "nvcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Mon_Aug_03_13:24:11_PDT_2026\nCuda compilation tools, release 13.4, V13.4.59\nBuild cuda_13.4.r13.4/compiler.38657139_0\n"
+    },
+    {
+      "command": [
+        "tileiras",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "tileiras: NVIDIA (R) Cuda Tile IR optimizing assembler\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Mon_Aug__3_14:03:22_PDT_2026\nCuda compilation tools, release 13.4, V13.4.59\nBuild local.local.38657139_\n"
+    },
+    {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,driver_version,compute_cap",
+        "--format=csv,noheader"
+      ],
+      "exit_code": 9,
+      "output": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.\n\n"
+    }
+  ],
+  "lock_sha256": "279f24841acdbdd29f44a5297741d3e7151c370c33bf3e4879014c615c29de84",
+  "disposable_fault_tests": false,
+  "scope": "normal execution plus deterministic ownership seams; sticky device fault only when explicitly enabled"
+}

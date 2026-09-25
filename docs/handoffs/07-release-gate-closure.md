@@ -31,6 +31,14 @@ The gate therefore remains **FAIL**.
 
 ## Current remaining validation
 
+The first Arch attempt on 2026-09-25 was bound to clean revision `1ee62e5`
+and evidence SHA-256
+`4301060bafe0c47b2afd2f5aa828d43cc00db174337c8704ceefaff2a3886baa`.
+Rust 1.89.0, CUDA 13.4, and tileiras 13.4 were present, but `nvidia-smi`
+exited 9 because it could not communicate with the NVIDIA driver. The runner
+failed closed before dependency inspection, compilation, JIT execution, GPU
+tests, or Compute Sanitizer. This is prerequisite failure evidence, not a pass.
+
 On a trusted ordinary Arch Linux/NVIDIA workstation, run the non-destructive
 candidate lane at an exact clean checkout:
 

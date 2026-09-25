@@ -11,16 +11,17 @@
     {
       "id": "SEC-001-private-jit-boundary",
       "status": "pending",
-      "reason": "Private compiler patch and hosted Linux helper/separate-UID tests pass at 1ee62e5; actual compiler/JIT lifecycle on that final GPU candidate is unexecuted."
+      "reason": "Private compiler patch and hosted Linux helper/separate-UID tests pass at 1ee62e5; the 2026-09-25 Arch attempt stopped at unavailable NVIDIA driver before the actual compiler/JIT lifecycle."
     },
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pending",
-      "reason": "Gudra-facade fail-stop/quarantine implementation and deterministic tests are reviewed; patched GPU dependencies and real-device fault path remain unexecuted on the final candidate."
+      "reason": "Gudra-facade fail-stop/quarantine implementation and deterministic tests are reviewed; the 2026-09-25 Arch attempt stopped at unavailable NVIDIA driver before patched GPU dependencies or real-device fault paths executed."
     },
     {
       "id": "final-revision-gpu",
-      "status": "pending"
+      "status": "pending",
+      "reason": "Clean-revision Arch attempt evidence SHA-256 4301060bafe0c47b2afd2f5aa828d43cc00db174337c8704ceefaff2a3886baa failed closed when nvidia-smi exited 9; no GPU checks executed."
     },
     {
       "id": "linux-and-hosted-ci",
