@@ -8,7 +8,7 @@
 - Severity: informational (no validated exploit severity)
 - Affected versions/components: cuda-async 0.3.1 DeviceFuture; Gudra owned async facade
 - Reporter/date: independent local audit, 2026-09-19
-- Owner/deadline: runtime safety maintainer, 2026-09-26
+- Owner/deadline: repository owner acting as runtime safety maintainer until delegated; before release, progress review 2026-10-02 (accepted 2026-09-25)
 
 ## Summary
 
@@ -64,3 +64,9 @@ an early async quarantine release, which was corrected; final review found no
 Gudra-public bypass. Status remains verification pending until the exact
 candidate passes the supplied real-device fault and sanitizer lane. This remains
 a proof gap under validation, not a confirmed exploit or severity escalation.
+
+The user authorized selection of the accountable role on 2026-09-25. The
+repository owner holds the remaining device-validation work until a runtime
+safety maintainer explicitly accepts delegation. Fail-stop worker disposal is
+the enforced mitigation; release rationale remains that real-device fault and
+sanitizer evidence is required before this proof gap can be closed.

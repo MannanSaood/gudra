@@ -8,7 +8,7 @@
 - Severity: medium
 - Affected versions/components: locked cutile-compiler 0.3.1, reached through Gudra gpu feature
 - Reporter/date: independent local audit, 2026-09-19
-- Owner/deadline: runtime/dependency maintainer, 2026-09-26
+- Owner/deadline: repository owner acting as runtime/dependency maintainer until delegated; before release, progress review 2026-10-02 (accepted 2026-09-25)
 - Confidence: high in source facts; medium in conditional interference; executable substitution untested
 - CWE: CWE-377
 
@@ -84,3 +84,10 @@ Hosted Linux CPU/security validation passed for final public candidate
 storage and launcher cleanup/rejection tests. The actual cuTile compiler/JIT
 lifecycle is part of the final GPU runner and has not executed on this revision.
 SEC-001 therefore remains verification pending rather than closed.
+
+The user authorized selection of the accountable role on 2026-09-25. The
+repository owner holds this finding until a runtime/dependency maintainer
+explicitly accepts delegation. The mitigation is the vendored private-storage
+implementation plus private worker launcher; release rationale remains that a
+medium executable-artifact isolation finding cannot be accepted without the
+actual final-candidate JIT lifecycle evidence.

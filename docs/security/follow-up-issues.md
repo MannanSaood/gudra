@@ -16,6 +16,13 @@ protection, required reviews/check enforcement, maintainer MFA/minimal package
 owners, retention, and signed provenance remain external owner checks. These
 private audit records were not included in the public commits.
 
+The user authorized owner selection on 2026-09-25. The repository owner is the
+accepted accountable owner for SEC-001, SEC-004, GPU validation, release
+administration, and provenance until each role explicitly accepts delegation.
+All are due before release, with a progress review on 2026-10-02. This assigns
+accountability; it does not convert pending validation or external settings into
+passing evidence.
+
 ## Chat 07 candidate update — 2026-09-22
 
 This update supersedes older statements above about the unchanged registry compiler
