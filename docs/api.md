@@ -98,21 +98,22 @@ convergence interval is imposed on `omega`.
 
 Validation leaves borrowed output untouched. Before backend execution, borrowed
 output is marked uncertain. Only successful completion restores it; an execution
-error or unwind leaves it invalidated. Readback and reuse as RHS/output then
-return `InvalidBuffer`; only metadata access and drop remain available. There is
-no rollback or retry. Driver/context fault recovery
-is outside this contract. In particular, the pinned async dependency's failure
-to drain does not establish retention of the outer owned frame; that failure
-path requires further dependency review. The memory-access claim depends on cuTile/CUDA and
-does not cover compiler, driver, hardware, or external unsafe-code faults.
+error leaves it invalidated. Readback and reuse as RHS/output then return
+`InvalidBuffer`; only metadata access and drop remain available. There is no
+rollback or same-process retry after a device fault. Patched blocking and async
+terminals synchronize before returning. If synchronization fails, execution
+unwinds, or completion cannot otherwise be proven, the worker aborts before
+allocation owners can be dropped or reused. The memory-access claim still
+depends on cuTile/CUDA and does not cover compiler, driver, hardware, or external
+unsafe-code faults. Real-device fault injection is part of the release gate.
 
 ## Verification status
 
-CPU checks pass locally. GPU compilation stops in `cuda-bindings` because no
-CUDA Toolkit is installed, before type-checking this facade or generated
-launcher. GPU numerical, compile-fail, and async tests are supplied but remain
-unexecuted. See the [verification results](verification-results.md) for the exact
-checks and remaining acceptance gate.
+CPU checks pass locally. The current GPU candidate and patched dependency paths
+must be compiled and executed on the final Linux/CUDA worker. See
+[GPU candidate testing](gpu-candidate-testing.md) for the exact commands and
+[verification results](verification-results.md) for historical evidence; older
+GPU runs do not validate this revision.
 
 Generate public API documentation with `cargo doc --locked --no-default-features
 --no-deps`, or `cargo doc --locked --features gpu --no-deps` in the supported CUDA

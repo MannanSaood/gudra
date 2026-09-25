@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Reject drift from reviewed vendored compiler content."""
+"""Reject drift from reviewed vendored dependency content."""
 import hashlib
 import json
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root/'vendor/checksums.json').read_text())
-if set(manifest) != {'cutile-compiler'}:
+if set(manifest) != {'cuda-async', 'cutile', 'cutile-compiler'}:
     raise SystemExit('FAIL: unexpected vendor package')
 for name, files in manifest.items():
     base = root/'vendor'/name

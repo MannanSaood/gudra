@@ -1,6 +1,11 @@
 # Chat 05 verification results
 
-**Current status: readback defect resolved in the tested setup; post-fix process
+> Historical evidence only. The current candidate changes `cuda-async`,
+> `cutile`, and Gudra's zero-initialization path. The results below do not
+> validate those changes; run the commands in
+> [GPU candidate testing](gpu-candidate-testing.md) on the final revision.
+
+**Recorded Chat 05 status: readback defect resolved in the tested setup; post-fix process
 repetitions also pass on `073f7c6`, as confirmed by the user.** Commit attribution
 for the repetition run is user-confirmed rather than printed in that log.
 The original local results below remain a historical record. A friend supplied

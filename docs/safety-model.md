@@ -7,8 +7,11 @@ out. GPU compilation and execution are still unverified on the local Windows
 host. Remote evidence for commit `073f7c6` records successful GPU tests under
 Memcheck and Initcheck, with zero errors in all four runs. The earlier readback
 use-after-free report no longer reproduces on that setup; see
-[the results and acceptance gate](verification-results.md). This does not extend
-the guarantee to failed stream drains or driver/context fault recovery.
+[the results and acceptance gate](verification-results.md). The current candidate
+additionally uses a fail-stop terminal policy: if the runtime cannot prove that
+submitted GPU work has completed, it aborts the worker before allocation owners
+can be dropped or reused. This is a lifetime-safety boundary, not driver/context
+recovery.
 
 ## What enforces the boundary
 
@@ -60,11 +63,12 @@ hardware are trusted here, not independently verified.
 | Bad shape/session/metadata, invalid field | Borrowed output unchanged; no kernel submitted |
 | Bind or view creation fails before execution | No new output write submitted |
 | Borrowed execution succeeds | Output ready only after the sync terminal succeeds |
-| Borrowed execution errors or unwinds | Output invalidated; readback and use as RHS/output return `InvalidBuffer`; shape and drop remain available |
+| Borrowed execution errors | The terminal drains the stream before returning; output remains invalidated and cannot be read or reused |
+| Execution unwinds, synchronization fails, or completion remains uncertain | The worker aborts before owners can be dropped or allocations reused |
 | Allocating `step` fails | No partial output returned |
 | Owned async validation/execution fails | Consumed owners are not returned |
 | Async unpolled drop | No kernel submitted |
-| Async drop after submission | Dependency attempts stream drain and can block; does not cancel the kernel |
+| Async drop after submission | Dependency drains and can block; a failed drain aborts the worker before retained owners are released |
 | Readback fails | Consuming readback returns no field or partial host vector |
 
 The private completion guard marks output uncertain before entering backend
@@ -72,12 +76,14 @@ execution and clears that state only on success. CPU tests inject an error and
 an unwind; GPU unit tests inject that state and exercise every public data path.
 These are deterministic state tests, not simulated driver-fault recovery.
 
-A driver/context error can invalidate the whole session. In particular, earlier
-dependency analysis did not establish retention of async outer owners when
-stream drain fails. No recovery, retry, or lifetime guarantee under that failure
-is claimed. Invalidating a field prevents presenting partial numerical results;
-it does not repair an unsuccessful device drain. Production fault recovery needs
-a separate dependency audit and isolated fault-injection environment.
+A driver/context error can invalidate the whole session. The patched terminals
+return only after synchronization proves completion. Errors after possible
+submission are drained while allocation release is quarantined; a failed drain,
+panic, or otherwise unprovable completion aborts the worker. The process must be
+treated as disposable after such a fault, and callers must not recover or retry
+in the same process. Deterministic CPU subprocess tests establish the fail-stop
+state transitions. Real-device fault injection remains required to validate the
+CUDA boundary on the final candidate.
 
 ## Numerical contract and limits
 

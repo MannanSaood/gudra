@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture normal-path GPU candidate evidence; never certifies fault recovery."""
+"""Capture final GPU evidence, with fault injection only on disposable workers."""
 import argparse
 import hashlib
 import json
@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--arch-experimental', action='store_true')
+    parser.add_argument('--disposable-fault-tests', action='store_true')
     args = parser.parse_args()
     if sys.platform != 'linux':
         raise SystemExit('FAIL: Linux GPU host required')
@@ -24,7 +25,8 @@ def main():
                 'dirty': False, 'lane': 'arch-experimental' if args.arch_experimental else 'pinned',
                 'started_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'commands': [],
                 'lock_sha256': hashlib.sha256((ROOT/'Cargo.lock').read_bytes()).hexdigest(),
-                'scope': 'normal execution only; separate fault and cross-UID validation required'}
+                'disposable_fault_tests': args.disposable_fault_tests,
+                'scope': 'normal execution plus deterministic ownership seams; sticky device fault only when explicitly enabled'}
     destination = ROOT/'target/gpu-candidate-evidence.json'
     destination.parent.mkdir(exist_ok=True)
     def run(command):
@@ -43,6 +45,8 @@ def main():
     if not args.arch_experimental:
         run(['bash','scripts/check-gpu-env.sh'])
     run(['cargo','test','--locked','-p','cutile-compiler','--lib','private_compilation_lifecycle','--','--test-threads=1'])
+    run(['cargo','test','--locked','-p','cuda-async','--lib','fault_policy::tests','--','--test-threads=1'])
+    run(['cargo','test','--locked','-p','cuda-async','--lib','device_future::release_tests','--','--test-threads=1'])
     run(['cargo','check','--locked','--features','gpu','--all-targets'])
     run(['cargo','clippy','--locked','--features','gpu','--all-targets','--','-D','warnings'])
     run(['cargo','doc','--locked','--features','gpu','--no-deps'])
@@ -51,9 +55,12 @@ def main():
     os.environ['CUDA_ASYNC_SPIN_BUDGET_US'] = '0'
     for _ in range(5):
         run(['cargo','test','--locked','--features','gpu','--lib','--test','gpu_jacobi','--','--test-threads=1'])
+    run(['cargo','test','--locked','-p','cuda-async','--test','drop_in_flight','--','--test-threads=1'])
+    if args.disposable_fault_tests:
+        run(['cargo','test','--locked','-p','cuda-async','--test','device_fault','--','--test-threads=1'])
     run(['python3','scripts/check-gpu-sanitizers.py'])
     evidence['normal_path_suite'] = 'pass'
-    evidence['release_decision'] = 'not established by this runner'
+    evidence['release_decision'] = 'not established by this runner; administrative controls are separate'
     destination.write_text(json.dumps(evidence, indent=2)+'\n')
     print('Normal-path suite passed. Review target/gpu-candidate-evidence.json privately before sharing.')
 

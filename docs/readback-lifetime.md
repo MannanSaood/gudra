@@ -1,5 +1,10 @@
 # Readback lifetime repair: verified on the reported GPU setup
 
+> This records the earlier source-level repair and its historical evidence.
+> The current candidate also patches the dependency terminal and host-transfer
+> fault paths; it requires fresh validation under
+> [GPU candidate testing](gpu-candidate-testing.md).
+
 Outcome: **fixed for the reported readback paths on the tested setup**.
 The user-supplied [post-fix log](evidence/chat05-gpu-readback-fix.log) identifies
 commit `073f7c61fc488ca589efe602006aa67c9e75e478`. Both library and GPU integration
