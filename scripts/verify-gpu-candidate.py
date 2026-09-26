@@ -44,9 +44,9 @@ def main():
         run(command)
     if not args.arch_experimental:
         run(['bash','scripts/check-gpu-env.sh'])
-    run(['cargo','test','--locked','-p','cutile-compiler','--lib','private_compilation_lifecycle','--','--test-threads=1'])
-    run(['cargo','test','--locked','-p','cuda-async','--lib','fault_policy::tests','--','--test-threads=1'])
-    run(['cargo','test','--locked','-p','cuda-async','--lib','device_future::release_tests','--','--test-threads=1'])
+    run(['cargo','test','--manifest-path','vendor/cutile-compiler/Cargo.toml','--target-dir','target/vendor-cutile-compiler','--locked','--lib','private_compilation_lifecycle','--','--test-threads=1'])
+    run(['cargo','test','--manifest-path','vendor/cuda-async/Cargo.toml','--target-dir','target/vendor-cuda-async','--locked','--lib','fault_policy::tests','--','--test-threads=1'])
+    run(['cargo','test','--manifest-path','vendor/cuda-async/Cargo.toml','--target-dir','target/vendor-cuda-async','--locked','--lib','device_future::release_tests','--','--test-threads=1'])
     run(['cargo','check','--locked','--features','gpu','--all-targets'])
     run(['cargo','clippy','--locked','--features','gpu','--all-targets','--','-D','warnings'])
     run(['cargo','doc','--locked','--features','gpu','--no-deps'])
@@ -55,9 +55,9 @@ def main():
     os.environ['CUDA_ASYNC_SPIN_BUDGET_US'] = '0'
     for _ in range(5):
         run(['cargo','test','--locked','--features','gpu','--lib','--test','gpu_jacobi','--','--test-threads=1'])
-    run(['cargo','test','--locked','-p','cuda-async','--test','drop_in_flight','--','--test-threads=1'])
+    run(['cargo','test','--manifest-path','vendor/cuda-async/Cargo.toml','--target-dir','target/vendor-cuda-async','--locked','--test','drop_in_flight','--','--test-threads=1'])
     if args.disposable_fault_tests:
-        run(['cargo','test','--locked','-p','cuda-async','--test','device_fault','--','--test-threads=1'])
+        run(['cargo','test','--manifest-path','vendor/cuda-async/Cargo.toml','--target-dir','target/vendor-cuda-async','--locked','--test','device_fault','--','--test-threads=1'])
     run(['python3','scripts/check-gpu-sanitizers.py'])
     evidence['normal_path_suite'] = 'pass'
     evidence['release_decision'] = 'not established by this runner; administrative controls are separate'
