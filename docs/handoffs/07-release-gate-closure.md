@@ -2,10 +2,10 @@
 
 ## 2026-09-26 remediation candidate
 
-Public candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb` adds a corrected
-vendored-crate test selector to the separately reviewable GPU ownership,
+Public candidate `02ffb1b03a30e17f30121be29f801a8428d765ad` adds a reviewed
+CUDA compatibility range to the separately reviewable GPU ownership,
 validation-lane, and workflow-pin commits. Hosted run
-https://github.com/MannanSaood/gudra/actions/runs/36226043973 passed both CPU
+https://github.com/MannanSaood/gudra/actions/runs/36240934798 passed both CPU
 and security jobs. This includes Linux launcher tests, separate-UID private JIT
 tests, current RustSec/license/source policy, vendor digests, history secret
 scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
@@ -57,20 +57,31 @@ selects the crates by manifest path and keeps their outputs under the ignored
 root target directory. It passed hosted CPU/security CI and requires a fresh
 GPU run.
 
+A later clean disposable-worker attempt on `38bb3d1` reached the same RTX 5060,
+CUDA 13.4, matching tileiras 13.4, driver 615.71.09, compute capability 12.0,
+and Compute Sanitizer. It stopped at an overly narrow preflight requiring exact
+CUDA 13.3 and exact Clang 18 package names, before compilation or fault tests.
+Evidence SHA-256:
+`73a8c74e4bc6c352895fba0e35887f0239e92bfc734eb5c0e7d664ef8ebf6743`.
+Candidate `02ffb1b` accepts CUDA 13.3 and later within major 13, requires exact
+`nvcc`/`tileiras` major-minor agreement, and checks Clang/libclang capabilities.
+The runtime and sanitizer checks are unchanged.
+
 On a trusted ordinary Arch Linux/NVIDIA workstation, run the non-destructive
 candidate lane at an exact clean checkout:
 
 ```sh
-git pull --ff-only
-test "$(git rev-parse HEAD)" = "38bb3d19aa56817f49b5fcf93cc02396ad36e3eb"
-python3 scripts/run-private-gpu.py -- python3 scripts/verify-gpu-candidate.py --arch-experimental
+git fetch origin
+git checkout --detach 02ffb1b03a30e17f30121be29f801a8428d765ad
+test -z "$(git status --porcelain)"
+export CUDA_TOOLKIT_PATH=/opt/cuda
+bash scripts/verify-gpu.sh
 sha256sum target/gpu-candidate-evidence.json
 ```
 
-Return the JSON evidence and its SHA-256 digest. This does not close the sticky
-device-fault requirement. Only an explicitly authorized disposable isolated
-worker may run `bash scripts/verify-gpu.sh`, which adds the fault subprocess and
-may poison a CUDA context. Release administration also remains pending: private
+Return the JSON evidence and its SHA-256 digest. `verify-gpu.sh` adds the fault
+subprocess and may poison a CUDA context, so this command is limited to the
+explicitly authorized disposable isolated worker. Release administration also remains pending: private
 reporting, protected refs and required checks/reviews, maintainer MFA, minimal
 package ownership, log/artifact access and retention, native redistribution
 rights, clean immutable builds, SBOM, artifact checksums, and signed provenance.

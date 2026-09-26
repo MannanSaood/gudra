@@ -1,8 +1,8 @@
 {
   "date": "2026-09-26",
   "decision": "fail",
-  "baseline": "private review plus public candidate 38bb3d1 merge",
-  "source_sha256": "37220cd34ed064a9bddd55b586bce38bd79797a383c96384ae8ebd9d49daf8ad",
+  "baseline": "private review plus public candidate 02ffb1b merge",
+  "source_sha256": "f1b20f44d5eff4aa5bc1a53ac02fed4dbf726b2f22f0081814e42801a119ed47",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -16,23 +16,23 @@
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pending",
-      "reason": "Deterministic fail-stop/quarantine tests, forced-pending cancellation, repeated GPU execution, and normal-path sanitizers pass on clean candidate 38bb3d1. The deliberately sticky device-fault subprocess remains unexecuted because no disposable GPU worker is available."
+      "reason": "Deterministic fail-stop/quarantine tests, forced-pending cancellation, repeated GPU execution, and normal-path sanitizers passed on clean candidate 38bb3d1. A disposable-worker attempt stopped at the former exact-version preflight before the sticky device-fault subprocess. Candidate 02ffb1b replaces that pin with a tested CUDA 13.3+ compatibility policy and still requires the final sticky-fault run."
     },
     {
       "id": "final-revision-gpu",
       "status": "pending",
-      "reason": "The Arch experimental normal-path suite passed all 22 commands on clean candidate 38bb3d1, including five repetitions and Compute Sanitizer memcheck/initcheck with zero errors. The required pinned disposable-worker environment and sticky device-fault lane remain pending."
+      "reason": "The Arch experimental normal-path suite passed all 22 commands on clean candidate 38bb3d1, including five repetitions and Compute Sanitizer memcheck/initcheck with zero errors. Because the environment policy changed, candidate 02ffb1b needs a fresh clean disposable-worker run including the sticky device-fault lane."
     },
     {
       "id": "linux-and-hosted-ci",
       "status": "pass",
-      "scope": "Public candidate 38bb3d1 passed hosted CPU/security, Linux launcher, separate-UID helper, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36226043973. Private audit-only dependency inventory is locally verified, not published."
+      "scope": "Public candidate 02ffb1b passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36240934798. Private audit-only dependency inventory is locally verified, not published."
     },
     {
       "id": "release-reporting-provenance-ownership",
       "status": "pending"
     }
   ],
-  "public_candidate": "38bb3d19aa56817f49b5fcf93cc02396ad36e3eb",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36226043973"
+  "public_candidate": "02ffb1b03a30e17f30121be29f801a8428d765ad",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36240934798"
 }
