@@ -17,6 +17,9 @@ Compute Sanitizer memcheck/initcheck on the disposable GPU worker. Gudra keeps b
 fields private and does not expose raw operations, graph construction, SIMT
 APIs, or cuTile tensor constructors. Applications that separately depend on
 `cutile` or `cuda-async` must review and support those additional boundaries.
+All in-scope boundaries are closed or constrained by the documented deployment
+contract. The gate passes only for that contract and does not certify shared-GPU
+tenant isolation or continued execution after a device fault.
 
 ## Chat 07 candidate update — 2026-09-22
 

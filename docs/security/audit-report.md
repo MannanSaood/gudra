@@ -2,11 +2,11 @@
 
 ## 2026-09-26 remediation status
 
-Public candidate `90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2` passed its
-hosted CPU and security workflow in run 36244072433. Its post-GPU delta contains
-only release workflow, provenance documentation and manifest generation. The
-runtime, dependencies and GPU policy remain identical to pinned GPU candidate
-`4debea7`. The SEC-004 ownership
+Public candidate `c5f3322515834ea646e191acede544241e9a4328` passed its
+hosted CPU and security workflow in run 36244844661. Its post-GPU delta contains
+only release workflow, provenance and solo-maintainer policy documentation, and
+manifest generation. The runtime, dependencies and GPU policy remain identical
+to pinned GPU candidate `4debea7`. The SEC-004 ownership
 implementation was independently reviewed; an early asynchronous quarantine
 release was found and fixed, and final review found no bypass through Gudra's
 supported public GPU facade. The patched dependencies, actual JIT lifecycle,
@@ -22,9 +22,13 @@ memcheck/initcheck with zero errors. SEC-004 and final GPU validation are closed
 No critical or high vulnerability has been confirmed. Private reporting,
 required checks, protected refs, workflow restrictions, maintainer MFA, minimal
 ownership, retention, native non-redistribution, checksums, SBOM and signed
-provenance are verified. The owner explicitly selected a solo-maintainer policy
-with no required approval, so the original independent-review criterion remains
-unmet and the release decision remains **FAIL**.
+provenance are verified. The owner explicitly revised the release policy to
+solo-maintainer governance on 2026-09-26. Under that policy independent approval
+is not required while the repository has one maintainer; required checks and all
+other protections remain mandatory. This is not represented as independent
+review. The technical release decision is **PASS** for the bound candidate.
+Publication remains separately prohibited until the owner explicitly authorizes
+a tag, release, or package change.
 
 ## Chat 07 candidate update — 2026-09-22
 

@@ -4,7 +4,7 @@
 
 - ID: SEC-002
 - Title: Add explicit resource admission for applications accepting untrusted requests
-- Status: mitigated for logical session admission; GPU wiring execution pending
+- Status: closed as informational hardening; logical admission and GPU wiring verified 2026-09-26
 - Severity: informational (deployment-dependent hardening; potential service availability impact)
 - Affected versions/components: baseline 22f7ff1 GPU constructors and owned operations
 - Reporter/date: independent local audit, 2026-09-19

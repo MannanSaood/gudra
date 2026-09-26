@@ -1,13 +1,14 @@
 {
-  "private_source_sha256": "6f4ed8aad9446d4f33eb39424f9491e5cd64864ffa5f4d5af7bd99a1b420bd34",
-  "private_base_revision": "c1e44f47d0d5a6aae7a4977f7fa810140a63ae2a",
+  "private_source_sha256": "fb63df92bc5ef33a2ef0cbf52ca5afa29ff489d34417f62b7f0731ce4d9ddc2f",
+  "private_base_revision": "b36ca95557ce465f45433d7b65369f431429823e",
   "private_dirty_at_tests": true,
-  "public_candidate": "90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2",
+  "public_candidate": "c5f3322515834ea646e191acede544241e9a4328",
   "public_dirty": false,
   "binding": "Private source/config digest covers manifests, policy, license, src, tests, scripts, .github and all vendor files. Historical logs are not attributed to changed GPU code. Public CI identity is separately pinned.",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36244072433",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36244844661",
   "normal_gpu_evidence": "pass: clean 38bb3d1 Arch experimental run, SHA-256 864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821",
   "failed_disposable_attempt": "clean 38bb3d1 attempt stopped at obsolete exact CUDA/Clang preflight; evidence SHA-256 73a8c74e4bc6c352895fba0e35887f0239e92bfc734eb5c0e7d664ef8ebf6743",
-  "final_gpu_evidence": "pass: clean pinned disposable-worker 4debea7 run, 24/24 commands exit zero, SHA-256 423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0; 90d6d88 changes only release workflow, provenance documentation and manifest generation, leaving runtime/dependencies/GPU policy identical",
-  "remaining_gpu_evidence": "none"
+  "final_gpu_evidence": "pass: clean pinned disposable-worker 4debea7 run, 24/24 commands exit zero, SHA-256 423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0; c5f3322 changes only release/provenance/governance files, leaving runtime/dependencies/GPU policy/tests identical",
+  "remaining_gpu_evidence": "none",
+  "release_evidence": "pass: clean public candidate c5f3322 run 36244888865; archive SHA-256 a150333d38e7c4ed386866afc76657e2ae7d9f807e4d91dffe1491975b13f6e6; SBOM SHA-256 bc85b27f41a1253566633ef309647c0aa7a76cc69b51586d3d75d798015eda0d; archive, SBOM and manifest attestations verified"
 }

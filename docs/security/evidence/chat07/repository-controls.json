@@ -1,14 +1,17 @@
 {
-  "observed_utc": "2026-09-26T13:10:00Z",
+  "observed_utc": "2026-09-26T14:00:00Z",
   "repository": "MannanSaood/gudra",
-  "public_candidate": "90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2",
+  "public_candidate": "c5f3322515834ea646e191acede544241e9a4328",
   "private_vulnerability_reporting": true,
   "main_protection": {
-    "required_checks": ["cpu", "security"],
+    "required_checks": [
+      "cpu",
+      "security"
+    ],
     "strict_up_to_date": true,
     "admin_enforcement": true,
     "required_reviews": 0,
-    "policy_rationale": "Repository owner explicitly selected solo-maintainer protection on 2026-09-26.",
+    "policy_rationale": "Repository owner revised the release policy to solo-maintainer governance on 2026-09-26; independent approval is not required while there is one maintainer, and all required checks and other protections remain mandatory.",
     "linear_history": true,
     "conversation_resolution": true,
     "force_pushes": false,
@@ -39,16 +42,21 @@
     "protected_branches_only": true,
     "custom_branch_policies": false
   },
-  "repository_collaborators": ["MannanSaood:admin"],
+  "repository_collaborators": [
+    "MannanSaood:admin"
+  ],
   "github_releases": [],
   "git_tags": [],
-  "provenance_run": "https://github.com/MannanSaood/gudra/actions/runs/36244118269",
+  "provenance_run": "https://github.com/MannanSaood/gudra/actions/runs/36244888865",
   "provenance_status": "pass",
-  "source_archive_sha256": "4401ff16bad44522c2fe510a6787d9c89c92594fdaf9a4de4039786265902320",
+  "source_archive_sha256": "a150333d38e7c4ed386866afc76657e2ae7d9f807e4d91dffe1491975b13f6e6",
   "sbom_sha256": "bc85b27f41a1253566633ef309647c0aa7a76cc69b51586d3d75d798015eda0d",
   "sbom_components": 135,
   "checksums_verified": true,
   "attestations_verified_with": "gh 2.101.0 portable, GitHub asset SHA-256 bc6c814367b193cd8e713611d61e36013c0ef843b8f516458fe3eda039192794",
   "account_mfa": "pass: authenticated user MannanSaood reports two_factor_authentication=true",
-  "package_ownership": "pass: Gudra has no associated GitHub package; the only public package is container punch and is associated with the separate MannanSaood/Punch repository"
+  "package_ownership": "pass: Gudra has no associated GitHub package; the only public package is container punch and is associated with the separate MannanSaood/Punch repository",
+  "governance_decision": "pass under owner-authorized solo-maintainer policy; no independent review claimed",
+  "publication_authorized": false,
+  "sbom_dependency_components": 134
 }

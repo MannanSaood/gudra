@@ -2,10 +2,10 @@
 
 ## Final public candidate update — 2026-09-26
 
-Public candidate `90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2` is live on
-`main`; hosted CPU/security run 36244072433 passed. Its delta after GPU candidate
-`4debea7` is limited to release workflow, provenance documentation and manifest
-generation. SEC-004 has a reviewed
+Public candidate `c5f3322515834ea646e191acede544241e9a4328` is live on
+`main`; hosted CPU/security run 36244844661 passed. Its delta after GPU candidate
+`4debea7` is limited to release workflow, provenance and governance documentation,
+and manifest generation. SEC-004 has a reviewed
 fail-stop/quarantine implementation for Gudra's safe GPU facade, including
 blocking, async, cancellation, upload, readback, and raw-allocation error paths.
 The clean pinned `4debea7` Arch run passed all 24 real-device commands: numerical,
@@ -14,16 +14,14 @@ the deliberate sticky device-fault fail-stop, and sanitizer tests. Evidence
 SHA-256 is `423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0`.
 SEC-001, SEC-004, and final GPU validation are closed.
 
-The release decision remains **FAIL**. Private reporting, branch/release-ref
-protection, required reviews/check enforcement, maintainer MFA/minimal package
-owners, retention, and signed provenance remain external owner checks. These
-private audit records were not included in the public commits.
-
-The external checks were subsequently verified except independent review.
 Private reporting, required checks, protected refs, MFA, minimal ownership,
-14-day retention, and attested provenance pass. The owner explicitly chose a
-solo-maintainer configuration with zero required approvals, so the original
-required-review acceptance criterion remains open.
+14-day retention, native non-redistribution, and attested provenance are
+verified. Release-evidence run 36244888865 passed on the exact public candidate;
+the downloaded archive, SBOM and manifest attestations verified. The owner
+revised the policy to solo-maintainer governance, under which no independent
+approval is required while there is one maintainer. Required checks and all
+other protections remain in force. The technical release decision is **PASS**.
+No tag, release, or package publication is authorized by that decision.
 
 The user authorized owner selection on 2026-09-25. The repository owner is the
 accepted accountable owner for SEC-001, SEC-004, GPU validation, release

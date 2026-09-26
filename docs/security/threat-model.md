@@ -14,8 +14,11 @@ The final candidate passed hosted CPU/security, separate-UID JIT helper tests,
 and all 24 pinned GPU commands on an authorized disposable worker. The device
 fault produced CUDA 719 and the child worker followed the required fail-stop
 path; repeated execution and Compute Sanitizer memcheck/initcheck also passed.
-SEC-001, SEC-004, and final GPU validation are closed. Until external release
-administration checks complete, the release gate remains **FAIL**.
+SEC-001, SEC-004, and final GPU validation are closed. Repository administration,
+account protections and final-revision provenance are verified. Under the
+owner-authorized solo-maintainer governance policy, the technical release gate
+is **PASS** for the bound candidate. This does not expand the deployment boundary
+or authorize publication.
 
 ## Chat 07 candidate update — 2026-09-22
 

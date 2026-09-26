@@ -4,7 +4,7 @@
 
 - ID: SEC-003
 - Title: Make delivery authority and dependency policy explicit
-- Status: mitigated in repository; external settings verification pending
+- Status: closed as informational hardening; repository and external settings verified 2026-09-26
 - Severity: informational
 - Affected versions/components: baseline .github/workflows/rust.yml and absent security policy
 - Reporter/date: independent local audit, 2026-09-19

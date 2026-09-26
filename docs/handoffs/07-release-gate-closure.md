@@ -1,11 +1,12 @@
-# Chat 07: release gate remains FAIL
+# Chat 07: release gate closure
 
 ## 2026-09-26 remediation candidate
 
-Public candidate `90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2` adds an attested
-clean-revision release-evidence workflow and provenance guide to the validated
-GPU candidate. Hosted run
-https://github.com/MannanSaood/gudra/actions/runs/36244072433 passed both CPU
+Public candidate `c5f3322515834ea646e191acede544241e9a4328` adds an attested
+clean-revision release-evidence workflow, provenance guide, and the
+owner-authorized solo-maintainer governance policy to the validated GPU
+candidate. Hosted run
+https://github.com/MannanSaood/gudra/actions/runs/36244844661 passed both CPU
 and security jobs. This includes Linux launcher tests, separate-UID private JIT
 tests, current RustSec/license/source policy, vendor digests, history secret
 scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
@@ -30,18 +31,23 @@ forced-pending cancellation, the CUDA 719 sticky device-fault fail-stop,
 five repeated GPU runs, and Compute Sanitizer memcheck/initcheck with zero errors.
 Evidence SHA-256 is
 `423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0`.
-SEC-001, SEC-004, and final GPU validation are closed. Repository reporting/protection/account/MFA/package
-ownership/retention and signed provenance settings remain externally unverified.
-The gate therefore remains **FAIL**.
+SEC-001, SEC-004, and final GPU validation are closed.
 
-Repository administration is otherwise verified on 2026-09-26: private
+Repository administration was verified on 2026-09-26: private
 reporting, required CPU/security checks, protected `main` and `v*` tags,
 SHA-pinned GitHub-owned Actions, read-only workflow tokens, 14-day retention,
 secret scanning/push protection, maintainer MFA, sole-owner access, absence of a
 Gudra package, and the protected-branch release environment. Attested evidence
-run 36244118269 passed for `90d6d88`; downloaded checksums and attestations were
-verified. The owner explicitly selected a solo-maintainer policy, leaving the
-original independent-review acceptance criterion unmet.
+run 36244888865 passed for `c5f3322`; downloaded checksums and attestations were
+verified. The owner revised the release policy to solo-maintainer governance on
+2026-09-26. Independent approval is not required under that policy while the
+repository has one maintainer; required checks and the other protections remain
+mandatory. This is not represented as independent review.
+
+The final technical release decision is **PASS**, bound to the source/configuration
+digest in `docs/security/release-gate.json`. It is a readiness decision only.
+`publish = false` remains, and no tag, GitHub release, or package publication was
+authorized or performed.
 
 ## Current remaining validation
 
