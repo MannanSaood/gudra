@@ -48,6 +48,9 @@ export LIBCLANG_PATH=/path/to/libclang
 ./scripts/check-gpu-env.sh
 ```
 
+On Arch Linux, `llvm-config --libdir` normally identifies the correct
+`LIBCLANG_PATH`; set it explicitly only when LLVM is installed in a custom prefix.
+
 The environment checker reports missing prerequisites and exits nonzero.
 
 ## Build and run

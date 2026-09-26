@@ -93,15 +93,34 @@ if [[ -z "$clang_bin" ]]; then
 fi
 clang_version="$($clang_bin --version 2>/dev/null | sed -nE '1s/.*version ([0-9]+).*/\1/p')"
 libclang_available=0
-if [[ -n "${LIBCLANG_PATH:-}" ]] && compgen -G "${LIBCLANG_PATH%/}/libclang.so*" >/dev/null; then
+libclang_location=""
+libclang_candidates=()
+if [[ -n "${LIBCLANG_PATH:-}" ]]; then
+    libclang_candidates+=("${LIBCLANG_PATH%/}")
+fi
+if command -v llvm-config >/dev/null 2>&1; then
+    libclang_candidates+=("$(llvm-config --libdir 2>/dev/null || true)")
+fi
+clang_resource_dir="$($clang_bin --print-resource-dir 2>/dev/null || true)"
+if [[ -n "$clang_resource_dir" ]]; then
+    libclang_candidates+=("$(dirname "$(dirname "$clang_resource_dir")")")
+fi
+libclang_candidates+=(/usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64)
+for candidate in "${libclang_candidates[@]}"; do
+    if [[ -n "$candidate" ]] && compgen -G "$candidate/libclang.so*" >/dev/null; then
+        libclang_available=1
+        libclang_location="$candidate"
+        break
+    fi
+done
+if (( libclang_available == 0 )) && ldconfig -p 2>/dev/null | grep -Eq 'libclang[^ ]*\.so'; then
     libclang_available=1
-elif ldconfig -p 2>/dev/null | grep -Eq 'libclang[^ ]*\.so'; then
-    libclang_available=1
+    libclang_location="system linker cache"
 fi
 if [[ "$clang_version" =~ ^[0-9]+$ ]] && (( clang_version >= 18 )) && (( libclang_available == 1 )); then
-    pass "Clang/libclang $clang_version available for cuda-bindings bindgen"
+    pass "Clang $clang_version and libclang at $libclang_location available for cuda-bindings bindgen"
 else
-    fail "Clang 18+ and a discoverable matching libclang are required (clang major: ${clang_version:-missing})"
+    fail "Clang 18+ and discoverable libclang are required (clang major: ${clang_version:-missing}; set LIBCLANG_PATH if libclang is installed outside standard LLVM locations)"
 fi
 
 if command -v nvidia-smi >/dev/null 2>&1; then
