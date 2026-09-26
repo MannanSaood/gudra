@@ -2,8 +2,10 @@
 
 ## Final public candidate update — 2026-09-26
 
-Public candidate `4debea77627b5e9a6d3d4048036352885c108b0b` is live on
-`main`; hosted CPU/security run 36241552375 passed. SEC-004 has a reviewed
+Public candidate `57fb542808ccef9060e739459d6f98a26044cb7c` is live on
+`main`; hosted CPU/security run 36243147752 passed. Its delta after GPU candidate
+`4debea7` is limited to release workflow, provenance documentation and manifest
+generation. SEC-004 has a reviewed
 fail-stop/quarantine implementation for Gudra's safe GPU facade, including
 blocking, async, cancellation, upload, readback, and raw-allocation error paths.
 The clean pinned `4debea7` Arch run passed all 24 real-device commands: numerical,

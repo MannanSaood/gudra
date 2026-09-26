@@ -1,8 +1,8 @@
 {
   "date": "2026-09-26",
   "decision": "fail",
-  "baseline": "private review plus public candidate 4debea7 merge",
-  "source_sha256": "7839cc0b7712c4b00cb8ab55776b72e73adb72eb05282e5e2737eddb9c2890cb",
+  "baseline": "private review plus public candidate 57fb542 merge",
+  "source_sha256": "00ca6ffff029cb95f1733759238a646fc5159cd5fb710b544fd9dcae3bb81337",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -26,13 +26,14 @@
     {
       "id": "linux-and-hosted-ci",
       "status": "pass",
-      "scope": "Public candidate 4debea7 passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36241552375. Private audit-only dependency inventory is locally verified, not published."
+      "scope": "Public candidate 57fb542 passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36243147752. The only changes after validated GPU candidate 4debea7 are release workflow, provenance documentation, and release-manifest generation; runtime, dependencies, GPU tests and GPU policy are identical."
     },
     {
       "id": "release-reporting-provenance-ownership",
-      "status": "pending"
+      "status": "pending",
+      "reason": "Attested clean-revision release evidence, complete locked Rust SBOM, checksums, bounded artifact retention, and explicit non-redistribution of external CUDA/NVIDIA prerequisites are implemented at 57fb542. GitHub private reporting, protected refs/required checks, repository workflow defaults/retention, maintainer MFA, package ownership, and actual attestation execution still require authenticated owner verification."
     }
   ],
-  "public_candidate": "4debea77627b5e9a6d3d4048036352885c108b0b",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36241552375"
+  "public_candidate": "57fb542808ccef9060e739459d6f98a26044cb7c",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36243147752"
 }

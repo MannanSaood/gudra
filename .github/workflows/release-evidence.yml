@@ -1,0 +1,97 @@
+name: Release evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      approved_revision:
+        description: Full 40-character commit SHA approved for release evidence
+        required: true
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: release-evidence-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Require an immutable approved main revision
+        env:
+          APPROVED_REVISION: ${{ inputs.approved_revision }}
+        run: |
+          [[ "$GITHUB_REF" == "refs/heads/main" ]]
+          [[ "$APPROVED_REVISION" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$APPROVED_REVISION" == "$GITHUB_SHA" ]]
+          [[ "$(git rev-parse HEAD)" == "$APPROVED_REVISION" ]]
+          test -z "$(git status --porcelain)"
+
+      - name: Install pinned Rust and verified security tools
+        run: |
+          rustup toolchain install 1.89.0 --profile minimal --component rustfmt --component clippy
+          python3 scripts/install-security-tools.py
+
+      - name: Re-run release checks
+        run: |
+          cargo fmt --all -- --check
+          cargo clippy --locked --all-targets -- -D warnings
+          cargo test --locked
+          cargo test --locked --release
+          cargo doc --locked --no-deps
+          target/security-tools/cargo-deny --all-features --locked check
+          python3 scripts/check-vendor.py
+          python3 scripts/test-security-tools.py
+          python3 scripts/test-private-launcher-linux.py
+          test -z "$(git status --porcelain)"
+
+      - name: Build source archive, toolchain inventory, SBOM and checksums
+        run: |
+          mkdir -p target/release-evidence
+          git archive --format=tar --prefix="gudra-${GITHUB_SHA}/" "$GITHUB_SHA" -o "target/release-evidence/gudra-${GITHUB_SHA}.tar"
+          gzip -n "target/release-evidence/gudra-${GITHUB_SHA}.tar"
+          {
+            uname -a
+            rustc -Vv
+            cargo -V
+            python3 --version
+            git --version
+          } > target/release-evidence/toolchain.txt
+          if git ls-files | grep -Eq '\.(so|dll|dylib|a|lib|ptx|cubin|exe|bin)$'; then
+            echo 'FAIL: repository unexpectedly contains a native/CUDA distribution artifact' >&2
+            exit 1
+          fi
+          python3 scripts/release-manifest.py \
+            --artifact "target/release-evidence/gudra-${GITHUB_SHA}.tar.gz" \
+            --artifact target/release-evidence/toolchain.txt \
+            --tool "$(rustup which rustc)" \
+            --tool "$(command -v cargo)" \
+            --output target/release-evidence
+          (cd target/release-evidence && sha256sum --check SHA256SUMS)
+
+      - name: Attest source, SBOM, checksums and identities
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4
+        with:
+          subject-path: target/release-evidence/*
+
+      - name: Retain reviewable evidence for 14 days
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-evidence-${{ github.sha }}
+          path: target/release-evidence/
+          if-no-files-found: error
+          retention-days: 14

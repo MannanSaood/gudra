@@ -2,13 +2,16 @@
 
 ## 2026-09-26 remediation candidate
 
-Public candidate `4debea77627b5e9a6d3d4048036352885c108b0b` adds a reviewed
-CUDA compatibility range to the separately reviewable GPU ownership,
-validation-lane, and workflow-pin commits. Hosted run
-https://github.com/MannanSaood/gudra/actions/runs/36241552375 passed both CPU
+Public candidate `57fb542808ccef9060e739459d6f98a26044cb7c` adds an attested
+clean-revision release-evidence workflow and provenance guide to the validated
+GPU candidate. Hosted run
+https://github.com/MannanSaood/gudra/actions/runs/36243147752 passed both CPU
 and security jobs. This includes Linux launcher tests, separate-UID private JIT
 tests, current RustSec/license/source policy, vendor digests, history secret
 scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
+The post-GPU delta changes only release workflow, provenance documentation and
+manifest generation; runtime, dependencies, GPU policy and tests are identical
+to clean pinned GPU candidate `4debea7`.
 
 SEC-004 now has a reviewed Gudra-facade implementation. Root blocking and async
 terminals quarantine backend allocations and foreign owners until synchronization,
