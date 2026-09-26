@@ -4,7 +4,7 @@
 
 - ID: SEC-001
 - Title: cuTile transient compiler output lacks a private temporary-directory boundary
-- Status: validated (isolation gap); compiler patch implemented; Linux verification pending
+- Status: closed; private-storage remediation verified 2026-09-26
 - Severity: medium
 - Affected versions/components: locked cutile-compiler 0.3.1, reached through Gudra gpu feature
 - Reporter/date: independent local audit, 2026-09-19
@@ -82,12 +82,13 @@ publication separation, exact remaining commands and acceptance criteria.
 Hosted Linux CPU/security validation passed for final public candidate
 `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb`, including separate-UID private
 storage and launcher cleanup/rejection tests. The actual cuTile compiler/JIT
-lifecycle is part of the final GPU runner and has not executed on this revision.
-SEC-001 therefore remains verification pending rather than closed.
+lifecycle and GPU module load passed on the clean final
+candidate in the Arch normal-path run. Together with the hosted disposable
+separate-UID isolation, permission, ancestor, failure-cleanup, and child-failure
+tests, this closes SEC-001 for supported invocation paths. Evidence SHA-256:
+`864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821`.
 
 The user authorized selection of the accountable role on 2026-09-25. The
-repository owner holds this finding until a runtime/dependency maintainer
-explicitly accepts delegation. The mitigation is the vendored private-storage
-implementation plus private worker launcher; release rationale remains that a
-medium executable-artifact isolation finding cannot be accepted without the
-actual final-candidate JIT lifecycle evidence.
+repository owner accepted closure responsibility. The mitigation is the
+vendored private-storage implementation plus private worker launcher, and the
+required final-candidate JIT evidence is now recorded.

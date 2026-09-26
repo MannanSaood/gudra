@@ -31,6 +31,17 @@ The gate therefore remains **FAIL**.
 
 ## Current remaining validation
 
+The clean Arch experimental run on 2026-09-26 passed all 22 recorded commands
+on `38bb3d1`. It covered the actual private JIT lifecycle, GPU compilation and
+Clippy, API docs/doctests, ownership compile-fail controls, deterministic
+fail-stop/retention seams, five repeated numerical/readback/budget/cancellation
+runs, and Compute Sanitizer memcheck/initcheck with zero errors. Evidence
+SHA-256: `864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821`.
+SEC-001 is closed for supported invocation paths. This normal workstation lane
+did not enable the deliberate sticky device-fault subprocess and does not replace
+the pinned disposable-worker lane, so SEC-004 and final GPU validation remain
+pending.
+
 The first Arch attempt on 2026-09-25 was bound to clean revision `1ee62e5`
 and evidence SHA-256
 `4301060bafe0c47b2afd2f5aa828d43cc00db174337c8704ceefaff2a3886baa`.

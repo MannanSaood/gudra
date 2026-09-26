@@ -65,6 +65,13 @@ Gudra-public bypass. Status remains verification pending until the exact
 candidate passes the supplied real-device fault and sanitizer lane. This remains
 a proof gap under validation, not a confirmed exploit or severity escalation.
 
+The clean `38bb3d1` Arch run passed deterministic fail-stop and retention tests,
+forced-pending/unpolled cancellation, five repeated GPU executions, readback and
+budget tests, and Compute Sanitizer memcheck/initcheck with zero errors. Evidence
+SHA-256: `864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821`.
+The deliberate sticky device-fault subprocess was not enabled and remains the
+material proof gap requiring an isolated disposable GPU worker.
+
 The user authorized selection of the accountable role on 2026-09-25. The
 repository owner holds the remaining device-validation work until a runtime
 safety maintainer explicitly accepts delegation. Fail-stop worker disposal is

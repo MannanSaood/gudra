@@ -15,7 +15,7 @@
     "Repository protection and account settings are not authorized or visible to this local review"
   ],
   "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36226043973",
-  "gpu_validation": "pending: normal final-candidate GPU suite and disposable sticky-fault lane",
+  "gpu_validation": "normal Arch experimental lane passed all 22 commands on clean 38bb3d1; pinned disposable-worker environment and sticky-fault lane remain pending",
   "secret_scan": "Initial checksum manifest triggered generic-api-key rule on compile_api filename plus SHA256. Triaged as generated hash; reformatted digest records, no exclusions or scanner weakening. Final source/history scan zero findings.",
   "sbom_scope": "locked Rust packages only; native tool/runtime inventory pending"
 }

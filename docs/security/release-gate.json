@@ -10,18 +10,18 @@
     },
     {
       "id": "SEC-001-private-jit-boundary",
-      "status": "pending",
-      "reason": "Private compiler patch and hosted Linux helper/separate-UID tests pass at 38bb3d1; the corrected final-candidate compiler/JIT lifecycle has not yet executed."
+      "status": "pass",
+      "scope": "Vendored private compiler storage, hosted disposable separate-UID isolation tests, and the actual compiler/JIT plus GPU load lifecycle passed on clean candidate 38bb3d1. Arch evidence SHA-256: 864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821."
     },
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pending",
-      "reason": "Gudra-facade fail-stop/quarantine implementation and deterministic tests are reviewed; the corrected final-candidate patched GPU dependencies and real-device fault paths have not yet executed."
+      "reason": "Deterministic fail-stop/quarantine tests, forced-pending cancellation, repeated GPU execution, and normal-path sanitizers pass on clean candidate 38bb3d1. The deliberately sticky device-fault subprocess remains unexecuted because no disposable GPU worker is available."
     },
     {
       "id": "final-revision-gpu",
       "status": "pending",
-      "reason": "Two clean-revision attempts on superseded 1ee62e5 failed closed: first at unavailable driver, then at an invalid vendored-package selector. The selector is fixed at 38bb3d1; the GPU suite must be rerun."
+      "reason": "The Arch experimental normal-path suite passed all 22 commands on clean candidate 38bb3d1, including five repetitions and Compute Sanitizer memcheck/initcheck with zero errors. The required pinned disposable-worker environment and sticky device-fault lane remain pending."
     },
     {
       "id": "linux-and-hosted-ci",

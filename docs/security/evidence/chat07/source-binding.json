@@ -6,5 +6,6 @@
   "public_dirty": false,
   "binding": "Private source/config digest covers manifests, policy, license, src, tests, scripts, .github and all vendor files. Historical logs are not attributed to changed GPU code. Public CI identity is separately pinned.",
   "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36226043973",
-  "remaining_gpu_evidence": "pending: final-revision normal GPU suite plus disposable sticky-fault lane"
+  "normal_gpu_evidence": "pass: clean 38bb3d1 Arch experimental run, SHA-256 864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821",
+  "remaining_gpu_evidence": "pending: pinned disposable-worker environment plus sticky device-fault lane"
 }

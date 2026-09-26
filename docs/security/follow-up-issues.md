@@ -1,14 +1,15 @@
 # Scoped release follow-ups
 
-## Final public candidate update — 2026-09-25
+## Final public candidate update — 2026-09-26
 
 Public candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb` is live on
 `main`; hosted CPU/security run 36226043973 passed. SEC-004 has a reviewed
 fail-stop/quarantine implementation for Gudra's safe GPU facade, including
 blocking, async, cancellation, upload, readback, and raw-allocation error paths.
-It remains pending until this exact revision passes the supplied real-device
-state, fault, numerical, cancellation, and sanitizer tests. SEC-001 remains
-pending for the same final-revision compiler/JIT execution. No historical GPU
+The clean `38bb3d1` Arch run passed the supplied normal real-device state,
+numerical, cancellation, compiler/JIT, and sanitizer tests. SEC-001 is closed.
+SEC-004 and final GPU validation remain pending for the pinned disposable-worker
+environment and deliberate sticky device-fault subprocess. No historical GPU
 result is attributed to this candidate.
 
 The release decision remains **FAIL**. Private reporting, branch/release-ref

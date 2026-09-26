@@ -1,19 +1,21 @@
 # Security audit and release gate
 
-## 2026-09-25 remediation status
+## 2026-09-26 remediation status
 
 Public candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb` passed its
 hosted CPU and security workflow in run 36226043973. The SEC-004 ownership
 implementation was independently reviewed; an early asynchronous quarantine
 release was found and fixed, and final review found no bypass through Gudra's
-supported public GPU facade. CPU state-machine and retention tests pass. The
-patched dependencies, actual JIT compiler lifecycle, normal GPU suite,
-forced-pending cancellation, sticky device-fault subprocess, and Compute
-Sanitizer still require final-revision device execution.
+supported public GPU facade. The patched dependencies, actual JIT lifecycle,
+normal GPU suite, forced-pending cancellation, and Compute Sanitizer passed on
+the clean final revision. The disposable sticky device-fault subprocess remains
+unexecuted.
 
 SEC-001's private compilation storage passed hosted Linux helper and
-separate-UID tests on the final candidate. It remains pending until the actual
-compiler creates, consumes, loads, and cleans its artifacts on that candidate.
+separate-UID tests plus the actual final-candidate compiler/JIT and GPU-load
+lifecycle. SEC-001 is closed for supported invocation paths. The normal Arch
+GPU lane passed, including memcheck and initcheck with zero errors; the pinned
+disposable sticky-fault lane remains pending.
 No critical or high vulnerability has been confirmed. Repository protections,
 private reporting, maintainer and package-owner controls, retention, native
 redistribution rights, and signed release provenance remain externally
