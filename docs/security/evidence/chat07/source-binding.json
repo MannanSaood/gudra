@@ -1,12 +1,12 @@
 {
-  "private_source_sha256": "f1b20f44d5eff4aa5bc1a53ac02fed4dbf726b2f22f0081814e42801a119ed47",
+  "private_source_sha256": "7839cc0b7712c4b00cb8ab55776b72e73adb72eb05282e5e2737eddb9c2890cb",
   "private_base_revision": "c1e44f47d0d5a6aae7a4977f7fa810140a63ae2a",
   "private_dirty_at_tests": true,
-  "public_candidate": "02ffb1b03a30e17f30121be29f801a8428d765ad",
+  "public_candidate": "4debea77627b5e9a6d3d4048036352885c108b0b",
   "public_dirty": false,
   "binding": "Private source/config digest covers manifests, policy, license, src, tests, scripts, .github and all vendor files. Historical logs are not attributed to changed GPU code. Public CI identity is separately pinned.",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36240934798",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36241552375",
   "normal_gpu_evidence": "pass: clean 38bb3d1 Arch experimental run, SHA-256 864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821",
   "failed_disposable_attempt": "clean 38bb3d1 attempt stopped at obsolete exact CUDA/Clang preflight; evidence SHA-256 73a8c74e4bc6c352895fba0e35887f0239e92bfc734eb5c0e7d664ef8ebf6743",
-  "remaining_gpu_evidence": "pending: clean 02ffb1b disposable-worker run plus sticky device-fault lane"
+  "remaining_gpu_evidence": "pending: clean 4debea7 disposable-worker run plus sticky device-fault lane"
 }

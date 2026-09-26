@@ -9,13 +9,13 @@
     "local_cargo_clippy": "1.90.0"
   },
   "independent_review": "The SEC-004 implementation was independently reviewed. Review found an early async-quarantine release, which was fixed; final review found no ownership bypass through Gudra's supported public GPU facade. Direct applications that separately add cutile or cuda-async remain outside that support boundary. Real-device and sticky-fault evidence remains pending. No concrete distinct-UID JIT bypass was found; actual JIT execution remains pending.",
-  "publication": "Only the code-only public candidate 02ffb1b03a30e17f30121be29f801a8428d765ad was pushed. Private audits and findings were excluded.",
+  "publication": "Only the code-only public candidate 4debea77627b5e9a6d3d4048036352885c108b0b was pushed. Private audits and findings were excluded.",
   "local_failures": [
     "GPU build exit 101: missing CUDA toolkit",
     "Repository protection and account settings are not authorized or visible to this local review"
   ],
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36240934798",
-  "gpu_validation": "normal Arch experimental lane passed all 22 commands on clean 38bb3d1; a clean disposable attempt then failed only the obsolete exact CUDA/Clang environment policy. Candidate 02ffb1b accepts CUDA 13.3+ within major 13, requires matching nvcc/tileiras, and still requires the final disposable sticky-fault lane",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36241552375",
+  "gpu_validation": "normal Arch experimental lane passed all 22 commands on clean 38bb3d1; a clean disposable attempt then failed only the obsolete exact CUDA/Clang environment policy. Candidate 4debea7 accepts CUDA 13.3+ within major 13, requires matching nvcc/tileiras, and still requires the final disposable sticky-fault lane",
   "secret_scan": "Initial checksum manifest triggered generic-api-key rule on compile_api filename plus SHA256. Triaged as generated hash; reformatted digest records, no exclusions or scanner weakening. Final source/history scan zero findings.",
   "sbom_scope": "locked Rust packages only; native tool/runtime inventory pending"
 }

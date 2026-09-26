@@ -1,8 +1,8 @@
 {
   "date": "2026-09-26",
   "decision": "fail",
-  "baseline": "private review plus public candidate 02ffb1b merge",
-  "source_sha256": "f1b20f44d5eff4aa5bc1a53ac02fed4dbf726b2f22f0081814e42801a119ed47",
+  "baseline": "private review plus public candidate 4debea7 merge",
+  "source_sha256": "7839cc0b7712c4b00cb8ab55776b72e73adb72eb05282e5e2737eddb9c2890cb",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -16,23 +16,23 @@
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pending",
-      "reason": "Deterministic fail-stop/quarantine tests, forced-pending cancellation, repeated GPU execution, and normal-path sanitizers passed on clean candidate 38bb3d1. A disposable-worker attempt stopped at the former exact-version preflight before the sticky device-fault subprocess. Candidate 02ffb1b replaces that pin with a tested CUDA 13.3+ compatibility policy and still requires the final sticky-fault run."
+      "reason": "Deterministic fail-stop/quarantine tests, forced-pending cancellation, repeated GPU execution, and normal-path sanitizers passed on clean candidate 38bb3d1. A disposable-worker attempt stopped at the former exact-version preflight before the sticky device-fault subprocess. Candidate 4debea7 replaces that pin with a tested CUDA 13.3+ compatibility policy and still requires the final sticky-fault run."
     },
     {
       "id": "final-revision-gpu",
       "status": "pending",
-      "reason": "The Arch experimental normal-path suite passed all 22 commands on clean candidate 38bb3d1, including five repetitions and Compute Sanitizer memcheck/initcheck with zero errors. Because the environment policy changed, candidate 02ffb1b needs a fresh clean disposable-worker run including the sticky device-fault lane."
+      "reason": "The Arch experimental normal-path suite passed all 22 commands on clean candidate 38bb3d1, including five repetitions and Compute Sanitizer memcheck/initcheck with zero errors. Because the environment policy changed, candidate 4debea7 needs a fresh clean disposable-worker run including the sticky device-fault lane."
     },
     {
       "id": "linux-and-hosted-ci",
       "status": "pass",
-      "scope": "Public candidate 02ffb1b passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36240934798. Private audit-only dependency inventory is locally verified, not published."
+      "scope": "Public candidate 4debea7 passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36241552375. Private audit-only dependency inventory is locally verified, not published."
     },
     {
       "id": "release-reporting-provenance-ownership",
       "status": "pending"
     }
   ],
-  "public_candidate": "02ffb1b03a30e17f30121be29f801a8428d765ad",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36240934798"
+  "public_candidate": "4debea77627b5e9a6d3d4048036352885c108b0b",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36241552375"
 }

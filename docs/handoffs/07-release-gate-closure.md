@@ -2,10 +2,10 @@
 
 ## 2026-09-26 remediation candidate
 
-Public candidate `02ffb1b03a30e17f30121be29f801a8428d765ad` adds a reviewed
+Public candidate `4debea77627b5e9a6d3d4048036352885c108b0b` adds a reviewed
 CUDA compatibility range to the separately reviewable GPU ownership,
 validation-lane, and workflow-pin commits. Hosted run
-https://github.com/MannanSaood/gudra/actions/runs/36240934798 passed both CPU
+https://github.com/MannanSaood/gudra/actions/runs/36241552375 passed both CPU
 and security jobs. This includes Linux launcher tests, separate-UID private JIT
 tests, current RustSec/license/source policy, vendor digests, history secret
 scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
@@ -63,7 +63,7 @@ and Compute Sanitizer. It stopped at an overly narrow preflight requiring exact
 CUDA 13.3 and exact Clang 18 package names, before compilation or fault tests.
 Evidence SHA-256:
 `73a8c74e4bc6c352895fba0e35887f0239e92bfc734eb5c0e7d664ef8ebf6743`.
-Candidate `02ffb1b` accepts CUDA 13.3 and later within major 13, requires exact
+Candidate `4debea7` accepts CUDA 13.3 and later within major 13, requires exact
 `nvcc`/`tileiras` major-minor agreement, and checks Clang/libclang capabilities.
 The runtime and sanitizer checks are unchanged.
 
@@ -72,7 +72,7 @@ candidate lane at an exact clean checkout:
 
 ```sh
 git fetch origin
-git checkout --detach 02ffb1b03a30e17f30121be29f801a8428d765ad
+git checkout --detach 4debea77627b5e9a6d3d4048036352885c108b0b
 test -z "$(git status --porcelain)"
 export CUDA_TOOLKIT_PATH=/opt/cuda
 bash scripts/verify-gpu.sh
