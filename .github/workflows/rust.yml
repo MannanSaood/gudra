@@ -55,6 +55,7 @@ jobs:
       - run: python3 scripts/check-vendor.py
       - run: python3 scripts/test-security-tools.py
       - run: python3 scripts/test-private-launcher-linux.py
+      - run: bash scripts/check-gpu-env.sh --policy-self-test
       - name: Separate-user private storage checks on disposable hosted runner
         run: |
           sudo useradd --no-create-home --shell /usr/sbin/nologin jit-victim

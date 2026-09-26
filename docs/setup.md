@@ -23,28 +23,28 @@ The project pins the following validation environment:
 
 | Component | Version or requirement |
 |---|---|
-| OS | Linux x86_64, Ubuntu 24.04 |
+| OS | Linux x86_64 |
 | Rust | 1.89.0 |
 | cuTile | 0.3.1 |
-| CUDA Toolkit | 13.3.0, full development toolkit |
+| CUDA Toolkit | 13.3 or newer within CUDA 13.x; full toolkit; `nvcc` and `tileiras` must match |
 | NVIDIA driver | R610 or newer |
 | GPU | NVIDIA compute capability 8.0+ |
-| Clang | clang-18 and libclang-18-dev |
+| Clang | Clang and discoverable libclang 18 or newer |
 
 The dependency's CUDA floor is documented in the
 [cuTile 0.3.1 release](https://github.com/NVlabs/cutile-rs/releases/tag/v0.3.1).
-The table above is the project's pinned target; the full GPU build/run remains
-unverified. Consult NVIDIA's [CUDA installation guide](https://docs.nvidia.com/cuda/archive/13.3.0/cuda-installation-guide-linux/index.html)
+The table above is the project's reviewed compatibility range. Consult NVIDIA's [CUDA installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/)
 for driver and toolkit installation.
 
 ### Native setup
 
-Install the full CUDA 13.3 toolkit and Clang dependencies, then set:
+Install a full reviewed CUDA toolkit and Clang dependencies, then set paths for
+the selected installation:
 
 ```sh
-export CUDA_TOOLKIT_PATH=/usr/local/cuda-13.3
+export CUDA_TOOLKIT_PATH=/usr/local/cuda
 export PATH="$CUDA_TOOLKIT_PATH/bin:$PATH"
-export LIBCLANG_PATH=/usr/lib/llvm-18/lib
+export LIBCLANG_PATH=/path/to/libclang
 ./scripts/check-gpu-env.sh
 ```
 
@@ -82,7 +82,7 @@ they do not silently skip. First launch may compile the kernel with `tileiras`.
 |---|---|
 | CUDA toolkit not found during cuda-bindings build | Install full toolkit and set CUDA_TOOLKIT_PATH |
 | tileiras missing or incompatible | Use the pinned toolkit's bin directory |
-| libclang or stddef.h missing | Install clang-18 and libclang-18-dev; set LIBCLANG_PATH |
+| libclang or stddef.h missing | Install Clang/libclang 18 or newer; set LIBCLANG_PATH |
 
 ## Validation status
 
