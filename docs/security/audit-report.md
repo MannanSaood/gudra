@@ -2,8 +2,8 @@
 
 ## 2026-09-25 remediation status
 
-Public candidate `1ee62e582912590ae27af6256b6da9c6262aed1c` passed its
-hosted CPU and security workflow in run 36125581179. The SEC-004 ownership
+Public candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb` passed its
+hosted CPU and security workflow in run 36226043973. The SEC-004 ownership
 implementation was independently reviewed; an early asynchronous quarantine
 release was found and fixed, and final review found no bypass through Gudra's
 supported public GPU facade. CPU state-machine and retention tests pass. The

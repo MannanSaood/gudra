@@ -1,11 +1,11 @@
 # Chat 07: release gate remains FAIL
 
-## 2026-09-25 remediation candidate
+## 2026-09-26 remediation candidate
 
-Public candidate `1ee62e582912590ae27af6256b6da9c6262aed1c` contains three
-separately reviewable commits: GPU completion ownership, the final GPU
-validation lane, and the immutable checkout v7.0.1 workflow pin. Hosted run
-https://github.com/MannanSaood/gudra/actions/runs/36125581179 passed both CPU
+Public candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb` adds a corrected
+vendored-crate test selector to the separately reviewable GPU ownership,
+validation-lane, and workflow-pin commits. Hosted run
+https://github.com/MannanSaood/gudra/actions/runs/36226043973 passed both CPU
 and security jobs. This includes Linux launcher tests, separate-UID private JIT
 tests, current RustSec/license/source policy, vendor digests, history secret
 scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
@@ -39,12 +39,19 @@ exited 9 because it could not communicate with the NVIDIA driver. The runner
 failed closed before dependency inspection, compilation, JIT execution, GPU
 tests, or Compute Sanitizer. This is prerequisite failure evidence, not a pass.
 
+The second clean Arch attempt on 2026-09-26 reached the RTX 5060, CUDA 13.4,
+tileiras, and Compute Sanitizer, then exposed an invalid `cargo -p` selector for
+vendored packages. No security or GPU tests ran. Public candidate `38bb3d1`
+selects the crates by manifest path and keeps their outputs under the ignored
+root target directory. It passed hosted CPU/security CI and requires a fresh
+GPU run.
+
 On a trusted ordinary Arch Linux/NVIDIA workstation, run the non-destructive
 candidate lane at an exact clean checkout:
 
 ```sh
 git pull --ff-only
-test "$(git rev-parse HEAD)" = "1ee62e582912590ae27af6256b6da9c6262aed1c"
+test "$(git rev-parse HEAD)" = "38bb3d19aa56817f49b5fcf93cc02396ad36e3eb"
 python3 scripts/run-private-gpu.py -- python3 scripts/verify-gpu-candidate.py --arch-experimental
 sha256sum target/gpu-candidate-evidence.json
 ```

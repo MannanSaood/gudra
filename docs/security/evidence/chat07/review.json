@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "advisory_database_revision": "17af77682cecd2afa72b217ad7c6c30585d5003f",
   "advisory_license_bans_sources": "pass",
   "tools": {
@@ -9,12 +9,12 @@
     "local_cargo_clippy": "1.90.0"
   },
   "independent_review": "The SEC-004 implementation was independently reviewed. Review found an early async-quarantine release, which was fixed; final review found no ownership bypass through Gudra's supported public GPU facade. Direct applications that separately add cutile or cuda-async remain outside that support boundary. Real-device and sticky-fault evidence remains pending. No concrete distinct-UID JIT bypass was found; actual JIT execution remains pending.",
-  "publication": "Only the code-only public candidate 1ee62e582912590ae27af6256b6da9c6262aed1c was pushed. Private audits and findings were excluded.",
+  "publication": "Only the code-only public candidate 38bb3d19aa56817f49b5fcf93cc02396ad36e3eb was pushed. Private audits and findings were excluded.",
   "local_failures": [
     "GPU build exit 101: missing CUDA toolkit",
     "Repository protection and account settings are not authorized or visible to this local review"
   ],
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36125581179",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36226043973",
   "gpu_validation": "pending: normal final-candidate GPU suite and disposable sticky-fault lane",
   "secret_scan": "Initial checksum manifest triggered generic-api-key rule on compile_api filename plus SHA256. Triaged as generated hash; reformatted digest records, no exclusions or scanner weakening. Final source/history scan zero findings.",
   "sbom_scope": "locked Rust packages only; native tool/runtime inventory pending"

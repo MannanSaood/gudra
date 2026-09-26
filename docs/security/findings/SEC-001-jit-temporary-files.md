@@ -80,7 +80,7 @@ publication separation, exact remaining commands and acceptance criteria.
 ## 2026-09-25 verification status
 
 Hosted Linux CPU/security validation passed for final public candidate
-`1ee62e582912590ae27af6256b6da9c6262aed1c`, including separate-UID private
+`38bb3d19aa56817f49b5fcf93cc02396ad36e3eb`, including separate-UID private
 storage and launcher cleanup/rejection tests. The actual cuTile compiler/JIT
 lifecycle is part of the final GPU runner and has not executed on this revision.
 SEC-001 therefore remains verification pending rather than closed.

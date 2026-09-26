@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "decision": "fail",
-  "baseline": "private c1e44f4 plus public candidate 1ee62e5 merge",
-  "source_sha256": "009dd346f06eebe6f12cb6409e099a775e74bfcc8a4ea9cb1d1ac5ee26f02691",
+  "baseline": "private review plus public candidate 38bb3d1 merge",
+  "source_sha256": "37220cd34ed064a9bddd55b586bce38bd79797a383c96384ae8ebd9d49daf8ad",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -11,28 +11,28 @@
     {
       "id": "SEC-001-private-jit-boundary",
       "status": "pending",
-      "reason": "Private compiler patch and hosted Linux helper/separate-UID tests pass at 1ee62e5; the 2026-09-25 Arch attempt stopped at unavailable NVIDIA driver before the actual compiler/JIT lifecycle."
+      "reason": "Private compiler patch and hosted Linux helper/separate-UID tests pass at 38bb3d1; the corrected final-candidate compiler/JIT lifecycle has not yet executed."
     },
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pending",
-      "reason": "Gudra-facade fail-stop/quarantine implementation and deterministic tests are reviewed; the 2026-09-25 Arch attempt stopped at unavailable NVIDIA driver before patched GPU dependencies or real-device fault paths executed."
+      "reason": "Gudra-facade fail-stop/quarantine implementation and deterministic tests are reviewed; the corrected final-candidate patched GPU dependencies and real-device fault paths have not yet executed."
     },
     {
       "id": "final-revision-gpu",
       "status": "pending",
-      "reason": "Clean-revision Arch attempt evidence SHA-256 4301060bafe0c47b2afd2f5aa828d43cc00db174337c8704ceefaff2a3886baa failed closed when nvidia-smi exited 9; no GPU checks executed."
+      "reason": "Two clean-revision attempts on superseded 1ee62e5 failed closed: first at unavailable driver, then at an invalid vendored-package selector. The selector is fixed at 38bb3d1; the GPU suite must be rerun."
     },
     {
       "id": "linux-and-hosted-ci",
       "status": "pass",
-      "scope": "Public candidate 1ee62e5 passed hosted CPU/security, Linux launcher, separate-UID helper, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36125581179. Private audit-only dependency inventory is locally verified, not published."
+      "scope": "Public candidate 38bb3d1 passed hosted CPU/security, Linux launcher, separate-UID helper, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36226043973. Private audit-only dependency inventory is locally verified, not published."
     },
     {
       "id": "release-reporting-provenance-ownership",
       "status": "pending"
     }
   ],
-  "public_candidate": "1ee62e582912590ae27af6256b6da9c6262aed1c",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36125581179"
+  "public_candidate": "38bb3d19aa56817f49b5fcf93cc02396ad36e3eb",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36226043973"
 }

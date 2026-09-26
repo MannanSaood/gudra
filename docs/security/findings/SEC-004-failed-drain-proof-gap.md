@@ -55,7 +55,7 @@ Still unresolved, release blocking. An independent review confirmed the proof ga
 ## 2026-09-25 remediation status
 
 Implementation is complete for Gudra's supported public GPU facade at public
-candidate `1ee62e582912590ae27af6256b6da9c6262aed1c`. Patched root terminals
+candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb`. Patched root terminals
 retain results and a transferred allocation quarantine until completion is
 proven; partial-submit errors synchronize; failed drains/unwinds abort before
 owner release. Upload, readback, zero initialization, session retention, and

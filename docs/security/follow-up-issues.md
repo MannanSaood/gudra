@@ -2,8 +2,8 @@
 
 ## Final public candidate update — 2026-09-25
 
-Public candidate `1ee62e582912590ae27af6256b6da9c6262aed1c` is live on
-`main`; hosted CPU/security run 36125581179 passed. SEC-004 has a reviewed
+Public candidate `38bb3d19aa56817f49b5fcf93cc02396ad36e3eb` is live on
+`main`; hosted CPU/security run 36226043973 passed. SEC-004 has a reviewed
 fail-stop/quarantine implementation for Gudra's safe GPU facade, including
 blocking, async, cancellation, upload, readback, and raw-allocation error paths.
 It remains pending until this exact revision passes the supplied real-device
