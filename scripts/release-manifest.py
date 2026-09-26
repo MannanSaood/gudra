@@ -21,16 +21,19 @@ def main():
     if subprocess.check_output(['git','status','--porcelain'], cwd=ROOT).strip():
         raise SystemExit('FAIL: require a clean approved checkout')
     revision = subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()
-    def identities(paths):
+    def identities(paths, *, resolve_symlinks=False):
         entries = []
         for path in paths:
-            if path.is_symlink() or not path.is_file():
+            candidate = path.resolve(strict=True) if resolve_symlinks else path
+            if (path.is_symlink() and not resolve_symlinks) or not candidate.is_file():
                 raise SystemExit('FAIL: artifacts/tools must be regular files')
-            entries.append({'name': path.name, 'sha256': digest(path), 'bytes': path.stat().st_size})
+            entries.append({'name': path.name, 'sha256': digest(candidate),
+                            'bytes': candidate.stat().st_size})
         if len({e['name'] for e in entries}) != len(entries):
             raise SystemExit('FAIL: duplicate artifact/tool basenames')
         return entries
-    artifacts, tools = identities(args.artifact), identities(args.tool)
+    artifacts = identities(args.artifact)
+    tools = identities(args.tool, resolve_symlinks=True)
     lock_packages = tomllib.loads((ROOT/'Cargo.lock').read_text())['package']
     metadata = json.loads(subprocess.check_output(
         ['cargo', 'metadata', '--locked', '--format-version', '1'], cwd=ROOT, text=True
