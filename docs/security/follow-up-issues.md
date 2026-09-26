@@ -6,12 +6,11 @@ Public candidate `4debea77627b5e9a6d3d4048036352885c108b0b` is live on
 `main`; hosted CPU/security run 36241552375 passed. SEC-004 has a reviewed
 fail-stop/quarantine implementation for Gudra's safe GPU facade, including
 blocking, async, cancellation, upload, readback, and raw-allocation error paths.
-The clean `38bb3d1` Arch run passed the supplied normal real-device state,
-numerical, cancellation, compiler/JIT, and sanitizer tests. SEC-001 is closed.
-SEC-004 and final GPU validation remain pending for a clean `4debea7`
-disposable-worker run and deliberate sticky device-fault subprocess. The prior
-attempt stopped at the obsolete exact CUDA/Clang preflight; the current candidate
-uses bounded capability checks. No historical GPU result is attributed to this candidate.
+The clean pinned `4debea7` Arch run passed all 24 real-device commands: numerical,
+cancellation, compiler/JIT, ownership seams, repeated execution, drop-in-flight,
+the deliberate sticky device-fault fail-stop, and sanitizer tests. Evidence
+SHA-256 is `423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0`.
+SEC-001, SEC-004, and final GPU validation are closed.
 
 The release decision remains **FAIL**. Private reporting, branch/release-ref
 protection, required reviews/check enforcement, maintainer MFA/minimal package

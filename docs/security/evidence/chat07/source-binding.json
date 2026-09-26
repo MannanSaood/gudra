@@ -8,5 +8,6 @@
   "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36241552375",
   "normal_gpu_evidence": "pass: clean 38bb3d1 Arch experimental run, SHA-256 864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821",
   "failed_disposable_attempt": "clean 38bb3d1 attempt stopped at obsolete exact CUDA/Clang preflight; evidence SHA-256 73a8c74e4bc6c352895fba0e35887f0239e92bfc734eb5c0e7d664ef8ebf6743",
-  "remaining_gpu_evidence": "pending: clean 4debea7 disposable-worker run plus sticky device-fault lane"
+  "final_gpu_evidence": "pass: clean pinned disposable-worker 4debea7 run, 24/24 commands exit zero, SHA-256 423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0",
+  "remaining_gpu_evidence": "none"
 }

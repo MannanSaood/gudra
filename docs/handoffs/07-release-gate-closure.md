@@ -21,26 +21,28 @@ early async-quarantine release; its final pass found no Gudra-public bypass.
 Direct applications that separately depend on backend crates are outside Gudra's
 supported facade.
 
-This is implemented mitigation awaiting final device evidence, not closure.
-The current revision must compile and run on Linux/CUDA, including the host
-state-machine tests, forced-pending cancellation, sticky device-fault subprocess,
-and Compute Sanitizer. SEC-001 likewise still needs the actual compiler/JIT
-lifecycle on that revision. Repository reporting/protection/account/MFA/package
+The implementation and final device evidence are complete. Clean pinned candidate
+`4debea7` passed all 24 commands, including host state-machine tests,
+forced-pending cancellation, the CUDA 719 sticky device-fault fail-stop,
+five repeated GPU runs, and Compute Sanitizer memcheck/initcheck with zero errors.
+Evidence SHA-256 is
+`423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0`.
+SEC-001, SEC-004, and final GPU validation are closed. Repository reporting/protection/account/MFA/package
 ownership/retention and signed provenance settings remain externally unverified.
 The gate therefore remains **FAIL**.
 
 ## Current remaining validation
 
-The clean Arch experimental run on 2026-09-26 passed all 22 recorded commands
+The earlier clean Arch experimental run on 2026-09-26 passed all 22 recorded commands
 on `38bb3d1`. It covered the actual private JIT lifecycle, GPU compilation and
 Clippy, API docs/doctests, ownership compile-fail controls, deterministic
 fail-stop/retention seams, five repeated numerical/readback/budget/cancellation
 runs, and Compute Sanitizer memcheck/initcheck with zero errors. Evidence
 SHA-256: `864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821`.
-SEC-001 is closed for supported invocation paths. This normal workstation lane
-did not enable the deliberate sticky device-fault subprocess and does not replace
-the pinned disposable-worker lane, so SEC-004 and final GPU validation remain
-pending.
+SEC-001 is closed for supported invocation paths. That normal workstation lane
+did not enable the deliberate sticky device-fault subprocess. The later clean
+pinned `4debea7` disposable run supplied that final evidence and closed SEC-004
+and final GPU validation.
 
 The first Arch attempt on 2026-09-25 was bound to clean revision `1ee62e5`
 and evidence SHA-256
@@ -79,9 +81,9 @@ bash scripts/verify-gpu.sh
 sha256sum target/gpu-candidate-evidence.json
 ```
 
-Return the JSON evidence and its SHA-256 digest. `verify-gpu.sh` adds the fault
-subprocess and may poison a CUDA context, so this command is limited to the
-explicitly authorized disposable isolated worker. Release administration also remains pending: private
+This command has now passed and is retained as the reproduction procedure.
+`verify-gpu.sh` adds the fault subprocess and may poison a CUDA context, so it
+remains limited to an explicitly authorized disposable isolated worker. Release administration remains pending: private
 reporting, protected refs and required checks/reviews, maintainer MFA, minimal
 package ownership, log/artifact access and retention, native redistribution
 rights, clean immutable builds, SBOM, artifact checksums, and signed provenance.
@@ -96,12 +98,12 @@ See `docs/security/evidence/chat07/source-binding.json` for source binding.
 
 | Workstream | Starting evidence | Implementation/result | Environment | Owner/decision | Completion criterion |
 |---|---|---|---|---|---|
-| SEC-001 | Registry compiler shared transient files | Vendored pinned Apache-2.0 compiler; private Linux directory covers compile AND version probe; exclusive input/regular output; cleanup; dependency digest enforcement | Linux helper/unit/separate-UID hosted tests PASS; real compiler/GPU pending | Runtime maintainer assignment unaccepted; due 2026-09-26 | Execute actual compiler lifecycle regression and real GPU compilation/loading; verify interruption policy |
-| SEC-004 | Failed drain does not retain outer owners | Independently traced deeper blocking and execution-error gaps; no incomplete outer guard claimed as fix | Dependency redesign plus deterministic seams and isolated GPU faults still needed | Runtime safety maintainer assignment pending; due 2026-09-26 | Every owner retained until confirmed completion or enforced fail-stop before any unsafe destruction/reuse |
-| GPU | Historical results only | Candidate runner records identities, clean tree, commands, exit codes, UI/docs/numerics/budgets/repetitions/sanitizers | Friend's Arch/5060 available only through user-mediated pull; no agent access; local GPU build fails 101 | GPU maintainer / isolated worker required | Final exact source passes; forced-pending/fault seams still missing |
+| SEC-001 | Registry compiler shared transient files | Vendored pinned Apache-2.0 compiler; private Linux directory covers compile and version probe; exclusive input/regular output; cleanup; dependency digest enforcement | Hosted separate-UID tests and final real compiler/GPU lifecycle PASS | Repository owner until delegated | Complete: supported invocation paths verified |
+| SEC-004 | Failed drain did not retain outer owners | Dependency terminals retain/quarantine owners; failed completion enforces worker fail-stop | Deterministic seams, cancellation, drop-in-flight, CUDA 719 fault test and sanitizers PASS | Repository owner until delegated | Complete: owner retention or fail-stop verified |
+| GPU | Historical results only | Candidate runner records identities, clean tree, commands, exit codes, UI/docs/numerics/budgets/repetitions/sanitizers | Clean pinned Arch/RTX 5060 disposable run: 24/24 PASS | Repository owner until delegated | Complete at immutable candidate `4debea7` |
 | Linux/CI | Prior Windows-only evidence | Hardened CPU/security workflow and launcher/installer/vendor/cross-UID tests PASS at public candidate | Hosted Ubuntu disposable runner | Required-check enforcement still owner-controlled | CI executed; external enforcement belongs to release administration |
 | Release | No selected license/settings evidence | Owner authorized MIT choice; license installed; compiler remains Apache-2.0. Unsigned manifest/checksum/SBOM tooling and instructions added | Signing/registry/repository settings unavailable; API protection request HTTP 401 | Repository/release owner | Verify reporting, reviews/checks/ref protection, MFA/minimal owners, retention, native rights, signed provenance |
-| Review/gate | Recorded FAIL | Independent investigation and candidate review; source-bound gate remains FAIL | Local review + hosted CI; CUDA unavailable | No medium-risk acceptance granted | All remaining blockers close with actual evidence |
+| Review/gate | Recorded FAIL | Independent investigation and source-bound review; technical gates pass, administration remains | Local review + hosted CI + disposable GPU | Repository/release owner | External release protections and provenance verified |
 
 ## Published vs private
 
@@ -175,7 +177,7 @@ protected signing/verification design. The generated SBOM inventories Rust only;
 it is not a native/runtime completeness claim. No distributed artifacts exist to
 sign or checksum under this prompt.
 
-Run `python3 scripts/check-release-gate.py`: expected exit 1 with pending SEC-001,
-SEC-004, final GPU, and release-administration checks. Gate FAIL is evidence-backed,
+Run `python3 scripts/check-release-gate.py`: expected exit 1 with only the
+release-administration check pending. Gate FAIL is evidence-backed,
 not a claim of a confirmed high/critical exploit. There is no accepted remaining
 medium-risk waiver and no release authorization.

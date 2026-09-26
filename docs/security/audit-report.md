@@ -7,15 +7,15 @@ hosted CPU and security workflow in run 36241552375. The SEC-004 ownership
 implementation was independently reviewed; an early asynchronous quarantine
 release was found and fixed, and final review found no bypass through Gudra's
 supported public GPU facade. The patched dependencies, actual JIT lifecycle,
-normal GPU suite, forced-pending cancellation, and Compute Sanitizer passed on
-the clean final revision. The disposable sticky device-fault subprocess remains
-unexecuted.
+normal GPU suite, forced-pending cancellation, sticky device-fault fail-stop,
+and Compute Sanitizer passed on the clean final revision. Evidence SHA-256 is
+`423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0`.
 
 SEC-001's private compilation storage passed hosted Linux helper and
 separate-UID tests plus the actual final-candidate compiler/JIT and GPU-load
-lifecycle. SEC-001 is closed for supported invocation paths. The normal Arch
-GPU lane passed, including memcheck and initcheck with zero errors; the pinned
-disposable sticky-fault lane remains pending.
+lifecycle. SEC-001 is closed for supported invocation paths. The pinned Arch
+GPU lane passed all 24 commands, including the disposable sticky-fault test and
+memcheck/initcheck with zero errors. SEC-004 and final GPU validation are closed.
 No critical or high vulnerability has been confirmed. Repository protections,
 private reporting, maintainer and package-owner controls, retention, native
 redistribution rights, and signed release provenance remain externally
@@ -118,9 +118,9 @@ Local workaround uses installed Cargo 1.90 with explicit Rust 1.89 compiler/rust
 | Required criterion | Disposition |
 |---|---|
 | No unresolved critical/high | Met within reviewed evidence; none validated |
-| Medium owner/deadline/rationale | Recorded for SEC-001; owner assignment needs confirmation; no blanket risk acceptance |
-| Every unsafe boundary documented and tested or removed | **Not met**: generated/runtime fault paths and final GPU changes unverified |
-| Automated dependency and CI policies | Implemented locally; hosted run/enforcement pending |
+| Medium owner/deadline/rationale | SEC-001 is closed; no unresolved medium finding requires acceptance |
+| Every unsafe boundary documented and tested or removed | Met for the reviewed code boundary; final JIT, fault and sanitizer evidence passed |
+| Automated dependency and CI policies | Implemented and hosted workflow passed; required-check enforcement remains an administrative gate |
 | Public claims match evidence | README/API/setup and SECURITY updated; no production isolation/fault-recovery claim |
 | Supported reporting/release provenance/ownership | Policy specified; settings/license/first-release proof pending |
 

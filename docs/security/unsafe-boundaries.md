@@ -11,9 +11,9 @@ established before fallible host-to-device copies, closing the prior physical
 allocation and logical-accounting gap.
 
 Deterministic CPU tests establish state transitions and owner retention,
-including the corrected asynchronous handoff. They cannot establish driver
-stream ordering, real CUDA fault behavior, or sanitizer cleanliness; those
-properties remain pending on the exact final revision. Gudra keeps backend
+including the corrected asynchronous handoff. The clean pinned final revision
+also passed drop-in-flight, forced CUDA 719 fail-stop, repeated execution, and
+Compute Sanitizer memcheck/initcheck on the disposable GPU worker. Gudra keeps backend
 fields private and does not expose raw operations, graph construction, SIMT
 APIs, or cuTile tensor constructors. Applications that separately depend on
 `cutile` or `cuda-async` must review and support those additional boundaries.
@@ -55,14 +55,14 @@ The [dependency lexical inventory](dependency-unsafe-inventory.csv) records ever
 |---|---|---|
 | Shape arithmetic and casts | Positive axes; checked halo/products/bytes; isize bytes, i32 axes/counts/stride; each grid axis <=65535 | `src/shape.rs`; overflow/zero/grid tests pass on CPU |
 | Host reference indexing | Exact lengths first; index within initialized slices | `src/reference.rs`; independent oracle and atomic validation tests pass |
-| Upload/allocation | f32 layout; validated contiguous counts; host Arc through copy terminal; private buffer/session | `cutile_impl.rs`; dependency DeviceBuffer/allocator/API paths reviewed; final GPU checks blocked locally |
+| Upload/allocation | f32 layout; validated contiguous counts; host Arc through copy terminal; private buffer/session | `cutile_impl.rs`; dependency paths reviewed; final allocation, budget and sanitizer GPU checks pass |
 | Directional views | Fixed offsets, halo stride width+2, no exposed view constructors | Five slices and metadata checks in `directional_views`; labeled view probes previously recorded on GPU |
-| Generated launch | 16x16 partition; disjoint output tiles; correct rank/address space and partial-tile masks | `kernels.rs`, pinned macro launcher and kernel load paths reviewed; prior sanitizer evidence only |
-| Context and threads | Arc session equality, device binding on entry and resumed poll; retained device/stream | `validate_step`; cuda-core runtime Send/Sync and cuda-async future/launch/reactor review; final UI/GPU rerun required |
+| Generated launch | 16x16 partition; disjoint output tiles; correct rank/address space and partial-tile masks | `kernels.rs`, pinned launcher and load paths reviewed; final memcheck/initcheck and partial-tile tests pass |
+| Context and threads | Arc session equality, device binding on entry and resumed poll; retained device/stream | Runtime review plus final cross-thread owned-future, session rejection and repeated GPU tests pass |
 | Readback | Device Arc retained until sync terminal returns; fresh host Vec initialized by completed transfer | Current explicit retained Arc repairs earlier issue; `073f7c6` remote Memcheck/Initcheck zero errors; failed sync separate |
-| Borrowed execution error/unwind | Output marked uncertain before backend call; only success restores readiness | CPU injection tests pass; GPU invalidation test supplied; quiescence after driver error unproved |
-| Async cancellation/drop | Outer frame owns buffers; child drop drains private stream | Normal-path source review; unpolled and ordinary lifecycle tests; forced-pending/failed-drain retention incomplete (SEC-004) |
-| Resource admission | Atomic logical accounting, checked additions, RAII rollback, forgotten owners remain charged | CPU concurrent/overflow/exhaustion/unwind tests pass; new GPU wiring regression awaits execution |
+| Borrowed execution error/unwind | Output marked uncertain before backend call; only success restores readiness; undrainable fault aborts worker | CPU seams, GPU invalidation and CUDA 719 fail-stop test pass |
+| Async cancellation/drop | Outer frame owns buffers; child drop drains private stream or fail-stops before release | Unpolled, forced-pending, drop-in-flight and failed-drain fault tests pass; SEC-004 closed |
+| Resource admission | Atomic logical accounting, checked additions, RAII rollback, forgotten owners remain charged | CPU and final GPU allocation/exhaustion/release tests pass |
 | JIT subprocess/artifact load | Trusted compiler/native libraries; authenticated writer boundary before unsafe cuModuleLoadData | Transient files SEC-001; private Linux launcher added; no adversarial image executed |
 | Native negative control | CUDA C++ fixture has explicit f32 pointers and manual launch; constant bounds and initialized storage | `fixtures/in_place_jacobi.cu`; intentional in-place global race, excluded from product and security-vulnerability count |
 

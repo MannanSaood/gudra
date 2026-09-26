@@ -4,7 +4,7 @@
 
 - ID: SEC-004
 - Title: Failed stream drain does not establish outer-owner retention
-- Status: suspected safety failure; confirmed proof gap
+- Status: closed by owned retention/fail-stop implementation and final device evidence
 - Severity: informational (no validated exploit severity)
 - Affected versions/components: cuda-async 0.3.1 DeviceFuture; Gudra owned async facade
 - Reporter/date: independent local audit, 2026-09-19
@@ -42,13 +42,14 @@ Retaining borrowed results does not retain their owners; numerical invalidation 
 
 ## Verification
 
-Normal source paths, retained readback fix and prior normal-path sanitizer logs reviewed. Fault proof and final GPU tests remain pending. This record blocks safety acceptance rather than inflating an uncertain exploit to high severity.
+Normal source paths, retained readback, deterministic seams, final fault proof,
+and final GPU sanitizer logs passed. See the closure evidence below.
 
 ## Disclosure
 
 Local follow-up only. No upstream report, exploit test outside project scope, or CVE request.
 
-## Chat 07 review
+## Historical Chat 07 review before remediation
 
 Still unresolved, release blocking. An independent review confirmed the proof gap extends beyond async drop: cuda-async device_operation.rs sync_on drops its result when synchronization fails; execute unwind skips synchronization. DeviceFuture consumes its operation before storing a result, so partial submission errors/unwinds lack retention. Backend-local host DMA destinations also prevent a first-party outer guard from proving safety. A reviewed dependency-level ownership/fail-stop redesign and actual fault seam tests are still required. No exploit or severity escalation is asserted. Owner acceptance remains pending; deadline 2026-09-26.
 
@@ -71,6 +72,20 @@ budget tests, and Compute Sanitizer memcheck/initcheck with zero errors. Evidenc
 SHA-256: `864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821`.
 The deliberate sticky device-fault subprocess was not enabled and remains the
 material proof gap requiring an isolated disposable GPU worker.
+
+## 2026-09-26 closure evidence
+
+Clean pinned disposable-worker candidate
+`4debea77627b5e9a6d3d4048036352885c108b0b` passed all 24 recorded commands.
+The deliberately sticky device-fault test generated CUDA error 719; the child
+worker aborted under the fail-stop policy before owners could be released, and
+the isolated parent harness passed. Deterministic retention seams, unpolled and
+forced-pending cancellation, five repeated GPU runs, drop-in-flight behavior,
+and Compute Sanitizer memcheck/initcheck also passed with zero sanitizer errors.
+Evidence SHA-256:
+`423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0`.
+This closes the proof gap for Gudra's supported GPU facade and enforced
+worker-disposal contract. It does not claim recovery of a poisoned CUDA context.
 
 The user authorized selection of the accountable role on 2026-09-25. The
 repository owner holds the remaining device-validation work until a runtime

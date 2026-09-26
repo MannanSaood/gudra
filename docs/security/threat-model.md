@@ -10,11 +10,11 @@ fail-stop so the address space cannot free or reuse memory that the GPU may
 still access. Direct use of separately declared `cutile` or `cuda-async`
 dependencies expands the boundary and is outside Gudra's support contract.
 
-The final candidate passed hosted CPU/security and separate-UID JIT helper
-tests. Real CUDA behavior remains unverified. Ordinary GPU validation may run
-on a trusted non-production workstation; the sticky device-fault test must run
-only in an explicitly authorized disposable worker with no production data,
-credentials, or unrelated workloads. Until those runs and the external release
+The final candidate passed hosted CPU/security, separate-UID JIT helper tests,
+and all 24 pinned GPU commands on an authorized disposable worker. The device
+fault produced CUDA 719 and the child worker followed the required fail-stop
+path; repeated execution and Compute Sanitizer memcheck/initcheck also passed.
+SEC-001, SEC-004, and final GPU validation are closed. Until external release
 administration checks complete, the release gate remains **FAIL**.
 
 ## Chat 07 candidate update — 2026-09-22
@@ -107,7 +107,7 @@ Assets are host/device grids, result integrity, GPU/host availability, allocatio
 
 The safe facade enforces lengths, positive representable dimensions, checked byte arithmetic, bounded tile grid, compact strides, immutable source roles, exclusive output borrows and session identity. Views/offsets are fixed internally; callers cannot create malformed strides or alternate mutable views. Partial-tile masking, alignment, address spaces, launch generation and final storage reclamation remain dependency/driver obligations.
 
-Blocking calls retain borrows through synchronization. Owned lazy futures retain all owners and session, including before first poll. Normal cancellation drains; it does not cancel GPU execution. Completion invalidation prevents a failed borrowed output being treated as ready. Failed drains do **not** establish quiescence or outer-owner retention; see SEC-004. Forgetting owners/futures leaks storage and keeps budget reservations charged.
+Blocking calls retain borrows through synchronization. Owned lazy futures retain all owners and session, including before first poll. Normal cancellation drains; it does not cancel GPU execution. Completion invalidation prevents a failed borrowed output being treated as ready. Failed drains quarantine owners and enforce process fail-stop before destruction; the CUDA 719 disposable-worker test verifies this contract. Forgetting owners/futures leaks storage and keeps budget reservations charged.
 
 No actual production service, GPU tenant architecture or remote peer was supplied. These deployment cases are conditional, not invented exposure. Recorded GPU results concern earlier commit `073f7c6`, reported Arch/CUDA 13.4 hardware; they are user-supplied evidence, not this audit's GPU execution or proof of the final changed revision. Public README/API/setup status text was reconciled accordingly.
 
@@ -115,12 +115,12 @@ No actual production service, GPU tenant architecture or remote peer was supplie
 
 | Priority | Scenario/capability gain | Prerequisites and impact | Controls and disposition |
 |---|---|---|---|
-| Medium, SEC-001 | Local co-user observes transient .bc name and interferes with derived .cubin path before compiler/readback | Discoverable shared temp; output-open/OS behavior determines whether failure or code substitution succeeds. Possible victim computation/memory corruption or denial of service | Private startup TMPDIR wrapper mitigates supported verification path; upstream private per-compilation directory remains required. No hostile cubin executed |
+| Closed, SEC-001 | Local co-user observes transient .bc name and interferes with derived .cubin path before compiler/readback | Discoverable shared temp could permit substitution | Vendored private per-compilation storage, ancestor checks, exclusive creation, cleanup, separate-UID tests and final JIT lifecycle pass |
 | Conditional service concern, SEC-002 | Client requests valid 32768x32768 field (4 GiB) or accumulates jobs | Application maps input to GPU API without its own quotas; affects service availability | New session budgets reject before backend allocation/submission; static shape budget checks precede host allocation. OS/process/input quotas still mandatory |
 | High-impact trust boundary; no exploit established | Malicious build script/proc macro/native tool runs as developer/CI user | Malicious dependency selection or compromised source/tool installation | Locked checksummed registry graph; exact cuTile; executable-capability inventory; advisory/license policy; unprivileged disposable builds; review dependency updates |
 | Hardening, SEC-003 | Mutable action or overprivileged CI code compromises delivery authority | Original workflow inherited permissions and mutable checkout tag; no secret exposure established | Pinned SHA, explicit read-only permissions, no persisted credentials, locked builds and security checks. External protection settings remain unverified |
 | Conditional cache risk | Co-user writes a store explicitly enabled by application | Cache write authority and opt-in required; checksums forgeable by writer | Persistence off by default; trust store permissions/custom backend; soft 2 GiB eviction is not disk quota |
-| Proof gap, SEC-004 | Device fault fails drain then owners drop while work might remain | Requires specific CUDA fault with live execution; not reproduced | Normal drains/retained readback reviewed. No recovery/retention guarantee under failure; isolated worker, fail release pending proof or quarantine design |
+| Closed proof gap, SEC-004 | Device fault fails drain while work might remain | CUDA fault with live execution | Owners are retained/quarantined and an undrainable worker aborts before release; deterministic seams and disposable CUDA 719 test pass. Poisoned-context recovery is outside the contract |
 | Correctness, no vulnerability | Stale halo, unstable omega, NaN/infinity, intentional in-place CUDA fixture | Usually self-only result impact | Explicit numerical contract, independent oracle and negative-control labeling; no convergence or safety-critical certification claim |
 | Future design only | Peer imports invalid/replayed memory descriptor or completion claim | No current API | Require peer identity/authentication, authorization, size/offset/stride validation, context binding, leases/revocation, ownership/fences, transport integrity/replay controls and quota design before implementation |
 
