@@ -1,8 +1,8 @@
 {
   "date": "2026-09-26",
   "decision": "fail",
-  "baseline": "private review plus public candidate 57fb542 merge",
-  "source_sha256": "00ca6ffff029cb95f1733759238a646fc5159cd5fb710b544fd9dcae3bb81337",
+  "baseline": "private review plus public candidate 90d6d88 merge",
+  "source_sha256": "6f4ed8aad9446d4f33eb39424f9491e5cd64864ffa5f4d5af7bd99a1b420bd34",
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -26,14 +26,14 @@
     {
       "id": "linux-and-hosted-ci",
       "status": "pass",
-      "scope": "Public candidate 57fb542 passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36243147752. The only changes after validated GPU candidate 4debea7 are release workflow, provenance documentation, and release-manifest generation; runtime, dependencies, GPU tests and GPU policy are identical."
+      "scope": "Public candidate 90d6d88 passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36244072433. The only changes after validated GPU candidate 4debea7 are release workflow, provenance documentation, and release-manifest generation; runtime, dependencies, GPU tests and GPU policy are identical."
     },
     {
       "id": "release-reporting-provenance-ownership",
       "status": "pending",
-      "reason": "Attested clean-revision release evidence, complete locked Rust SBOM, checksums, bounded artifact retention, and explicit non-redistribution of external CUDA/NVIDIA prerequisites are implemented at 57fb542. GitHub private reporting, protected refs/required checks, repository workflow defaults/retention, maintainer MFA, package ownership, and actual attestation execution still require authenticated owner verification."
+      "reason": "Private reporting, required CPU/security checks, protected main and v* tags, pinned GitHub-owned Actions, read-only workflow tokens, 14-day retention, secret scanning, the protected-branch release environment, maintainer MFA, minimal repository/package ownership, clean immutable build, 135-component SBOM, checksums and Sigstore attestations are verified. The owner explicitly selected solo-maintainer protection, so no independent review is required by configuration; this does not satisfy the original required-review acceptance criterion."
     }
   ],
-  "public_candidate": "57fb542808ccef9060e739459d6f98a26044cb7c",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36243147752"
+  "public_candidate": "90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36244072433"
 }

@@ -2,8 +2,8 @@
 
 ## Final public candidate update — 2026-09-26
 
-Public candidate `57fb542808ccef9060e739459d6f98a26044cb7c` is live on
-`main`; hosted CPU/security run 36243147752 passed. Its delta after GPU candidate
+Public candidate `90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2` is live on
+`main`; hosted CPU/security run 36244072433 passed. Its delta after GPU candidate
 `4debea7` is limited to release workflow, provenance documentation and manifest
 generation. SEC-004 has a reviewed
 fail-stop/quarantine implementation for Gudra's safe GPU facade, including
@@ -18,6 +18,12 @@ The release decision remains **FAIL**. Private reporting, branch/release-ref
 protection, required reviews/check enforcement, maintainer MFA/minimal package
 owners, retention, and signed provenance remain external owner checks. These
 private audit records were not included in the public commits.
+
+The external checks were subsequently verified except independent review.
+Private reporting, required checks, protected refs, MFA, minimal ownership,
+14-day retention, and attested provenance pass. The owner explicitly chose a
+solo-maintainer configuration with zero required approvals, so the original
+required-review acceptance criterion remains open.
 
 The user authorized owner selection on 2026-09-25. The repository owner is the
 accepted accountable owner for SEC-001, SEC-004, GPU validation, release

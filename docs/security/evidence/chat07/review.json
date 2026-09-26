@@ -9,12 +9,12 @@
     "local_cargo_clippy": "1.90.0"
   },
   "independent_review": "The SEC-004 implementation was independently reviewed. Review found an early async-quarantine release, which was fixed; final review found no ownership bypass through Gudra's supported public GPU facade. Direct applications that separately add cutile or cuda-async remain outside that support boundary. Final clean pinned real-device, sticky-fault and sanitizer evidence passed. No concrete distinct-UID JIT bypass was found; separate-UID and actual JIT execution tests passed.",
-  "publication": "Only public implementation candidates through 57fb542808ccef9060e739459d6f98a26044cb7c were pushed. Private audits, findings, and GPU evidence were excluded.",
+  "publication": "Only public implementation candidates through 90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2 were pushed. Private audits, findings, and GPU evidence were excluded.",
   "local_failures": [
     "GPU build exit 101: missing CUDA toolkit",
     "Repository protection and account settings are not authorized or visible to this local review"
   ],
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36243147752",
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36244072433",
   "gpu_validation": "pass: clean pinned disposable-worker candidate 4debea7 passed all 24 commands, including deterministic ownership seams, five repetitions, drop-in-flight, sticky CUDA 719 fail-stop, and Compute Sanitizer memcheck/initcheck with zero errors; evidence SHA-256 423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0",
   "secret_scan": "Initial checksum manifest triggered generic-api-key rule on compile_api filename plus SHA256. Triaged as generated hash; reformatted digest records, no exclusions or scanner weakening. Final source/history scan zero findings.",
   "sbom_scope": "locked Rust packages only; native tool/runtime inventory pending"

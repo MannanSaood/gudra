@@ -1,0 +1,54 @@
+{
+  "observed_utc": "2026-09-26T13:10:00Z",
+  "repository": "MannanSaood/gudra",
+  "public_candidate": "90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2",
+  "private_vulnerability_reporting": true,
+  "main_protection": {
+    "required_checks": ["cpu", "security"],
+    "strict_up_to_date": true,
+    "admin_enforcement": true,
+    "required_reviews": 0,
+    "policy_rationale": "Repository owner explicitly selected solo-maintainer protection on 2026-09-26.",
+    "linear_history": true,
+    "conversation_resolution": true,
+    "force_pushes": false,
+    "deletions": false
+  },
+  "release_tag_ruleset": {
+    "id": 24041028,
+    "pattern": "refs/tags/v*",
+    "enforcement": "active",
+    "prevent_deletion": true,
+    "prevent_non_fast_forward": true,
+    "bypass": "none"
+  },
+  "actions": {
+    "allowed": "selected",
+    "github_owned_only": true,
+    "sha_pinning_required": true,
+    "default_token": "read",
+    "can_approve_pull_requests": false,
+    "artifact_and_log_retention_days": 14
+  },
+  "security_services": {
+    "dependabot_security_updates": true,
+    "secret_scanning": true,
+    "secret_scanning_push_protection": true
+  },
+  "release_environment": {
+    "protected_branches_only": true,
+    "custom_branch_policies": false
+  },
+  "repository_collaborators": ["MannanSaood:admin"],
+  "github_releases": [],
+  "git_tags": [],
+  "provenance_run": "https://github.com/MannanSaood/gudra/actions/runs/36244118269",
+  "provenance_status": "pass",
+  "source_archive_sha256": "4401ff16bad44522c2fe510a6787d9c89c92594fdaf9a4de4039786265902320",
+  "sbom_sha256": "bc85b27f41a1253566633ef309647c0aa7a76cc69b51586d3d75d798015eda0d",
+  "sbom_components": 135,
+  "checksums_verified": true,
+  "attestations_verified_with": "gh 2.101.0 portable, GitHub asset SHA-256 bc6c814367b193cd8e713611d61e36013c0ef843b8f516458fe3eda039192794",
+  "account_mfa": "pass: authenticated user MannanSaood reports two_factor_authentication=true",
+  "package_ownership": "pass: Gudra has no associated GitHub package; the only public package is container punch and is associated with the separate MannanSaood/Punch repository"
+}

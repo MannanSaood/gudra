@@ -2,8 +2,8 @@
 
 ## 2026-09-26 remediation status
 
-Public candidate `57fb542808ccef9060e739459d6f98a26044cb7c` passed its
-hosted CPU and security workflow in run 36243147752. Its post-GPU delta contains
+Public candidate `90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2` passed its
+hosted CPU and security workflow in run 36244072433. Its post-GPU delta contains
 only release workflow, provenance documentation and manifest generation. The
 runtime, dependencies and GPU policy remain identical to pinned GPU candidate
 `4debea7`. The SEC-004 ownership
@@ -19,10 +19,12 @@ separate-UID tests plus the actual final-candidate compiler/JIT and GPU-load
 lifecycle. SEC-001 is closed for supported invocation paths. The pinned Arch
 GPU lane passed all 24 commands, including the disposable sticky-fault test and
 memcheck/initcheck with zero errors. SEC-004 and final GPU validation are closed.
-No critical or high vulnerability has been confirmed. Repository protections,
-private reporting, maintainer and package-owner controls, retention, native
-redistribution rights, and signed release provenance remain externally
-unverified. The release decision therefore remains **FAIL**.
+No critical or high vulnerability has been confirmed. Private reporting,
+required checks, protected refs, workflow restrictions, maintainer MFA, minimal
+ownership, retention, native non-redistribution, checksums, SBOM and signed
+provenance are verified. The owner explicitly selected a solo-maintainer policy
+with no required approval, so the original independent-review criterion remains
+unmet and the release decision remains **FAIL**.
 
 ## Chat 07 candidate update — 2026-09-22
 

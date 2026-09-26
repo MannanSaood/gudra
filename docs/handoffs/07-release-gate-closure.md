@@ -2,10 +2,10 @@
 
 ## 2026-09-26 remediation candidate
 
-Public candidate `57fb542808ccef9060e739459d6f98a26044cb7c` adds an attested
+Public candidate `90d6d88bd488f5d30c8693edb72a5ffee2f6d7c2` adds an attested
 clean-revision release-evidence workflow and provenance guide to the validated
 GPU candidate. Hosted run
-https://github.com/MannanSaood/gudra/actions/runs/36243147752 passed both CPU
+https://github.com/MannanSaood/gudra/actions/runs/36244072433 passed both CPU
 and security jobs. This includes Linux launcher tests, separate-UID private JIT
 tests, current RustSec/license/source policy, vendor digests, history secret
 scanning, CPU debug/release tests, UI controls, Clippy, formatting, and docs.
@@ -33,6 +33,15 @@ Evidence SHA-256 is
 SEC-001, SEC-004, and final GPU validation are closed. Repository reporting/protection/account/MFA/package
 ownership/retention and signed provenance settings remain externally unverified.
 The gate therefore remains **FAIL**.
+
+Repository administration is otherwise verified on 2026-09-26: private
+reporting, required CPU/security checks, protected `main` and `v*` tags,
+SHA-pinned GitHub-owned Actions, read-only workflow tokens, 14-day retention,
+secret scanning/push protection, maintainer MFA, sole-owner access, absence of a
+Gudra package, and the protected-branch release environment. Attested evidence
+run 36244118269 passed for `90d6d88`; downloaded checksums and attestations were
+verified. The owner explicitly selected a solo-maintainer policy, leaving the
+original independent-review acceptance criterion unmet.
 
 ## Current remaining validation
 
