@@ -45,3 +45,29 @@ Publication requires a separate owner decision after repository protections,
 private reporting, maintainer account protection, package ownership, and the
 recorded release gate have all been verified. Never upload PR-produced binaries,
 PTX, cubins, or benchmark artifacts to a release or privileged GPU worker.
+
+## Solo-maintainer governance
+
+The repository owner selected solo-maintainer release governance on 2026-09-26.
+Under this policy, an independent pull-request approval is not required while the
+repository has a single maintainer. This is an explicit ownership decision and
+must not be described as independent review.
+
+Changes to `main` still require the current CPU/security checks. Branch
+protection applies to administrators, requires linear history and resolved
+conversations, and blocks force pushes and deletion. Release tags matching `v*`
+are immutable. GitHub Actions are limited to GitHub-owned actions pinned to full
+commit SHAs, workflow tokens default to read-only, and workflows cannot approve
+pull requests. The release environment accepts protected branches only.
+
+The owner account must retain MFA, private vulnerability reporting must remain
+enabled, and repository/package ownership must remain minimal. If another
+maintainer becomes responsible for release review, require an approving review
+before the next release. Any weakening of these controls invalidates the gate
+until it is reviewed and recorded again.
+
+A passing release gate authorizes a candidate as technically release-ready. It
+does not authorize creating a tag, GitHub release, or package. Those publication
+actions require a separate explicit owner instruction, and `publish = false`
+remains in force until that instruction and the corresponding package change are
+reviewed.
