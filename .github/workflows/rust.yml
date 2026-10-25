@@ -34,7 +34,11 @@ jobs:
       - run: cargo test --locked
       - run: cargo test --locked --release
       - run: python3 scripts/check-ui.py
-      - run: cargo doc --locked --no-deps
+      - run: RUSTDOCFLAGS='-D warnings' cargo doc --locked --no-deps
+      - name: Verify default-feature package and shipped contents
+        run: |
+          cargo package --locked
+          python3 scripts/check-package.py --output target/package-contents.json
 
   security:
     runs-on: ubuntu-24.04
@@ -52,6 +56,8 @@ jobs:
         run: target/security-tools/cargo-deny --all-features --locked check
       - name: Current source and available history secrets (redacted)
         run: python3 scripts/check-secrets.py --gitleaks target/security-tools/gitleaks
+      - name: Check exact checksum exceptions against scanner negative controls
+        run: python3 scripts/test-secret-policy.py --gitleaks target/security-tools/gitleaks
       - run: python3 scripts/check-vendor.py
       - run: python3 scripts/test-security-tools.py
       - run: python3 scripts/test-private-launcher-linux.py

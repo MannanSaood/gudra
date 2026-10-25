@@ -1,7 +1,12 @@
 # Security policy
 
-Gudra is experimental and unpublished (`0.0.0`, `publish = false`). The
-reviewed candidate passes its technical release gate, but this is not approval
+Gudra is experimental and unpublished (`0.1.0-rc.1`, `publish = false`). The
+historically reviewed candidate passes its bound technical release gate. The
+current source-only candidate completed a fresh static diff review on
+2026-10-25 with no reportable findings; see
+[current release status](docs/release/status-2026-10-25.md). The full release
+gate remains on HOLD for the remaining execution and provenance checks.
+The historical decision is not approval
 for production or mutually untrusted GPU tenants and does not authorize a tag,
 GitHub release, or package publication. No critical or high vulnerability was
 confirmed.

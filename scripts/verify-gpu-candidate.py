@@ -54,11 +54,18 @@ def main():
     run(['cargo','test','--locked','--features','gpu','--doc'])
     os.environ['CUDA_ASYNC_SPIN_BUDGET_US'] = '0'
     for _ in range(5):
-        run(['cargo','test','--locked','--features','gpu','--lib','--test','gpu_jacobi','--','--test-threads=1'])
+        run(['cargo','test','--locked','--features','gpu','--lib','--test','gpu_jacobi','--test','gpu_laplacian','--','--test-threads=1'])
     run(['cargo','test','--manifest-path','vendor/cuda-async/Cargo.toml','--target-dir','target/vendor-cuda-async','--locked','--test','drop_in_flight','--','--test-threads=1'])
     if args.disposable_fault_tests:
         run(['cargo','test','--manifest-path','vendor/cuda-async/Cargo.toml','--target-dir','target/vendor-cuda-async','--locked','--test','device_fault','--','--test-threads=1'])
     run(['python3','scripts/check-gpu-sanitizers.py'])
+    run(['cargo','run','--locked','--release','--features','gpu','--example','poisson_timesteps'])
+    # New blocking operators use the default runtime setting, separately from
+    # the existing forced-Pending timestep/cancellation lane above.
+    os.environ.pop('CUDA_ASYNC_SPIN_BUDGET_US', None)
+    evidence['laplacian_spin_budget'] = 'default (unset)'
+    for example in ['laplacian_curvature', 'poisson_residual', 'stencil_bench']:
+        run(['cargo','run','--locked','--release','--features','gpu','--example',example])
     evidence['normal_path_suite'] = 'pass'
     evidence['release_decision'] = 'not established by this runner; administrative controls are separate'
     destination.write_text(json.dumps(evidence, indent=2)+'\n')

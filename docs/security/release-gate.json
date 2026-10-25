@@ -1,41 +1,43 @@
 {
-  "date": "2026-09-26",
-  "decision": "pass",
-  "baseline": "private review plus public candidate c5f3322 and owner-authorized solo-maintainer governance",
-  "source_sha256": "fb63df92bc5ef33a2ef0cbf52ca5afa29ff489d34417f62b7f0731ce4d9ddc2f",
+  "date": "2026-10-25",
+  "decision": "hold",
+  "channel": "source-only GitHub candidate",
+  "version": "0.1.0-rc.1",
+  "baseline": "September approval plus completed current static diff review; execution/provenance gates remain open",
+  "source_sha256": "d412b5d24d9ab50a88d4cbf659a6634f587e2af46249cbbf2c349d719f5e9225",
+  "security_review": "release-review-2026-10-25.json",
+  "historical_gate": "release-gate-2026-09-26.json",
+  "publication_authorized": false,
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
-      "status": "pass"
+      "status": "pass",
+      "scope": "Complete pinned Rust 1.89 source-snapshot CPU/UI/docs/package checks passed; fresh October 25 advisory/license/source/scanner tests passed. Final hosted SHA checks remain separate."
     },
     {
       "id": "SEC-001-private-jit-boundary",
       "status": "pass",
-      "scope": "Vendored private compiler storage, hosted disposable separate-UID isolation tests, and the actual compiler/JIT plus GPU load lifecycle passed on clean candidate 38bb3d1. Arch evidence SHA-256: 864f2cd6b18361229ec175ce4fac12fb936196684d2a4b9f8363abe6fe282821."
+      "scope": "Vendor source unchanged from reviewed base; prior actual JIT/separate-UID evidence retained. Current static review preserves boundary; Linux launcher checks refreshed October 25."
     },
     {
       "id": "SEC-004-failed-drain-retention",
       "status": "pass",
-      "scope": "Clean pinned disposable-worker candidate 4debea7 passed deterministic ownership seams, forced-pending and unpolled cancellation, repeated execution, drop-in-flight tests, and the sticky CUDA device-fault fail-stop test. The fault produced CUDA 719 and the child worker aborted before unsafe owner release; its parent harness passed. Evidence SHA-256: 423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0."
+      "scope": "Unchanged vendored fail-stop guard and current ownership/cancellation paths reviewed; 259 runtime/dependency/test files match returned normal GPU evidence. No new final-candidate device-fault run claimed."
     },
     {
       "id": "final-revision-gpu",
-      "status": "pass",
-      "scope": "Clean pinned disposable-worker candidate 4debea7 passed all 24 commands on Rust 1.89.0, CUDA/tileiras 13.4, Clang/libclang 22, driver 615.71.09, and RTX 5060 Laptop GPU compute capability 12.0. This includes GPU check/Clippy/docs/doctests, ownership compile-fail controls, JIT lifecycle, five numerical/readback/budget/cancellation repetitions, drop-in-flight, sticky device fault, and Compute Sanitizer memcheck/initcheck with zero errors. Candidate c5f3322 changes only release/provenance/governance files and no runtime, dependency, GPU policy, or GPU tests."
+      "status": "pending",
+      "scope": "Final immutable release SHA GPU/fault/sanitizer execution not performed. Historical normal GPU source bridge is explicit evidence, not a final attestation. Candidate labels GPU unverified."
     },
     {
       "id": "linux-and-hosted-ci",
-      "status": "pass",
-      "scope": "Public candidate c5f3322 passed hosted CPU/security, Linux launcher, separate-UID helper, CUDA compatibility-policy self-tests, vendor, advisory/license/source, Gitleaks, CPU/UI/Clippy/docs checks. GitHub Actions run: 36244844661."
+      "status": "pending",
+      "scope": "Local Linux launcher/policy checks passed. Public push/PR not authorized; protected hosted CPU/security checks on final candidate not yet run."
     },
     {
       "id": "release-reporting-provenance-ownership",
-      "status": "pass",
-      "scope": "Private reporting, required CPU/security checks, protected main and immutable v* tags, SHA-pinned GitHub-owned Actions, read-only workflow tokens, 14-day retention, secret scanning, protected-branch release environment, maintainer MFA, minimal repository/package ownership, native non-redistribution, clean immutable build, complete locked Rust SBOM, checksums and Sigstore attestations are verified. The owner revised the policy to solo-maintainer governance on 2026-09-26; independent approval is not required while the repository has one maintainer, and no independent review is claimed. Release evidence run: 36244888865."
+      "status": "pending",
+      "scope": "Repository controls freshly checked read-only; MFA field unavailable and requires owner confirmation. Final protected provenance and explicit public release authorization remain outstanding."
     }
-  ],
-  "public_candidate": "c5f3322515834ea646e191acede544241e9a4328",
-  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36244844661",
-  "provenance_run": "https://github.com/MannanSaood/gudra/actions/runs/36244888865",
-  "publication_authorized": false
+  ]
 }

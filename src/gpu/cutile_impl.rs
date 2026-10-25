@@ -19,6 +19,9 @@ use super::{kernels::jacobi_kernel, Field2D, Gpu, HaloGrid2D, StepBuffers};
 #[path = "verification.rs"]
 mod verification;
 
+#[path = "timesteps.rs"]
+mod timesteps;
+
 pub(super) struct Session {
     device: Arc<Device>,
     stream: Arc<Stream>,
@@ -225,6 +228,44 @@ impl Gpu {
         })
     }
 
+    /// Computes a five-point Laplacian into a supplied interior allocation.
+    ///
+    /// Blocking; reuses the Jacobi directional views, 16x16 disjoint output
+    /// partitions, admission, and completion guard. Conventions and arithmetic
+    /// are documented by [`crate::reference::laplacian_into`].
+    ///
+    /// # Errors
+    /// Shape/session/metadata/admission errors leave output untouched. Execution
+    /// failure invalidates it, as in [`Self::step_into`].
+    pub fn laplacian_into(
+        &self,
+        source: &HaloGrid2D,
+        output: &mut Field2D,
+        params: crate::LaplacianParams,
+    ) -> Result<()> {
+        validate_fields(&self.session, source, None, Some(output))?;
+        let _operation = self.session.budget.operation()?;
+        self.session.bind()?;
+        let views = directional_views(source)?;
+        let Buffer {
+            tensor, completion, ..
+        } = &mut output.storage;
+        completion.run(|| {
+            let _completed = jacobi_kernel::laplacian(
+                (&mut *tensor).partition([TILE, TILE]),
+                &views.center,
+                &views.north,
+                &views.south,
+                &views.east,
+                &views.west,
+                params.inverse_h_squared,
+            )
+            .sync_on(&self.session.stream)
+            .map_err(|e| backend("execute Laplacian", e))?;
+            Ok(())
+        })
+    }
+
     /// Validates immediately, then returns a lazy future owning all three buffers.
     ///
     /// No kernel submits until the first poll, which may spend host time on JIT.
@@ -331,8 +372,17 @@ fn validate_step(
     rhs: &Field2D,
     output: Option<&Field2D>,
 ) -> Result<()> {
+    validate_fields(session, source, Some(rhs), output)
+}
+
+fn validate_fields(
+    session: &Arc<Session>,
+    source: &HaloGrid2D,
+    rhs: Option<&Field2D>,
+    output: Option<&Field2D>,
+) -> Result<()> {
     let shape = source.shape();
-    for (role, buffer) in [("rhs", Some(rhs)), ("output", output)] {
+    for (role, buffer) in [("rhs", rhs), ("output", output)] {
         if let Some(buffer) = buffer {
             if buffer.shape() != shape {
                 return Err(Error::ShapeMismatch {
@@ -345,7 +395,7 @@ fn validate_step(
     }
     for (role, buffer) in [
         ("source", Some(&source.storage)),
-        ("rhs", Some(&rhs.storage)),
+        ("rhs", rhs.map(|field| &field.storage)),
         ("output", output.map(|field| &field.storage)),
     ] {
         if let Some(buffer) = buffer {

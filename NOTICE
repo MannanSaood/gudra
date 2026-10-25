@@ -1,0 +1,16 @@
+Gudra source is licensed under MIT; see LICENSE.
+
+GitHub source candidates intentionally retain the three modified Apache-2.0
+packages cuda-async, cutile and cutile-compiler 0.3.1 under vendor/.
+Their LICENSE-APACHE files and original source copyright/SPDX notices remain
+authoritative. See vendor/README.md and vendor/checksums.json for upstream
+identity, local changes and integrity records. No upstream endorsement is implied.
+
+The Cargo package does not redistribute these vendor directories. Cargo removes
+root patch overrides when packaging; the resulting registry GPU backend does not
+carry our safety fixes and is not an approved substitute. Publishing is disabled.
+
+CUDA toolkit, driver, tileiras, generated PTX/cubins and native libraries are not
+distributed. The MIT and Apache licenses do not grant CUDA redistribution rights.
+Transitive Rust licenses must be checked with deny.toml for the locked graph;
+the release SBOM lists their declarations and registry checksums.

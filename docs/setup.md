@@ -93,13 +93,33 @@ they do not silently skip. First launch may compile the kernel with `tileiras`.
 
 ## Validation status
 
-See [verification results](verification-results.md) for current commands and
-results, including the local incomplete Rust installation workaround. The GPU
-dependency build is blocked by missing CUDA before facade type-checking. Earlier
-remote GPU results are recorded separately; final-revision security changes need
-fresh numerical, directional, UI, async and resource-budget verification. Run
-`bash scripts/verify-gpu.sh` for the complete gate, including library view tests,
-repetitions, and memcheck/initcheck; see [the strategy](test-strategy.md).
-The runner automatically creates a private Linux JIT temp directory. Use only a
-reviewed revision and dependencies on an isolated GPU worker without release or
-production credentials; never execute downloaded PR-produced cubins or binaries.
+See [the evidence index](validation-status.md) and [performed walkthrough](new-user-walkthrough.md).
+The clean-source CPU path was run on Windows using the documented mixed-toolchain
+workaround; the pinned installation here lacks Cargo. The GPU dependency build
+is locally blocked by missing CUDA. Returned single-GPU results passed on the
+manifest-matched Chat 09 Arch experimental configuration; the broad prerequisites
+table above is not a tested hardware matrix. Two-GPU native validation remains open.
+
+Run `bash scripts/verify-gpu.sh` for the documented full GPU gate, including UI,
+library view tests, repetitions and memcheck/initcheck. The candidate evidence
+runner records the additional operators and timestep checks. Use trusted source
+on an isolated worker without production credentials; inspect and redact output
+before sharing. See [troubleshooting](troubleshooting.md) and
+[report data](community/reporting.md).
+
+## Diagnose setup before evaluating results
+
+```sh
+rustup show active-toolchain
+rustc --version
+cargo --version
+python3 --version
+cargo fetch --locked
+```
+
+On Windows use `python` if needed and install native C++/linker build tools.
+`cargo fetch --locked` populates the dependency cache; offline commands require
+that cache. GPU diagnostics are `bash scripts/check-gpu-env.sh`, `nvcc --version`,
+`tileiras --version`, and selected driver/model data. Do not post full machine or
+environment dumps. For a clean build after dependency fetch, select an empty
+CARGO_TARGET_DIR; the walkthrough records exactly how its disposable source was prepared.

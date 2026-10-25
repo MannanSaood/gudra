@@ -4,6 +4,14 @@ Gudra remains non-publishable (`publish = false`). The release-evidence workflow
 does not create a GitHub release or publish a package. It produces reviewable
 evidence for an explicitly approved immutable commit on protected `main`.
 
+For the current development snapshot, see the [release checklist](release/checklist.md).
+Its source digest differs from the historical approval and the workflow now
+enforces `check-release-gate.py` before generating attestations. Source archives
+are curated by `scripts/source-candidate.py`, retaining required vendor patches
+while excluding historical evidence, benchmark dumps and standalone prototypes.
+The archive basename is recorded in `source-inventory.json`; use that basename
+when verifying attestations instead of assuming the older commit-only naming.
+
 Before dispatching the workflow, require the CPU/security checks and the separate
 isolated GPU gate for the same commit. Dispatch **Release evidence** from `main`
 and enter the complete 40-character approved commit SHA. The workflow rejects a

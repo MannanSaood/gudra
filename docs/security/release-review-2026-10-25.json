@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-25",
+  "scan_id": "4b7f9cf4-d530-4ae0-9da4-5dc6e0b7020d",
+  "status": "completed",
+  "findings": 0,
+  "coverage": "complete for 21 authoritative source items",
+  "reviewed_source_tree_sha256": "661828a05c8a18e6b03f5985ca40751ede38d2c549fffe60c13d1edb788cff46",
+  "workbench_snapshot_digest": "codex-security-snapshot/v1:sha256:a7831021e5c646951bd73837d7077471eb4e6e1cb2743e38ff63fc503da072d3",
+  "canonical_artifacts": {
+    "report": "report.md",
+    "manifest": "scan-manifest.json",
+    "findings": "findings.json",
+    "coverage": "coverage.json"
+  },
+  "sealed_findings_sha256": "55595bdf30e559986c1838d34184abe35745427e6f60dec619432e195ddc32dd",
+  "sealed_coverage_sha256": "8492039e0ffd897622bfbc1cac133b1b05252dc9a258fff6793a3e689bfde21b",
+  "program_files_unchanged_since_review": [
+    {
+      "path": ".github/workflows/release-evidence.yml",
+      "sha256": "212bf8958fdb1711f51407d72cecb1289438e47c614525cb3e7dc6f087977024",
+      "lf_normalized_sha256": "212bf8958fdb1711f51407d72cecb1289438e47c614525cb3e7dc6f087977024"
+    },
+    {
+      "path": ".github/workflows/rust.yml",
+      "sha256": "534662b644271fa60c8e178ee30b37fa856b60d189290fa32734e5813dd6b8fb",
+      "lf_normalized_sha256": "534662b644271fa60c8e178ee30b37fa856b60d189290fa32734e5813dd6b8fb"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "30d6eff18e7c877df735b29aa3e4184b49cad2727c9f2919041288553bd68453",
+      "lf_normalized_sha256": "caa7f5db1250fea2e84e25910edc5c53748f0e765a9548bee6ca1e8784a42acf"
+    },
+    {
+      "path": "scripts/check-gpu-sanitizers.py",
+      "sha256": "4a967ca396d77a5d53d88ec9ac46909fb6a506ff5fa11bd91bc25eddd6940a0f",
+      "lf_normalized_sha256": "9160dd3cd494891a1e8971ad676e83d3ac913303d3c9ccc0556e3ad40b045aff"
+    },
+    {
+      "path": "scripts/check-package.py",
+      "sha256": "aaae2eedcb9256aee681e532ef8d47108720a0f9f92203b477b8b620a7b9887b",
+      "lf_normalized_sha256": "aaae2eedcb9256aee681e532ef8d47108720a0f9f92203b477b8b620a7b9887b"
+    },
+    {
+      "path": "scripts/check-secrets.py",
+      "sha256": "45b2762b9a196d7a784a0f20c723b6ec81acf6e5830877d7dc0cad8a40518882",
+      "lf_normalized_sha256": "45b2762b9a196d7a784a0f20c723b6ec81acf6e5830877d7dc0cad8a40518882"
+    },
+    {
+      "path": "scripts/release-checks.py",
+      "sha256": "abd8ba03856ac27238ca5973020aa513477268741db8d604529b8a2d8bb6a980",
+      "lf_normalized_sha256": "abd8ba03856ac27238ca5973020aa513477268741db8d604529b8a2d8bb6a980"
+    },
+    {
+      "path": "scripts/release-manifest.py",
+      "sha256": "a8fdfe390fec649d60eb6fb5e211be9db12ba3358ba41986a24f70023de9a6cc",
+      "lf_normalized_sha256": "a8fdfe390fec649d60eb6fb5e211be9db12ba3358ba41986a24f70023de9a6cc"
+    },
+    {
+      "path": "scripts/run-doc-walkthrough.py",
+      "sha256": "0e5af28220e098371217aa811bc900c5124d3f8f2dc2c922bf86c66cd1e5da8c",
+      "lf_normalized_sha256": "0e5af28220e098371217aa811bc900c5124d3f8f2dc2c922bf86c66cd1e5da8c"
+    },
+    {
+      "path": "scripts/secret-scan-policy.json",
+      "sha256": "98b6ccf78e4e02275b3b2d3708ace2964cf393234de361055f333eddc4127e33",
+      "lf_normalized_sha256": "0ef2e1c9254cede16c61c076545d955ef1980560bfce6c24a514fc4a4cfd2dd8"
+    },
+    {
+      "path": "scripts/source-candidate.py",
+      "sha256": "ce370c932c84c8998237c73fdf156cfeae2c428aa5f64b5d597f54b4a23a3605",
+      "lf_normalized_sha256": "ce370c932c84c8998237c73fdf156cfeae2c428aa5f64b5d597f54b4a23a3605"
+    },
+    {
+      "path": "scripts/test-secret-policy.py",
+      "sha256": "18d253efec64d1218ca169fc2fede89496a010b953f41ffb6e0fbe3cbf173249",
+      "lf_normalized_sha256": "18d253efec64d1218ca169fc2fede89496a010b953f41ffb6e0fbe3cbf173249"
+    },
+    {
+      "path": "scripts/verify-gpu-candidate.py",
+      "sha256": "09dc735306c00657a744ae93edf81ddd5b8820487fcde85119aac55b383c5a90",
+      "lf_normalized_sha256": "3a69f3edba20ba82e058b1f7df5d00e4ef34c432c2474541c3a13fd55741628c"
+    },
+    {
+      "path": "src/error.rs",
+      "sha256": "d5e3975f9f6a3c27203f23f9102bed095059608cbabbe5160907b1d8d635a47c",
+      "lf_normalized_sha256": "454d9f610e941477bf4db0ce9574eeb8eff2ac219276893c9c63d488d4aee0ef"
+    },
+    {
+      "path": "src/gpu/cutile_impl.rs",
+      "sha256": "2bd2d9017666ac3ca468afa5c9a4a2ee28740cc49eabf55bd295d350164aa987",
+      "lf_normalized_sha256": "2bd2d9017666ac3ca468afa5c9a4a2ee28740cc49eabf55bd295d350164aa987"
+    },
+    {
+      "path": "src/gpu/kernels.rs",
+      "sha256": "a803d916d3b7f083bf8a59d38f0ec47ef6aa7b3478ddc2eb95ba856abd6eab88",
+      "lf_normalized_sha256": "a803d916d3b7f083bf8a59d38f0ec47ef6aa7b3478ddc2eb95ba856abd6eab88"
+    },
+    {
+      "path": "src/gpu/mod.rs",
+      "sha256": "49476501b4a0890fc297aceda22810cb7736e8c1a2da5f024b04e6ae52051ba3",
+      "lf_normalized_sha256": "8b01a1e12a578f638de6097562bb97f7d3a8bffaa27ebf1af56cce0901c2b5f1"
+    },
+    {
+      "path": "src/gpu/timesteps.rs",
+      "sha256": "be9535abcd970602a5da75f624532a97244660c6811b10974360995dbf215b2a",
+      "lf_normalized_sha256": "be9535abcd970602a5da75f624532a97244660c6811b10974360995dbf215b2a"
+    },
+    {
+      "path": "src/lib.rs",
+      "sha256": "ad3f9285e2a3b872147d7211dd4ea5d89fcd5355951ce00035b7034ead293fed",
+      "lf_normalized_sha256": "65147fd940c04ea925f0de6cff05aa0f78ba7be2c12505558bbdd2d848360d26"
+    },
+    {
+      "path": "src/params.rs",
+      "sha256": "d19624d30fec8de6ab698a732d1b3d81f8b317f4b3305428e8c356e1d42dbf1e",
+      "lf_normalized_sha256": "d19624d30fec8de6ab698a732d1b3d81f8b317f4b3305428e8c356e1d42dbf1e"
+    },
+    {
+      "path": "src/reference.rs",
+      "sha256": "2aced48a4f939f3921417b20d9b550a5a2321d9cfb2ae5b9e7fe92b3b3453f16",
+      "lf_normalized_sha256": "2aced48a4f939f3921417b20d9b550a5a2321d9cfb2ae5b9e7fe92b3b3453f16"
+    }
+  ],
+  "post_review_changes": "Release status/policy documentation and gate bookkeeping only; no program, dependency, workflow or safety-policy expansion.",
+  "physical_checkout_warning": "Temporary checkout was replaced; restored cryptographic snapshot matches. Workbench remediation against replaced directory is unavailable.",
+  "full_release_approved": false,
+  "publication_authorized": false,
+  "usage": {
+    "goal_tokens": 331784,
+    "active_goal_seconds": 1322,
+    "workbench_rollout_telemetry": "partial; includes cached thread history"
+  }
+}

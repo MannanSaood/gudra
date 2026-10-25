@@ -57,3 +57,39 @@ pub fn jacobi_into(
     }
     Ok(())
 }
+
+/// Writes the positive-sign five-point Laplacian into compact row-major output.
+///
+/// Uses the same source halo and shape as [`jacobi_into`]. The caller supplies
+/// boundary samples; corners are unused. No halo refresh or boundary inference.
+/// For isotropic spacing, evaluates left-associated `north + south + east + west`,
+/// subtracts `4 * center`, then multiplies by the validated reciprocal of
+/// `h_squared`. NaN/infinity propagate, including cancellation of infinities.
+/// GPU contraction may differ; the small bounded test fixtures use
+/// `abs(gpu - cpu) <= 1e-5 + 1e-5 * abs(cpu)`. Cancellation and very small spacing
+/// can amplify roundoff; this is not a universal error bound.
+///
+/// # Errors
+/// Returns [`crate::Error::LengthMismatch`] before writing for incorrect lengths.
+pub fn laplacian_into(
+    shape: Shape2D,
+    haloed: &[f32],
+    output: &mut [f32],
+    params: crate::LaplacianParams,
+) -> Result<()> {
+    check_len("source", shape.haloed_len(), haloed.len())?;
+    check_len("output", shape.interior_len(), output.len())?;
+    let stride = shape.width() + 2;
+    for row in 0..shape.height() {
+        for column in 0..shape.width() {
+            let index = (row + 1) * stride + column + 1;
+            output[row * shape.width() + column] = (haloed[index - stride]
+                + haloed[index + stride]
+                + haloed[index + 1]
+                + haloed[index - 1]
+                - 4.0 * haloed[index])
+                * params.inverse_h_squared;
+        }
+    }
+    Ok(())
+}

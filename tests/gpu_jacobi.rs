@@ -7,11 +7,7 @@ use std::{
     time::Duration,
 };
 
-use gudra::{
-    gpu::{Gpu, StepBuffers},
-    reference::jacobi_into,
-    Error, JacobiParams, ResourceLimits, Shape2D,
-};
+use gudra::{gpu::Gpu, reference::jacobi_into, Error, JacobiParams, ResourceLimits, Shape2D};
 
 mod support;
 use support::{assert_close, fixture, nonfinite_cases, SHAPES};
@@ -152,9 +148,9 @@ impl Wake for ThreadWake {
 
 // Small test-only executor with safe pinning. A timeout fails visibly rather
 // than silently accepting a lost completion wakeup. Pending Drop may block.
-fn complete(
-    future: impl Future<Output = gudra::Result<StepBuffers>> + Send + 'static,
-) -> gudra::Result<StepBuffers> {
+fn complete<T>(
+    future: impl Future<Output = gudra::Result<T>> + Send + 'static,
+) -> gudra::Result<T> {
     let waker = Waker::from(Arc::new(ThreadWake(std::thread::current())));
     let mut cx = Context::from_waker(&waker);
     let mut future = std::pin::pin!(future);
@@ -339,5 +335,111 @@ fn every_validation_role_leaves_output_unchanged_and_session_usable() -> gudra::
         gpu.zeros(shape)?.into_host()?,
         vec![0.0; shape.interior_len()]
     );
+    Ok(())
+}
+
+#[test]
+fn timesteps_match_oracle_and_observe_without_races() -> gudra::Result<()> {
+    let gpu = Gpu::new(0)?;
+    let p = JacobiParams::new(0.5, 0.01)?;
+    for (height, width) in [(1, 1), (1, 19), (19, 1), (2, 3), (17, 19), (33, 47)] {
+        let shape = Shape2D::new(height, width)?;
+        let (initial, rhs) = fixture(shape, 81);
+        let mut oracle = initial.clone();
+        let mut interior = vec![0.0; shape.interior_len()];
+        let mut grid = gpu.double_grid(shape, initial.clone(), rhs.clone())?;
+        for chunk in 0..5 {
+            for _ in 0..25 {
+                jacobi_into(shape, &oracle, &rhs, &mut interior, p)?;
+                for row in 0..height {
+                    let start = (row + 1) * (width + 2) + 1;
+                    oracle[start..start + width]
+                        .copy_from_slice(&interior[row * width..(row + 1) * width]);
+                }
+            }
+            grid = if chunk % 2 == 0 {
+                complete(grid.advance_async(25, p)?)?
+            } else {
+                grid.advance(25, p)?
+            };
+            let (ready, snapshot) = grid.observe()?;
+            assert_eq!(ready.completed_steps(), (chunk + 1) * 25);
+            assert_close(&snapshot, &oracle);
+            for row in 0..height + 2 {
+                for col in 0..width + 2 {
+                    if row == 0 || row == height + 1 || col == 0 || col == width + 1 {
+                        let index = row * (width + 2) + col;
+                        assert_eq!(snapshot[index].to_bits(), initial[index].to_bits());
+                    }
+                }
+            }
+            grid = ready;
+        }
+        let unchanged = complete(grid.advance_async(0, p)?)?;
+        assert_eq!(unchanged.completed_steps(), 125);
+    }
+    Ok(())
+}
+
+#[test]
+fn timestep_owners_survive_executor_drop_and_thread_migration() -> gudra::Result<()> {
+    fn send_sync<T: Send + Sync>() {}
+    send_sync::<gudra::gpu::DoubleGrid>();
+    send_sync::<Gpu>();
+    let gpu = Gpu::new(0)?;
+    let shape = Shape2D::new(2, 3)?;
+    let grid = gpu.double_grid(shape, vec![1.0; shape.haloed_len()], vec![0.0; 6])?;
+    let future = grid.advance_async(101, JacobiParams::new(0.5, 1.0)?)?;
+    drop(gpu);
+    let ready = std::thread::spawn(move || complete(future))
+        .join()
+        .unwrap()?;
+    let (_, snapshot) = ready.observe()?;
+    assert_eq!(snapshot, vec![1.0; shape.haloed_len()]);
+    Ok(())
+}
+
+#[test]
+fn timestep_unpolled_drop_and_admission_error_release_every_owner() -> gudra::Result<()> {
+    let gpu = Gpu::with_limits(0, ResourceLimits::new(36, 76, 3, 1)?)?;
+    let shape = Shape2D::new(1, 1)?;
+    let p = JacobiParams::new(0.5, 1.0)?;
+    for _ in 0..8 {
+        let grid = gpu.double_grid(shape, vec![1.0; 9], vec![0.0])?;
+        assert!(gpu.double_grid(shape, vec![1.0; 9], vec![0.0]).is_err());
+        drop(grid.advance_async(100, p)?);
+    }
+    drop(gpu.double_grid(shape, vec![1.0; 9], vec![0.0])?);
+    Ok(())
+}
+
+#[test]
+fn timestep_pending_drop_drains_before_reusing_budget() -> gudra::Result<()> {
+    let shape = Shape2D::new(257, 263)?;
+    let bytes = shape.haloed_len() * 4;
+    let gpu = Gpu::with_limits(
+        0,
+        ResourceLimits::new(bytes, 2 * bytes + shape.interior_len() * 4, 3, 1)?,
+    )?;
+    let grid = gpu.double_grid(
+        shape,
+        vec![1.0; shape.haloed_len()],
+        vec![0.0; shape.interior_len()],
+    )?;
+    let mut pending = Box::pin(grid.advance_async(100, JacobiParams::new(0.5, 1.0)?)?);
+    let waker = Waker::from(Arc::new(ThreadWake(std::thread::current())));
+    let result = pending.as_mut().poll(&mut Context::from_waker(&waker));
+    assert!(
+        result.is_pending(),
+        "cancellation coverage requires an actual pending operation"
+    );
+    std::thread::spawn(move || drop(pending)).join().unwrap();
+    let replacement = gpu.double_grid(
+        shape,
+        vec![2.0; shape.haloed_len()],
+        vec![0.0; shape.interior_len()],
+    )?;
+    let (_, snapshot) = replacement.observe()?;
+    assert_eq!(snapshot, vec![2.0; shape.haloed_len()]);
     Ok(())
 }

@@ -4,11 +4,41 @@ import argparse
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def scanner_config(root=ROOT):
+    """Allow only reviewed public checksum values at their exact manifest paths."""
+    policy = json.loads((root / "scripts/secret-scan-policy.json").read_text(encoding="utf-8"))
+    lines = ["[extend]", "useDefault = true", ""]
+    for entry in policy["public_manifest_checksums"]:
+        relative = Path(entry["path"])
+        checksum = entry["sha256"]
+        if (relative.is_absolute() or ".." in relative.parts
+                or not relative.as_posix().startswith("docs/evidence/")
+                or relative.name not in {"bundle-manifest.json", "source-manifest.json"}
+                or not re.fullmatch(r"[a-f0-9]{64}", checksum)):
+            raise SystemExit("Invalid reviewed checksum exception; scan fails closed.")
+        path = root / relative
+        # Release archives exclude evidence. A missing historical manifest means
+        # this exception is not applicable; its exact path still cannot ship.
+        if not path.exists():
+            continue
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        checksums = manifest.get("files", {}) if relative.name == "bundle-manifest.json" else manifest
+        if not isinstance(checksums, dict) or checksum not in checksums.values():
+            raise SystemExit("Reviewed manifest checksum changed; re-triage before scanning.")
+        path_regex = r"(^|[/\\])" + re.escape(relative.as_posix()).replace("/", r"[/\\]") + "$"
+        lines += ["[[allowlists]]", 'description = "Reviewed public source-manifest SHA-256; exact path AND exact value"',
+                  'targetRules = ["generic-api-key"]', 'condition = "AND"', 'regexTarget = "secret"',
+                  "paths = [" + json.dumps(path_regex) + "]",
+                  "regexes = [" + json.dumps("^" + checksum + "$") + "]", ""]
+    return "\n".join(lines)
 
 
 def main():
@@ -23,7 +53,9 @@ def main():
     git = ["git", "-c", f"safe.directory={ROOT}"]
     files = subprocess.check_output(git + ["ls-files", "-z", "--cached", "--others", "--exclude-standard"], cwd=ROOT)
     commits = subprocess.check_output(git + ["rev-list", "--all", "--count"], cwd=ROOT, text=True).strip()
-    with tempfile.TemporaryDirectory(prefix="gudra-secrets-") as folder:
+    scratch = ROOT / "target" / "secret-scan"
+    scratch.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="gudra-secrets-", dir=scratch) as folder:
         folder = Path(folder)
         staged = folder / "current"
         staged.mkdir()
@@ -40,7 +72,7 @@ def main():
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
         config = folder / "gitleaks.toml"
-        config.write_text("[extend]\nuseDefault = true\n", encoding="utf-8")
+        config.write_text(scanner_config(), encoding="utf-8")
         ignored = folder / "empty.ignore"
         ignored.write_text("", encoding="utf-8")
         failed = False

@@ -5,6 +5,38 @@ pub(super) mod jacobi_kernel {
     #[allow(clippy::wildcard_imports)]
     use cutile::core::*;
 
+    // Conservative scalar-tile baseline. Every halo cell is copied without
+    // evaluating a stencil (including NaN corners); interior reads use old data.
+    #[cutile::entry()]
+    fn timestep(
+        output: &mut Tensor<f32, { [1, 1] }>,
+        input: &Tensor<f32, { [-1, -1] }>,
+        rhs: &Tensor<f32, { [-1, -1] }>,
+        height: i32,
+        width: i32,
+        omega: f32,
+        h_squared: f32,
+    ) {
+        let row = get_tile_block_id().0;
+        let col = get_tile_block_id().1;
+        let center = input.load_tile(shape![1, 1], [row, col]);
+        let mut value = center;
+        if row > 0i32 && row <= height && col > 0i32 && col <= width {
+            let north = input.load_tile(shape![1, 1], [row - 1i32, col]);
+            let south = input.load_tile(shape![1, 1], [row + 1i32, col]);
+            let east = input.load_tile(shape![1, 1], [row, col + 1i32]);
+            let west = input.load_tile(shape![1, 1], [row, col - 1i32]);
+            let forcing = rhs.load_tile(shape![1, 1], [row - 1i32, col - 1i32]);
+            let weight = omega.broadcast(output.shape());
+            let spacing = h_squared.broadcast(output.shape());
+            let one = 1.0_f32.broadcast(output.shape());
+            let quarter = 0.25_f32.broadcast(output.shape());
+            let candidate = quarter * (north + south + east + west - spacing * forcing);
+            value = (one - weight) * center + weight * candidate;
+        }
+        output.store(value);
+    }
+
     #[cutile::entry()]
     fn jacobi(
         output: &mut Tensor<f32, { [16, 16] }>,
@@ -31,5 +63,27 @@ pub(super) mod jacobi_kernel {
             * (north_values + south_values + east_values + west_values
                 - spacing_squared * rhs_values);
         output.store((one - weight) * center_values + weight * candidate);
+    }
+    #[cutile::entry()]
+    fn laplacian(
+        output: &mut Tensor<f32, { [16, 16] }>,
+        center: &Tensor<f32, { [-1, -1] }>,
+        north: &Tensor<f32, { [-1, -1] }>,
+        south: &Tensor<f32, { [-1, -1] }>,
+        east: &Tensor<f32, { [-1, -1] }>,
+        west: &Tensor<f32, { [-1, -1] }>,
+        inverse_h_squared: f32,
+    ) {
+        let center_values = center.load_like(output);
+        let north_values = north.load_like(output);
+        let south_values = south.load_like(output);
+        let east_values = east.load_like(output);
+        let west_values = west.load_like(output);
+        let four = 4.0_f32.broadcast(output.shape());
+        let spacing = inverse_h_squared.broadcast(output.shape());
+        output.store(
+            (north_values + south_values + east_values + west_values - four * center_values)
+                * spacing,
+        );
     }
 }

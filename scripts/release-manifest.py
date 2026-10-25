@@ -75,7 +75,8 @@ def main():
                 'signed':False,'release_authorization':False,
                 'sbom_scope':'complete locked Rust graph and vendored sources; external native tools recorded separately; CUDA toolkit and driver are prerequisites and are not redistributed'}
     (args.output/'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
-    (args.output/'SHA256SUMS').write_text(''.join(f"{e['sha256']}  {e['name']}\n" for e in artifacts))
+    checksummed = artifacts + identities([args.output/'sbom.cdx.json', args.output/'manifest.json'])
+    (args.output/'SHA256SUMS').write_text(''.join(f"{e['sha256']}  {e['name']}\n" for e in checksummed))
     print('Unsigned evidence generated; protected workflow attestation remains required.')
 
 if __name__ == '__main__':

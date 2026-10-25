@@ -1,3 +1,10 @@
+# Verification evidence navigation
+
+For current feature-by-feature status, use [the evidence index](validation-status.md).
+The release candidate below predates the timestep, Laplacian and standalone halo
+prototype; its PASS is bound to that reviewed source. Later results are linked
+separately in the index. Historical blocks below retain their original observations.
+
 # Current release-candidate verification
 
 Public candidate `c5f3322515834ea646e191acede544241e9a4328` passed hosted

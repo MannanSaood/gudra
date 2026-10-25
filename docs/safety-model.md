@@ -3,8 +3,9 @@
 Gudra's safe API is designed to exclude simultaneous immutable input and mutable
 output access to one device allocation. This is a scoped ownership guarantee,
 not a claim that every GPU race, backend failure, or mathematical error is ruled
-out. GPU compilation and execution are still unverified on the local Windows
-host. Remote evidence for commit `073f7c6` records successful GPU tests under
+out. GPU compilation and execution remain unavailable on the local Windows
+host. See [the evidence index](validation-status.md) for later returned single-GPU
+results and their source/configuration scope. Remote evidence for commit `073f7c6` records successful GPU tests under
 Memcheck and Initcheck, with zero errors in all four runs. The earlier readback
 use-after-free report no longer reproduces on that setup; see
 [the results and acceptance gate](verification-results.md). The current candidate

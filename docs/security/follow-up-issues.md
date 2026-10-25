@@ -88,3 +88,30 @@ Keep `publish = false` until the gate closes. No workflow should combine untrust
 Set hosted CI logs to at most 7 days in repository settings and confirm access; this setting is external and unverified. The workflow uploads no artifacts. GPU logs remain operator-private with a 7-day working retention target; reviewed redacted summaries tied to a revision may be retained as release evidence. Never upload raw compiler dumps, host paths/topology, data arrays, secrets or imported executable artifacts by default. Existing evidence contains non-secret host/path details; review its intended public audience before publishing the repository.
 
 License policy applies to resolved Rust dependencies. It does not grant a Gudra license or establish CUDA toolkit redistribution rights. The repository owner must select the project's license and verify native redistribution terms before publication.
+
+## Chat 08 timestep review — scheduled 2026-09-26
+
+A one-time, read-only review is scheduled in the Codex task for 2026-09-27 at
+10:00 Asia/Calcutta (automation `one-time-timestep-security-review`). Scope:
+new kernel indexing and scalar-grid bounds; owned batch/drop/cancellation;
+readback retention; error consumption; admission; indirect unsafe/FFI/JIT use.
+No new handwritten unsafe, FFI binding, graph cache, or dependency change is
+introduced, but the new kernel is a new consumer of those trusted boundaries.
+
+The Chat 07 PASS applies only to its recorded candidate. Chat 08 is NOT cleared
+by that evidence. The new GPU tests, ownership compile checks, sanitizer run,
+fault-path compatibility and actual benchmark results must pass on the new
+candidate. Review results are pending, not an approval. See
+[Chat 08 handoff](../handoffs/08-timestep-runtime.md).
+
+
+### Chat 08 returned evidence — 2026-09-26
+
+The supplied Arch experimental run on `9ec1a2e` passed all 24 commands, including
+new GPU ownership controls, repeated 125-step tests, cancellation, deliberate
+driver-fault fail-stop, and zero-error memcheck/initcheck. The manifest matches
+the sent bundle and local pre-documentation-update source. See the
+[updated handoff](../handoffs/08-timestep-runtime.md) for measured timings and
+provenance limits. This supersedes the pending-GPU statement above for this
+candidate. The scheduled security review remains outstanding; no release or
+publishing approval is inferred.

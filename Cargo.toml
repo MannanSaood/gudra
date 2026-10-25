@@ -1,11 +1,20 @@
 [package]
 name = "gudra"
-version = "0.0.0"
+version = "0.1.0-rc.1"
 edition = "2021"
 rust-version = "1.89"
 publish = false
 license = "MIT"
-description = "Alias-safe weighted Jacobi step over haloed grids with cuTile"
+description = "Alias-safe Jacobi and Laplacian stencils over haloed grids with cuTile"
+readme = "README.md"
+repository = "https://github.com/MannanSaood/gudra"
+homepage = "https://github.com/MannanSaood/gudra"
+keywords = ["cuda", "gpu", "stencil", "jacobi", "laplacian"]
+categories = ["science", "mathematics"]
+include = ["/src/**", "/tests/**", "/examples/**", "/docs/*.md", "/docs/release/*.md", "/docs/security/*.md", "/Cargo.toml", "/Cargo.lock", "/README.md", "/LICENSE", "/NOTICE", "/CHANGELOG.md", "/rust-toolchain.toml"]
+
+[package.metadata.docs.rs]
+no-default-features = true
 
 [features]
 default = []
@@ -33,3 +42,11 @@ pedantic = { level = "deny", priority = -1 }
 cuda-async = { path = "vendor/cuda-async" }
 cutile = { path = "vendor/cutile" }
 cutile-compiler = { path = "vendor/cutile-compiler" }
+
+[[example]]
+name = "poisson_timesteps"
+required-features = ["gpu"]
+
+[[test]]
+name = "gpu_laplacian"
+required-features = ["gpu"]

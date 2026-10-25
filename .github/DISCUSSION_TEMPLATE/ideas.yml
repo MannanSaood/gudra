@@ -1,0 +1,26 @@
+title: "[Design feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe an actual scientific workload. For bugs or setup failures use an issue template.
+        Keep vulnerability details private via SECURITY.md. Redact machine identifiers and private links.
+  - type: textarea
+    id: workload
+    attributes:
+      label: Workload and current API mismatch
+      description: Operator, shape/layout, halo storage, precision, boundary policy, scale and deployment blocker.
+    validations:
+      required: true
+  - type: textarea
+    id: ownership
+    attributes:
+      label: Ownership and completion needs
+      description: Would moved in-flight buffers help? Describe cancellation, external streams or arrays and the guarantee you expect.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and alternatives
+      description: Public permalink or synthetic example, current workaround, measurable success criterion and cost/tradeoff.
+    validations:
+      required: true

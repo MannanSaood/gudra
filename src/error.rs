@@ -66,7 +66,7 @@ pub enum Error {
         /// Attempted role (`rhs`, `output`, or `field` for readback).
         buffer: &'static str,
     },
-    /// A coefficient is nonfinite, or `h_squared` is negative.
+    /// A coefficient violates the domain documented by its parameter constructor.
     InvalidParameter {
         /// Coefficient name.
         parameter: &'static str,
@@ -140,7 +140,7 @@ impl fmt::Display for Error {
             }
             Self::InvalidParameter { parameter, value } => write!(
                 f,
-                "invalid {parameter}={value}; coefficients must be finite and h_squared nonnegative"
+                "invalid {parameter}={value}; parameter is outside its documented domain"
             ),
             Self::Backend { operation, message } => write!(f, "{operation}: {message}"),
         }
