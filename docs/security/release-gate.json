@@ -1,13 +1,13 @@
 {
   "date": "2026-10-25",
-  "decision": "hold",
-  "channel": "source-only GitHub candidate",
+  "decision": "pass",
+  "channel": "source-only GitHub GPU-unverified prerelease",
   "version": "0.1.0-rc.1",
-  "baseline": "September approval plus completed current static diff review; execution/provenance gates remain open",
+  "baseline": "Current completed static reviews; owner-authorized explicitly unverified preview permitted by original acceptance criteria and README",
   "source_sha256": "bd3fa529c8fb42e149d05054bb9526831d1eb70eef0c911b25944d50e2d84478",
   "security_review": "release-review-2026-10-25.json",
   "historical_gate": "release-gate-2026-09-26.json",
-  "publication_authorized": false,
+  "publication_authorized": true,
   "required_checks": [
     {
       "id": "local-cpu-and-policy",
@@ -26,19 +26,25 @@
     },
     {
       "id": "final-revision-gpu",
-      "status": "pending",
-      "scope": "Final immutable release SHA GPU/fault/sanitizer execution not performed. Historical normal GPU source bridge is explicit evidence, not a final attestation. Candidate labels GPU unverified."
+      "status": "pass",
+      "scope": "Preview eligibility only: owner-authorized source prerelease explicitly labeled GPU UNVERIFIED under the original acceptance exception. No final GPU/fault/sanitizer execution is claimed. A verified GPU release still requires those runs.",
+      "execution_status": "unverified"
     },
     {
       "id": "linux-and-hosted-ci",
-      "status": "pending",
-      "scope": "Local Linux launcher/policy checks passed. Public push/PR not authorized; protected hosted CPU/security checks on final candidate not yet run."
+      "status": "pass",
+      "scope": "Protected CPU/security run 40211347710 passed on reviewed ee4b65d, including isolated separate-user Linux checks. Only release policy/docs changed afterward; final main CPU/security checks must also pass before publication."
     },
     {
       "id": "release-reporting-provenance-ownership",
-      "status": "pending",
-      "scope": "Repository controls freshly checked read-only; MFA field unavailable and requires owner confirmation. Final protected provenance and explicit public release authorization remain outstanding."
+      "status": "pass",
+      "scope": "Owner confirmed MFA and explicitly authorized discussed source-only prerelease. Protected main/tags, read-only workflow defaults, protected-branch release environment and private reporting rechecked. Eligible for protected provenance generation; verifying final signed subjects and hosted checks is a mandatory post-workflow publication check, not a claim that local artifacts are signed."
     }
   ],
-  "security_review_addendum": "release-review-provenance-2026-10-25.json"
+  "security_review_addendum": "release-review-provenance-2026-10-25.json",
+  "release_mode": "gpu-unverified-preview",
+  "gpu_verified": false,
+  "publication_scope": "GitHub source-only 0.1.0-rc.1 prerelease only; attestations and final hosted checks must verify before publication; crates.io remains disabled",
+  "preview_authorization": "../release/preview-authorization-2026-10-25.json",
+  "previous_gate": "release-gate-pre-preview-2026-10-25.json"
 }

@@ -1,19 +1,19 @@
-# Draft release notes
+# Gudra 0.1.0-rc.1 — source-only preview (GPU UNVERIFIED)
 
 Gudra is an experimental source distribution for alias-safe weighted Jacobi and
 Laplacian stencils, with a scalar CPU reference and optional cuTile GPU backend.
 The name was approved by the owner on 2026-10-12. Version `0.1.0-rc.1` is the
 local release candidate for a source-only GitHub channel, retaining all reviewed
-backend patches. No tag or public release is authorized.
+backend patches. The owner subsequently authorized this source-only prerelease
+on 2026-10-25; crates.io publication remains disabled.
 
-**Candidate status: UNVERIFIED GPU; HOLD for public release.** The current
-development tree has completed a fresh static source review with no reportable
-findings, and complete pinned Rust 1.89 CPU checks have passed. The full release
-gate still needs final hosted execution and provenance. CPU checks do not
-establish final GPU execution. Review the
-[supported configurations](supported-configurations.md),
-[local evidence](../evidence/chat12/results.json), and
-[checklist](checklist.md) before evaluating the candidate.
+**GPU UNVERIFIED.** This prerelease is for source evaluation and CPU reference
+use. No GPU execution, fault-injection or sanitizer pass is claimed for this final
+revision. Current security reviews report zero findings; pinned Rust 1.89 CPU,
+ownership compile-fail, doctest, docs, package and security checks pass. Protected
+final CI and signed artifact provenance must verify before publication. Review the
+[supported configurations](supported-configurations.md) and
+[preview authorization](preview-authorization-2026-10-25.json).
 
 The default feature set builds without CUDA. The GPU source build must retain
 Cargo.lock, all three vendor overrides, their integrity manifest and Apache-2.0

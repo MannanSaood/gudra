@@ -148,11 +148,14 @@ begins after the maintainer posts them and the referenced candidate is accessibl
 
 ## Mandatory release gates
 
-The current development snapshot is **HOLD / GPU unverified** for release.
+Version `0.1.0-rc.1` is a **source-only, GPU UNVERIFIED preview**.
+It is not a verified GPU release.
 The current static diff review completed on 2026-10-25 with no reportable
 findings; [current status and remaining gates](docs/release/status-2026-10-25.md)
-bind that review to the candidate. The full release gate remains on HOLD. Publication stays
-disabled; Cargo's packaged registry GPU dependencies do not retain our patches.
+bind that review to the candidate. The owner authorized the explicitly unverified
+preview allowed by the acceptance criteria; protected CI and signed provenance
+must verify before publication. Crates.io stays disabled because Cargo's packaged
+registry GPU dependencies do not retain our patches.
 Use the [release checklist](docs/release/checklist.md),
 [support/version policy](docs/release/supported-configurations.md),
 [draft notes](docs/release/notes.md) and

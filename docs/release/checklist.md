@@ -1,6 +1,10 @@
 # Release checklist — 2026-10-12
 
-Decision: **HOLD**. This is a local review candidate, not an approved release.
+Preparation checklist below is historical. The owner subsequently authorized
+the explicitly GPU UNVERIFIED source preview and confirmed MFA. Protected
+CPU/security CI passed. See `preview-authorization-2026-10-25.json`; final main CI
+and verified signed provenance remain publication postconditions. A verified GPU
+release and crates.io remain outside this authorization.
 Owner: repository owner under the recorded solo-maintainer policy. All open
 items are due before publication; no independent approval is claimed.
 

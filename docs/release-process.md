@@ -12,8 +12,13 @@ while excluding historical evidence, benchmark dumps and standalone prototypes.
 The archive basename is recorded in `source-inventory.json`; use that basename
 when verifying attestations instead of assuming the older commit-only naming.
 
-Before dispatching the workflow, require the CPU/security checks and the separate
-isolated GPU gate for the same commit. Dispatch **Release evidence** from `main`
+Before dispatching the workflow, require the CPU/security checks for the reviewed
+program source and the recorded release gate. A verified GPU release additionally
+requires the separate isolated GPU gate for the same commit. The original
+acceptance criteria permit an explicitly GPU UNVERIFIED source preview; this
+exception does not waive security review or claim successful GPU execution.
+See `docs/release/preview-authorization-2026-10-25.json`. Final main CPU/security
+checks and verified protected attestations are required before publication. Dispatch **Release evidence** from `main`
 and enter the complete 40-character approved commit SHA. The workflow rejects a
 different ref, abbreviated SHA, dirty checkout, or revision mismatch.
 
