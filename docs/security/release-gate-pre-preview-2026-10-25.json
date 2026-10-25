@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-25",
+  "decision": "hold",
+  "channel": "source-only GitHub candidate",
+  "version": "0.1.0-rc.1",
+  "baseline": "September approval plus completed current static diff review; execution/provenance gates remain open",
+  "source_sha256": "bd3fa529c8fb42e149d05054bb9526831d1eb70eef0c911b25944d50e2d84478",
+  "security_review": "release-review-2026-10-25.json",
+  "historical_gate": "release-gate-2026-09-26.json",
+  "publication_authorized": false,
+  "required_checks": [
+    {
+      "id": "local-cpu-and-policy",
+      "status": "pass",
+      "scope": "Complete pinned Rust 1.89 source-snapshot CPU/UI/docs/package checks passed; fresh October 25 advisory/license/source/scanner tests passed. Final hosted SHA checks remain separate."
+    },
+    {
+      "id": "SEC-001-private-jit-boundary",
+      "status": "pass",
+      "scope": "Vendor source unchanged from reviewed base; prior actual JIT/separate-UID evidence retained. Current static review preserves boundary; Linux launcher checks refreshed October 25."
+    },
+    {
+      "id": "SEC-004-failed-drain-retention",
+      "status": "pass",
+      "scope": "Unchanged vendored fail-stop guard and current ownership/cancellation paths reviewed; 259 runtime/dependency/test files match returned normal GPU evidence. No new final-candidate device-fault run claimed."
+    },
+    {
+      "id": "final-revision-gpu",
+      "status": "pending",
+      "scope": "Final immutable release SHA GPU/fault/sanitizer execution not performed. Historical normal GPU source bridge is explicit evidence, not a final attestation. Candidate labels GPU unverified."
+    },
+    {
+      "id": "linux-and-hosted-ci",
+      "status": "pending",
+      "scope": "Local Linux launcher/policy checks passed. Public push/PR not authorized; protected hosted CPU/security checks on final candidate not yet run."
+    },
+    {
+      "id": "release-reporting-provenance-ownership",
+      "status": "pending",
+      "scope": "Repository controls freshly checked read-only; MFA field unavailable and requires owner confirmation. Final protected provenance and explicit public release authorization remain outstanding."
+    }
+  ],
+  "security_review_addendum": "release-review-provenance-2026-10-25.json"
+}

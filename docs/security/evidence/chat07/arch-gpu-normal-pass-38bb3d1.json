@@ -1,0 +1,289 @@
+{
+  "revision": "38bb3d19aa56817f49b5fcf93cc02396ad36e3eb",
+  "dirty": false,
+  "lane": "arch-experimental",
+  "started_utc": "2026-09-26T07:41:32Z",
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "output": "rustc 1.89.0 (29483883e 2025-08-04)\nbinary: rustc\ncommit-hash: 29483883eed69d5fb4db01964cdf2af4d86e9cb2\ncommit-date: 2025-08-04\nhost: x86_64-unknown-linux-gnu\nrelease: 1.89.0\nLLVM version: 20.1.7\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "exit_code": 0,
+      "output": "cargo 1.89.0 (c24e10642 2025-06-23)\n"
+    },
+    {
+      "command": [
+        "nvcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Mon_Aug_03_13:24:11_PDT_2026\nCuda compilation tools, release 13.4, V13.4.59\nBuild cuda_13.4.r13.4/compiler.38657139_0\n"
+    },
+    {
+      "command": [
+        "tileiras",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "tileiras: NVIDIA (R) Cuda Tile IR optimizing assembler\nCopyright (c) 2005-2026 NVIDIA Corporation\nBuilt on Mon_Aug__3_14:03:22_PDT_2026\nCuda compilation tools, release 13.4, V13.4.59\nBuild local.local.38657139_\n"
+    },
+    {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,driver_version,compute_cap",
+        "--format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "output": "NVIDIA GeForce RTX 5060 Laptop GPU, 615.71.09, 12.0\n"
+    },
+    {
+      "command": [
+        "compute-sanitizer",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "NVIDIA (R) Compute Sanitizer\nCopyright (c) 2020-2026 NVIDIA Corporation\nVersion 2026.3.0.0 (build 38637409) (public-release)\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "tree",
+        "--locked",
+        "--features",
+        "gpu"
+      ],
+      "exit_code": 0,
+      "output": "gudra v0.0.0 (<repo>)\n\u2514\u2500\u2500 cutile v0.3.1 (<repo>/vendor/cutile)\n    \u251c\u2500\u2500 anyhow v1.0.104\n    \u251c\u2500\u2500 cuda-async v0.3.1 (<repo>/vendor/cuda-async)\n    \u2502   \u251c\u2500\u2500 anyhow v1.0.104\n    \u2502   \u251c\u2500\u2500 cuda-bindings v0.3.1\n    \u2502   \u2502   \u2514\u2500\u2500 libloading v0.8.9\n    \u2502   \u2502       \u2514\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502   [build-dependencies]\n    \u2502   \u2502   \u251c\u2500\u2500 bindgen v0.69.5\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 bitflags v2.13.2\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 cexpr v0.6.0\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 nom v7.1.3\n    \u2502   \u2502   \u2502   \u2502       \u251c\u2500\u2500 memchr v2.8.3\n    \u2502   \u2502   \u2502   \u2502       \u2514\u2500\u2500 minimal-lexical v0.2.1\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 clang-sys v1.9.1\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 glob v0.3.4\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 libc v0.2.189\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 libloading v0.8.9 (*)\n    \u2502   \u2502   \u2502   \u2502   [build-dependencies]\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 glob v0.3.4\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 itertools v0.12.1\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 either v1.18.0\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 lazy_static v1.5.0\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 lazycell v1.3.0\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 log v0.4.34\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 prettyplease v0.2.37\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107\n    \u2502   \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 unicode-ident v1.0.26\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 syn v2.0.119\n    \u2502   \u2502   \u2502   \u2502       \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502   \u2502       \u251c\u2500\u2500 quote v1.0.47\n    \u2502   \u2502   \u2502   \u2502       \u2502   \u2514\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502   \u2502       \u2514\u2500\u2500 unicode-ident v1.0.26\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 regex v1.13.1\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 aho-corasick v1.1.5\n    \u2502   \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 memchr v2.8.3\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 memchr v2.8.3\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 regex-automata v0.4.18\n    \u2502   \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 aho-corasick v1.1.5 (*)\n    \u2502   \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 memchr v2.8.3\n    \u2502   \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 regex-syntax v0.8.11\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 regex-syntax v0.8.11\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 rustc-hash v1.1.0\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 shlex v1.3.0\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 which v4.4.2\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 either v1.18.0\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 home v0.5.12\n    \u2502   \u2502   \u2502       \u2514\u2500\u2500 rustix v0.38.44\n    \u2502   \u2502   \u2502           \u251c\u2500\u2500 bitflags v2.13.2\n    \u2502   \u2502   \u2502           \u2514\u2500\u2500 linux-raw-sys v0.4.15\n    \u2502   \u2502   \u251c\u2500\u2500 prettyplease v0.2.37 (*)\n    \u2502   \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u251c\u2500\u2500 cuda-core v0.3.1\n    \u2502   \u2502   \u251c\u2500\u2500 anyhow v1.0.104\n    \u2502   \u2502   \u251c\u2500\u2500 cuda-bindings v0.3.1 (*)\n    \u2502   \u2502   \u251c\u2500\u2500 cuda-core-derive v0.3.1 (proc-macro)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u2502   \u251c\u2500\u2500 half v2.7.1\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 zerocopy v0.8.57\n    \u2502   \u2502   \u2502       \u2514\u2500\u2500 zerocopy-derive v0.8.57 (proc-macro)\n    \u2502   \u2502   \u2502           \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502           \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2502           \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u2502   \u2514\u2500\u2500 oxide-artifacts v0.2.1\n    \u2502   \u2502       \u2514\u2500\u2500 object v0.36.7\n    \u2502   \u2502           \u251c\u2500\u2500 crc32fast v1.5.2\n    \u2502   \u2502           \u2502   \u2514\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502           \u251c\u2500\u2500 hashbrown v0.15.5\n    \u2502   \u2502           \u2502   \u2514\u2500\u2500 foldhash v0.1.5\n    \u2502   \u2502           \u251c\u2500\u2500 indexmap v2.14.2\n    \u2502   \u2502           \u2502   \u251c\u2500\u2500 equivalent v1.0.2\n    \u2502   \u2502           \u2502   \u2514\u2500\u2500 hashbrown v0.17.1\n    \u2502   \u2502           \u2514\u2500\u2500 memchr v2.8.3\n    \u2502   \u251c\u2500\u2500 dashmap v6.2.1\n    \u2502   \u2502   \u251c\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502   \u251c\u2500\u2500 crossbeam-utils v0.8.23\n    \u2502   \u2502   \u251c\u2500\u2500 hashbrown v0.14.5\n    \u2502   \u2502   \u251c\u2500\u2500 lock_api v0.4.14\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 scopeguard v1.2.0\n    \u2502   \u2502   \u251c\u2500\u2500 once_cell v1.21.4\n    \u2502   \u2502   \u2514\u2500\u2500 parking_lot_core v0.9.12\n    \u2502   \u2502       \u251c\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502       \u251c\u2500\u2500 libc v0.2.189\n    \u2502   \u2502       \u2514\u2500\u2500 smallvec v1.16.1\n    \u2502   \u251c\u2500\u2500 futures v0.3.34\n    \u2502   \u2502   \u251c\u2500\u2500 futures-channel v0.3.34\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 futures-core v0.3.34\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 futures-sink v0.3.34\n    \u2502   \u2502   \u251c\u2500\u2500 futures-core v0.3.34\n    \u2502   \u2502   \u251c\u2500\u2500 futures-executor v0.3.34\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 futures-core v0.3.34\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 futures-task v0.3.34\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 futures-util v0.3.34\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 futures-channel v0.3.34 (*)\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 futures-core v0.3.34\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 futures-io v0.3.34\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 futures-macro v0.3.34 (proc-macro)\n    \u2502   \u2502   \u2502       \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502       \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2502       \u2502   \u2514\u2500\u2500 syn v3.0.6\n    \u2502   \u2502   \u2502       \u2502       \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502       \u2502       \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2502       \u2502       \u2514\u2500\u2500 unicode-ident v1.0.26\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 futures-sink v0.3.34\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 futures-task v0.3.34\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 memchr v2.8.3\n    \u2502   \u2502   \u2502       \u251c\u2500\u2500 pin-project-lite v0.2.17\n    \u2502   \u2502   \u2502       \u2514\u2500\u2500 slab v0.4.12\n    \u2502   \u2502   \u251c\u2500\u2500 futures-io v0.3.34\n    \u2502   \u2502   \u251c\u2500\u2500 futures-sink v0.3.34\n    \u2502   \u2502   \u251c\u2500\u2500 futures-task v0.3.34\n    \u2502   \u2502   \u2514\u2500\u2500 futures-util v0.3.34 (*)\n    \u2502   \u251c\u2500\u2500 half v2.7.1 (*)\n    \u2502   \u251c\u2500\u2500 once_cell v1.21.4\n    \u2502   \u251c\u2500\u2500 rustc-hash v2.1.3\n    \u2502   \u2514\u2500\u2500 thiserror v1.0.69\n    \u2502       \u2514\u2500\u2500 thiserror-impl v1.0.69 (proc-macro)\n    \u2502           \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502           \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502           \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u251c\u2500\u2500 cuda-core v0.3.1 (*)\n    \u251c\u2500\u2500 cutile-compiler v0.3.1 (<repo>/vendor/cutile-compiler)\n    \u2502   \u251c\u2500\u2500 anyhow v1.0.104\n    \u2502   \u251c\u2500\u2500 cuda-async v0.3.1 (<repo>/vendor/cuda-async) (*)\n    \u2502   \u251c\u2500\u2500 cuda-core v0.3.1 (*)\n    \u2502   \u251c\u2500\u2500 cutile-ir v0.3.1\n    \u2502   \u2502   \u251c\u2500\u2500 half v2.7.1 (*)\n    \u2502   \u2502   \u251c\u2500\u2500 indexmap v2.14.2 (*)\n    \u2502   \u2502   \u2514\u2500\u2500 thiserror v1.0.69 (*)\n    \u2502   \u251c\u2500\u2500 half v2.7.1 (*)\n    \u2502   \u251c\u2500\u2500 linkme v0.3.37\n    \u2502   \u2502   \u2514\u2500\u2500 linkme-impl v0.3.37 (proc-macro)\n    \u2502   \u2502       \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502       \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502       \u2514\u2500\u2500 syn v3.0.6 (*)\n    \u2502   \u251c\u2500\u2500 prettyplease v0.2.37\n    \u2502   \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u251c\u2500\u2500 regex v1.13.1 (*)\n    \u2502   \u251c\u2500\u2500 sha2 v0.10.9\n    \u2502   \u2502   \u251c\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502   \u251c\u2500\u2500 cpufeatures v0.2.17\n    \u2502   \u2502   \u2514\u2500\u2500 digest v0.10.7\n    \u2502   \u2502       \u251c\u2500\u2500 block-buffer v0.10.4\n    \u2502   \u2502       \u2502   \u2514\u2500\u2500 generic-array v0.14.7\n    \u2502   \u2502       \u2502       \u2514\u2500\u2500 typenum v1.20.1\n    \u2502   \u2502       \u2502       [build-dependencies]\n    \u2502   \u2502       \u2502       \u2514\u2500\u2500 version_check v0.9.5\n    \u2502   \u2502       \u2514\u2500\u2500 crypto-common v0.1.7\n    \u2502   \u2502           \u251c\u2500\u2500 generic-array v0.14.7 (*)\n    \u2502   \u2502           \u2514\u2500\u2500 typenum v1.20.1\n    \u2502   \u251c\u2500\u2500 stacker v0.1.25\n    \u2502   \u2502   \u251c\u2500\u2500 cfg-if v1.0.5\n    \u2502   \u2502   \u251c\u2500\u2500 libc v0.2.189\n    \u2502   \u2502   \u2514\u2500\u2500 psm v0.1.32\n    \u2502   \u2502       [build-dependencies]\n    \u2502   \u2502       \u251c\u2500\u2500 ar_archive_writer v0.5.3\n    \u2502   \u2502       \u2502   \u2514\u2500\u2500 object v0.39.1\n    \u2502   \u2502       \u2502       \u2514\u2500\u2500 memchr v2.8.3\n    \u2502   \u2502       \u2514\u2500\u2500 cc v1.4.6\n    \u2502   \u2502           \u251c\u2500\u2500 find-msvc-tools v0.1.12\n    \u2502   \u2502           \u2514\u2500\u2500 shlex v2.0.1\n    \u2502   \u2502   [build-dependencies]\n    \u2502   \u2502   \u2514\u2500\u2500 cc v1.4.6 (*)\n    \u2502   \u251c\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u2514\u2500\u2500 uuid v1.26.1\n    \u2502       \u2514\u2500\u2500 getrandom v0.4.3\n    \u2502           \u251c\u2500\u2500 cfg-if v1.0.5\n    \u2502           \u2514\u2500\u2500 libc v0.2.189\n    \u251c\u2500\u2500 cutile-ir v0.3.1 (*)\n    \u251c\u2500\u2500 cutile-macro v0.3.1 (proc-macro)\n    \u2502   \u251c\u2500\u2500 convert_case v0.8.0\n    \u2502   \u2502   \u2514\u2500\u2500 unicode-segmentation v1.13.3\n    \u2502   \u251c\u2500\u2500 cutile-compiler v0.3.1 (<repo>/vendor/cutile-compiler) (*)\n    \u2502   \u251c\u2500\u2500 itertools v0.14.0\n    \u2502   \u2502   \u2514\u2500\u2500 either v1.18.0\n    \u2502   \u251c\u2500\u2500 phf v0.11.3\n    \u2502   \u2502   \u251c\u2500\u2500 phf_macros v0.11.3 (proc-macro)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 phf_generator v0.11.3\n    \u2502   \u2502   \u2502   \u2502   \u251c\u2500\u2500 phf_shared v0.11.3\n    \u2502   \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 siphasher v1.0.3\n    \u2502   \u2502   \u2502   \u2502   \u2514\u2500\u2500 rand v0.8.8\n    \u2502   \u2502   \u2502   \u2502       \u2514\u2500\u2500 rand_core v0.6.4\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 phf_shared v0.11.3 (*)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u2502   \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u2502   \u2502   \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u2502   \u2502   \u2514\u2500\u2500 phf_shared v0.11.3 (*)\n    \u2502   \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502   \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502   \u251c\u2500\u2500 sha2 v0.10.9 (*)\n    \u2502   \u2514\u2500\u2500 syn v2.0.119 (*)\n    \u251c\u2500\u2500 dashmap v6.2.1 (*)\n    \u251c\u2500\u2500 half v2.7.1 (*)\n    \u251c\u2500\u2500 linkme v0.3.37 (*)\n    \u251c\u2500\u2500 num-traits v0.2.19\n    \u2502   [build-dependencies]\n    \u2502   \u2514\u2500\u2500 autocfg v1.5.1\n    \u251c\u2500\u2500 once_cell v1.21.4\n    \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u251c\u2500\u2500 serde v1.0.229\n    \u2502   \u251c\u2500\u2500 serde_core v1.0.229\n    \u2502   \u2514\u2500\u2500 serde_derive v1.0.229 (proc-macro)\n    \u2502       \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n    \u2502       \u251c\u2500\u2500 quote v1.0.47 (*)\n    \u2502       \u2514\u2500\u2500 syn v3.0.6 (*)\n    \u251c\u2500\u2500 serde_json v1.0.151\n    \u2502   \u251c\u2500\u2500 itoa v1.0.18\n    \u2502   \u251c\u2500\u2500 memchr v2.8.3\n    \u2502   \u251c\u2500\u2500 serde_core v1.0.229\n    \u2502   \u2514\u2500\u2500 zmij v1.0.23\n    \u2514\u2500\u2500 syn v2.0.119 (*)\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "vendor/cutile-compiler/Cargo.toml",
+        "--target-dir",
+        "target/vendor-cutile-compiler",
+        "--locked",
+        "--lib",
+        "private_compilation_lifecycle",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "   Compiling cuda-core v0.3.1\n   Compiling cuda-bindings v0.3.1\n   Compiling cutile-ir v0.3.1\n   Compiling cutile-compiler v0.3.1 (<repo>/vendor/cutile-compiler)\n   Compiling cuda-async v0.3.1\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.72s\n     Running unittests src/lib.rs (target/vendor-cutile-compiler/debug/deps/cutile_compiler-658702b243032d10)\n\nrunning 1 test\ntest cuda_tile_runtime_utils::tests::private_compilation_lifecycle ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 150 filtered out; finished in 0.01s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "vendor/cuda-async/Cargo.toml",
+        "--target-dir",
+        "target/vendor-cuda-async",
+        "--locked",
+        "--lib",
+        "fault_policy::tests",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "   Compiling proc-macro2 v1.0.106\n   Compiling quote v1.0.45\n   Compiling unicode-ident v1.0.24\n   Compiling cfg-if v1.0.4\n   Compiling glob v0.3.3\n   Compiling rustix v0.38.44\n   Compiling libc v0.2.185\n   Compiling prettyplease v0.2.37\n   Compiling linux-raw-sys v0.4.15\n   Compiling either v1.15.0\n   Compiling bitflags v2.11.1\n   Compiling regex-syntax v0.8.10\n   Compiling minimal-lexical v0.2.1\n   Compiling memchr v2.8.0\n   Compiling home v0.5.12\n   Compiling bindgen v0.69.5\n   Compiling log v0.4.29\n   Compiling lazy_static v1.5.0\n   Compiling shlex v1.3.0\n   Compiling libloading v0.8.9\n   Compiling lazycell v1.3.0\n   Compiling rustc-hash v1.1.0\n   Compiling crc32fast v1.5.0\n   Compiling zerocopy v0.8.48\n   Compiling futures-core v0.3.32\n   Compiling equivalent v1.0.2\n   Compiling object v0.36.7\n   Compiling hashbrown v0.17.0\n   Compiling itertools v0.12.1\n   Compiling futures-sink v0.3.32\n   Compiling foldhash v0.1.5\n   Compiling futures-io v0.3.32\n   Compiling futures-task v0.3.32\n   Compiling anyhow v1.0.103\n   Compiling futures-channel v0.3.32\n   Compiling slab v0.4.12\n   Compiling hashbrown v0.15.5\n   Compiling crossbeam-utils v0.8.21\n   Compiling parking_lot_core v0.9.12\n   Compiling clang-sys v1.8.1\n   Compiling pin-project-lite v0.2.17\n   Compiling smallvec v1.15.1\n   Compiling scopeguard v1.2.0\n   Compiling thiserror v1.0.69\n   Compiling nom v7.1.3\n   Compiling cuda-core v0.3.1\n   Compiling lock_api v0.4.14\n   Compiling hashbrown v0.14.5\n   Compiling once_cell v1.21.4\n   Compiling rustc-hash v2.1.2\n   Compiling indexmap v2.14.0\n   Compiling syn v2.0.117\n   Compiling regex-automata v0.4.14\n   Compiling dashmap v6.1.0\n   Compiling which v4.4.2\n   Compiling cexpr v0.6.0\n   Compiling regex v1.12.3\n   Compiling zerocopy-derive v0.8.48\n   Compiling futures-macro v0.3.32\n   Compiling thiserror-impl v1.0.69\n   Compiling cuda-core-derive v0.3.1\n   Compiling oxide-artifacts v0.2.1\n   Compiling futures-util v0.3.32\n   Compiling futures-executor v0.3.32\n   Compiling futures v0.3.32\n   Compiling cuda-bindings v0.3.1\n   Compiling half v2.7.1\n   Compiling cuda-async v0.3.1 (<repo>/vendor/cuda-async)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.52s\n     Running unittests src/lib.rs (target/vendor-cuda-async/debug/deps/cuda_async-0f47ea5e9f453dae)\n\nrunning 6 tests\ntest fault_policy::tests::abort_helper ... ok\ntest fault_policy::tests::armed_unwind_helper ... ok\ntest fault_policy::tests::asynchronous_handoff_retains_foreign_owner_until_terminal ... ok\ntest fault_policy::tests::completion_controls_allocation_quarantine ... ok\ntest fault_policy::tests::explicit_fail_stop_aborts_subprocess ... \nrunning 1 test\ncuda-async: aborting worker because test operation did not prove device completion: injected uncertain completion\nok\ntest fault_policy::tests::unwind_while_armed_aborts_subprocess ... \nrunning 1 test\n\nthread 'fault_policy::tests::armed_unwind_helper' panicked at src/fault_policy.rs:197:13:\ninjected panic after possible submission\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\ncuda-async: aborting worker because panicking test operation did not prove device completion: host unwound before device completion was proven\nok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 52 filtered out; finished in 0.14s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "vendor/cuda-async/Cargo.toml",
+        "--target-dir",
+        "target/vendor-cuda-async",
+        "--locked",
+        "--lib",
+        "device_future::release_tests",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s\n     Running unittests src/lib.rs (target/vendor-cuda-async/debug/deps/cuda_async-0f47ea5e9f453dae)\n\nrunning 8 tests\ntest device_future::release_tests::dropping_failed_future_is_a_noop ... ok\ntest device_future::release_tests::failed_drain_helper ... ok\ntest device_future::release_tests::release_covers_complete_future_left_by_registration_failure ... ok\ntest device_future::release_tests::release_drains_pending_submission_without_a_result ... ok\ntest device_future::release_tests::release_fail_stops_when_the_wait_fails ... \nrunning 1 test\ncuda-async: aborting worker because dropped asynchronous operation did not prove device completion: internal error: boom\nok\ntest device_future::release_tests::release_is_noop_after_result_delivery ... ok\ntest device_future::release_tests::release_is_noop_for_idle_future ... ok\ntest device_future::release_tests::release_waits_before_dropping_the_result ... ok\n\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 50 filtered out; finished in 0.07s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "check",
+        "--locked",
+        "--features",
+        "gpu",
+        "--all-targets"
+      ],
+      "exit_code": 0,
+      "output": "   Compiling bindgen v0.69.5\n   Compiling cuda-core v0.3.1\n   Compiling cutile-compiler v0.3.1 (<repo>/vendor/cutile-compiler)\n   Compiling cuda-bindings v0.3.1\n    Checking cuda-async v0.3.1 (<repo>/vendor/cuda-async)\n   Compiling cutile-macro v0.3.1\n    Checking cutile v0.3.1 (<repo>/vendor/cutile)\n    Checking gudra v0.0.0 (<repo>)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.30s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--features",
+        "gpu",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "output": "    Checking gudra v0.0.0 (<repo>)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.39s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "doc",
+        "--locked",
+        "--features",
+        "gpu",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "output": " Documenting gudra v0.0.0 (<repo>)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.40s\n   Generated <repo>/target/doc/gudra/index.html\n"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/check-ui.py",
+        "--gpu"
+      ],
+      "exit_code": 0,
+      "output": "PASS cpu/pass.rs: compiles\nPASS cpu/alias_rhs.rs: ['E0502']\nPASS gpu/pass.rs: compiles\nPASS gpu/alias_rhs.rs: ['E0502']\nPASS gpu/overlap_mut.rs: ['E0499']\nPASS gpu/private_storage.rs: ['E0616']\nPASS gpu/reuse_owned.rs: ['E0382']\nPASS gpu/source_as_output.rs: ['E0308']\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--features",
+        "gpu",
+        "--doc"
+      ],
+      "exit_code": 0,
+      "output": "   Compiling bindgen v0.69.5\n   Compiling cuda-bindings v0.3.1\n   Compiling cuda-core v0.3.1\n   Compiling cuda-async v0.3.1 (<repo>/vendor/cuda-async)\n   Compiling cutile-compiler v0.3.1 (<repo>/vendor/cutile-compiler)\n   Compiling cutile-macro v0.3.1\n   Compiling cutile v0.3.1 (<repo>/vendor/cutile)\n   Compiling gudra v0.0.0 (<repo>)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.50s\n   Doc-tests gudra\n\nrunning 3 tests\ntest src/gpu/mod.rs - gpu (line 12) - compile ... ok\ntest src/gpu/cutile_impl.rs - gpu::cutile_impl::Gpu::step_into (line 189) - compile fail ... ok\ntest src/reference.rs - reference::jacobi_into (line 25) ... ok\n\ntest result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.64s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--features",
+        "gpu",
+        "--lib",
+        "--test",
+        "gpu_jacobi",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "   Compiling gudra v0.0.0 (<repo>)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.57s\n     Running unittests src/lib.rs (target/debug/deps/gudra-fd44d1de8acbe429)\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.72s\n\n     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-0a1780aeca5f1805)\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.62s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--features",
+        "gpu",
+        "--lib",
+        "--test",
+        "gpu_jacobi",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/debug/deps/gudra-fd44d1de8acbe429)\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.05s\n\n     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-0a1780aeca5f1805)\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.65s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--features",
+        "gpu",
+        "--lib",
+        "--test",
+        "gpu_jacobi",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/debug/deps/gudra-fd44d1de8acbe429)\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.09s\n\n     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-0a1780aeca5f1805)\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.62s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--features",
+        "gpu",
+        "--lib",
+        "--test",
+        "gpu_jacobi",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/debug/deps/gudra-fd44d1de8acbe429)\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.08s\n\n     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-0a1780aeca5f1805)\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.72s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--features",
+        "gpu",
+        "--lib",
+        "--test",
+        "gpu_jacobi",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/debug/deps/gudra-fd44d1de8acbe429)\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.08s\n\n     Running tests/gpu_jacobi.rs (target/debug/deps/gpu_jacobi-0a1780aeca5f1805)\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.62s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "vendor/cuda-async/Cargo.toml",
+        "--target-dir",
+        "target/vendor-cuda-async",
+        "--locked",
+        "--test",
+        "drop_in_flight",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "output": "   Compiling cuda-async v0.3.1 (<repo>/vendor/cuda-async)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.93s\n     Running tests/drop_in_flight.rs (target/vendor-cuda-async/debug/deps/drop_in_flight-ca55b76227247cb2)\n\nrunning 4 tests\ntest delivered_result_is_owned_by_the_caller ... ok\ntest dropping_in_flight_future_releases_output_after_the_device_finished ... ok\ntest dropping_unpolled_future_submits_nothing ... ok\ntest later_pipelines_complete_after_cancellations ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s\n\n"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/check-gpu-sanitizers.py"
+      ],
+      "exit_code": 0,
+      "output": "38bb3d19aa56817f49b5fcf93cc02396ad36e3eb\nNVIDIA (R) Compute Sanitizer\nCopyright (c) 2020-2026 NVIDIA Corporation\nVersion 2026.3.0.0 (build 38637409) (public-release)\n   Compiling gudra v0.0.0 (<repo>)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.89s\nRUN gpu_jacobi: memcheck\n========= COMPUTE-SANITIZER\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.97s\n\n========= ERROR SUMMARY: 0 errors\nRUN gpu_jacobi: initcheck\n========= COMPUTE-SANITIZER\n\nrunning 9 tests\ntest blocking_steps_match_reference ... ok\ntest budgets_reject_before_allocation_or_submission_and_release_on_drop ... ok\ntest every_validation_role_leaves_output_unchanged_and_session_usable ... ok\ntest nonfinite_policy_matches_oracle_and_stated_classification ... ok\ntest owned_async_returns_usable_buffers_on_another_thread ... ok\ntest owned_job_can_be_dropped_before_or_after_first_poll ... ok\ntest readback_retains_allocation_until_copy_completes ... ok\ntest unusual_finite_coefficients_match_oracle ... ok\ntest validation_rejects_equal_area_wrong_extents_and_other_sessions ... ok\n\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.75s\n\n========= ERROR SUMMARY: 0 errors\nRUN gudra: memcheck\n========= COMPUTE-SANITIZER\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.25s\n\n========= ERROR SUMMARY: 0 errors\nRUN gudra: initcheck\n========= COMPUTE-SANITIZER\n\nrunning 13 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest gpu::cutile_impl::verification::each_direction_reads_asymmetric_sentinels ... ok\ntest gpu::cutile_impl::verification::invalidated_field_is_rejected_by_every_public_data_path ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest params::tests::coefficient_domain ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.17s\n\n========= ERROR SUMMARY: 0 errors\nPASS: both GPU test executables passed memcheck and initcheck.\n"
+    }
+  ],
+  "lock_sha256": "279f24841acdbdd29f44a5297741d3e7151c370c33bf3e4879014c615c29de84",
+  "disposable_fault_tests": false,
+  "scope": "normal execution plus deterministic ownership seams; sticky device fault only when explicitly enabled",
+  "normal_path_suite": "pass",
+  "release_decision": "not established by this runner; administrative controls are separate"
+}

@@ -50,3 +50,28 @@ mod tests {
         assert!(JacobiParams::new(2.0, f32::MAX).is_ok());
     }
 }
+
+/// Positive finite isotropic squared spacing for the five-point Laplacian.
+/// The reciprocal must also be finite; no numerical accuracy bound is implied.
+#[derive(Debug, Clone, Copy)]
+pub struct LaplacianParams {
+    pub(crate) inverse_h_squared: f32,
+}
+
+impl LaplacianParams {
+    /// Constructs spacing from `h_squared`, in physical length squared units.
+    ///
+    /// # Errors
+    /// Returns [`Error::InvalidParameter`] for nonpositive/nonfinite spacing or
+    /// an overflowing reciprocal. Field values may be nonfinite.
+    pub fn new(h_squared: f32) -> Result<Self> {
+        let inverse_h_squared = 1.0 / h_squared;
+        if !h_squared.is_finite() || h_squared <= 0.0 || !inverse_h_squared.is_finite() {
+            return Err(Error::InvalidParameter {
+                parameter: "laplacian h_squared",
+                value: h_squared,
+            });
+        }
+        Ok(Self { inverse_h_squared })
+    }
+}

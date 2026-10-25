@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-26",
+  "advisory_database_revision": "17af77682cecd2afa72b217ad7c6c30585d5003f",
+  "advisory_license_bans_sources": "pass",
+  "tools": {
+    "cargo-deny": "0.20.2",
+    "gitleaks": "8.30.1",
+    "test_rustc": "1.89.0",
+    "local_cargo_clippy": "1.90.0"
+  },
+  "independent_review": "The SEC-004 implementation was independently reviewed. Review found an early async-quarantine release, which was fixed; final review found no ownership bypass through Gudra's supported public GPU facade. Direct applications that separately add cutile or cuda-async remain outside that support boundary. Final clean pinned real-device, sticky-fault and sanitizer evidence passed. No concrete distinct-UID JIT bypass was found; separate-UID and actual JIT execution tests passed.",
+  "publication": "Only public implementation and policy candidates through c5f3322515834ea646e191acede544241e9a4328 were pushed. Private audits, findings, and GPU evidence were excluded. No tag, release, or package was published.",
+  "local_failures": [
+    "Local GPU execution unavailable; accepted evidence is bound to the clean disposable Arch/NVIDIA worker run."
+  ],
+  "public_ci_run": "https://github.com/MannanSaood/gudra/actions/runs/36244844661",
+  "gpu_validation": "pass: clean pinned disposable-worker candidate 4debea7 passed all 24 commands, including deterministic ownership seams, five repetitions, drop-in-flight, sticky CUDA 719 fail-stop, and Compute Sanitizer memcheck/initcheck with zero errors; evidence SHA-256 423168e3171311e352eb1ea02017540f24c5d0a8bee3eb64e305c0a6897fade0",
+  "secret_scan": "Initial checksum manifest triggered generic-api-key rule on compile_api filename plus SHA256. Triaged as generated hash; reformatted digest records, no exclusions or scanner weakening. Final source/history scan zero findings.",
+  "sbom_scope": "complete locked Rust graph and vendored sources; CUDA toolkit, driver and tileiras recorded as external prerequisites and not redistributed",
+  "release_governance": "pass under owner-authorized solo-maintainer policy; no independent review claimed; required checks and other protections remain mandatory",
+  "release_evidence": "pass: run 36244888865 on c5f3322, checksums and three Sigstore attestations verified"
+}

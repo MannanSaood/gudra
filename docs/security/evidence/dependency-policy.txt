@@ -1,0 +1,3 @@
+COMMAND: scripts/check-dependency-policy.py
+EXIT: 0
+PASS: 134 checksummed registry dependencies; no Git/path dependencies; capability inventory unchanged.

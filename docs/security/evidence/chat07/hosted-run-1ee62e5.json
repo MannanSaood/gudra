@@ -1,0 +1,39 @@
+{
+  "run_id": 36125581179,
+  "url": "https://github.com/MannanSaood/gudra/actions/runs/36125581179",
+  "head_sha": "1ee62e582912590ae27af6256b6da9c6262aed1c",
+  "created_at": "2026-09-25T10:44:12Z",
+  "completed_at": "2026-09-25T10:44:35Z",
+  "conclusion": "success",
+  "jobs": {
+    "cpu": {
+      "job_id": 108040818911,
+      "conclusion": "success",
+      "checks": [
+        "checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "Rust 1.89 install",
+        "cargo fmt",
+        "cargo clippy",
+        "cargo test debug",
+        "cargo test release",
+        "CPU UI checks",
+        "cargo doc"
+      ]
+    },
+    "security": {
+      "job_id": 108040819160,
+      "conclusion": "success",
+      "checks": [
+        "checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "verified security tool install",
+        "RustSec, license, dependency ban and source policy",
+        "current and available-history secret scan",
+        "vendor digest verification",
+        "security-tool tamper tests",
+        "Linux private launcher tests",
+        "separate-UID private JIT storage tests"
+      ]
+    }
+  },
+  "redaction": "Step conclusions and public identities only; no raw logs, host paths, credentials, compiler artifacts, PTX, cubins, or data arrays retained."
+}

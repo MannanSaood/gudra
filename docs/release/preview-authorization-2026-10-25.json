@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-25",
+  "version": "0.1.0-rc.1",
+  "channel": "GitHub source-only prerelease",
+  "mode": "GPU-unverified preview",
+  "owner": "MannanSaood",
+  "authorization": "Owner instructed: I am confident, push for release; then: Do it then. Scope is the discussed source-only 0.1.0-rc.1 prerelease, retaining vendor fixes; crates.io remains disabled.",
+  "mfa": "Owner explicitly confirmed two-factor authentication is enabled on 2026-10-25; API field unavailable.",
+  "gpu_verified": false,
+  "gpu_policy": "Original acceptance criteria and README allow explicit unverified preview labeling. This admits only a source preview; it is not a GPU execution pass or a verified GPU release.",
+  "security": "Both current static reviews complete with zero findings; the 21 reviewed program/workflow files match their recorded LF-normalized hashes, using the separately reviewed provenance helper hash. No high/critical issue is waived.",
+  "hosted_ci": {
+    "run_id": 40211347710,
+    "source_revision": "ee4b65d9241100a20c64f13742dbdb2d36f0f14e",
+    "cpu": "success",
+    "security": "success",
+    "url": "https://github.com/MannanSaood/gudra/actions/runs/40211347710"
+  },
+  "final_requirements": [
+    "CPU/security checks on final main revision",
+    "protected workflow evidence",
+    "verify checksums and GitHub attestations bind exact final revision",
+    "explicit GPU UNVERIFIED prerelease title/body",
+    "retain immutable tag and source-only assets"
+  ],
+  "crates_io_authorized": false,
+  "gpu_execution_waived_for_verified_release": false
+}

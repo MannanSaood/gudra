@@ -1,8 +1,10 @@
-//! Private device owners for one cuTile Jacobi step (requires `gpu`).
+//! Private device owners for cuTile Jacobi and Laplacian operators (requires `gpu`).
 //!
 //! All constructors and readbacks block on a private session stream. [`Gpu::step`]
 //! allocates and blocks; [`Gpu::step_into`] reuses output and blocks. Only
-//! [`Gpu::step_into_async`] submits lazily and returns an owned future. First use
+//! [`Gpu::step_into_async`] submits one step lazily and returns an owned future.
+//! [`Gpu::double_grid`] constructs a fixed-boundary timestep state; its
+//! [`DoubleGrid::advance_async`] owns both grids throughout a batch. First use
 //! can JIT-compile. All operations on one executor share its ordered stream.
 //!
 //! Buffers retain their session and expose no tensors, pointers, streams, clones,
@@ -58,4 +60,16 @@ pub struct StepBuffers {
     pub rhs: Field2D,
     /// Completed interior result.
     pub output: Field2D,
+}
+
+/// Ready-to-advance fixed-Dirichlet Jacobi state: two distinct haloed allocations
+/// and an immutable RHS. Neither storage nor stream aliases are exposed.
+///
+/// Advancing consumes this owner; only successful completion returns a ready
+/// owner. No public generic state parameter is needed to enforce that ordering.
+pub struct DoubleGrid {
+    current: HaloGrid2D,
+    next: HaloGrid2D,
+    rhs: Field2D,
+    completed: usize,
 }

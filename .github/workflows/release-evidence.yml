@@ -48,22 +48,29 @@ jobs:
 
       - name: Re-run release checks
         run: |
+          python3 scripts/check-release-gate.py
           cargo fmt --all -- --check
           cargo clippy --locked --all-targets -- -D warnings
           cargo test --locked
           cargo test --locked --release
-          cargo doc --locked --no-deps
+          python3 scripts/check-ui.py
+          RUSTDOCFLAGS='-D warnings' cargo doc --locked --no-deps
           target/security-tools/cargo-deny --all-features --locked check
+          python3 scripts/check-secrets.py --gitleaks target/security-tools/gitleaks
+          python3 scripts/test-secret-policy.py --gitleaks target/security-tools/gitleaks
+          python3 scripts/check-dependency-policy.py
           python3 scripts/check-vendor.py
           python3 scripts/test-security-tools.py
           python3 scripts/test-private-launcher-linux.py
+          cargo package --locked
+          python3 scripts/check-package.py --output target/package-contents.json
           test -z "$(git status --porcelain)"
 
       - name: Build source archive, toolchain inventory, SBOM and checksums
         run: |
           mkdir -p target/release-evidence
-          git archive --format=tar --prefix="gudra-${GITHUB_SHA}/" "$GITHUB_SHA" -o "target/release-evidence/gudra-${GITHUB_SHA}.tar"
-          gzip -n "target/release-evidence/gudra-${GITHUB_SHA}.tar"
+          python3 scripts/source-candidate.py --require-clean --output target/release-evidence
+          SOURCE_ARCHIVE=$(python3 -c 'import json; print(json.load(open("target/release-evidence/source-inventory.json"))["archive"])')
           {
             uname -a
             rustc -Vv
@@ -76,7 +83,8 @@ jobs:
             exit 1
           fi
           python3 scripts/release-manifest.py \
-            --artifact "target/release-evidence/gudra-${GITHUB_SHA}.tar.gz" \
+            --artifact "target/release-evidence/${SOURCE_ARCHIVE}" \
+            --artifact target/release-evidence/source-inventory.json \
             --artifact target/release-evidence/toolchain.txt \
             --tool "$(rustup which rustc)" \
             --tool "$(command -v cargo)" \

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-25",
+  "decision": "pass",
+  "channel": "source-only GitHub GPU-unverified prerelease",
+  "version": "0.1.0-rc.1",
+  "baseline": "Current completed static reviews; owner-authorized explicitly unverified preview permitted by original acceptance criteria and README",
+  "source_sha256": "bd3fa529c8fb42e149d05054bb9526831d1eb70eef0c911b25944d50e2d84478",
+  "security_review": "release-review-2026-10-25.json",
+  "historical_gate": "release-gate-2026-09-26.json",
+  "publication_authorized": true,
+  "required_checks": [
+    {
+      "id": "local-cpu-and-policy",
+      "status": "pass",
+      "scope": "Complete pinned Rust 1.89 source-snapshot CPU/UI/docs/package checks passed; fresh October 25 advisory/license/source/scanner tests passed. Final hosted SHA checks remain separate."
+    },
+    {
+      "id": "SEC-001-private-jit-boundary",
+      "status": "pass",
+      "scope": "Vendor source unchanged from reviewed base; prior actual JIT/separate-UID evidence retained. Current static review preserves boundary; Linux launcher checks refreshed October 25."
+    },
+    {
+      "id": "SEC-004-failed-drain-retention",
+      "status": "pass",
+      "scope": "Unchanged vendored fail-stop guard and current ownership/cancellation paths reviewed; 259 runtime/dependency/test files match returned normal GPU evidence. No new final-candidate device-fault run claimed."
+    },
+    {
+      "id": "final-revision-gpu",
+      "status": "pass",
+      "scope": "Preview eligibility only: owner-authorized source prerelease explicitly labeled GPU UNVERIFIED under the original acceptance exception. No final GPU/fault/sanitizer execution is claimed. A verified GPU release still requires those runs.",
+      "execution_status": "unverified"
+    },
+    {
+      "id": "linux-and-hosted-ci",
+      "status": "pass",
+      "scope": "Protected CPU/security run 40211347710 passed on reviewed ee4b65d, including isolated separate-user Linux checks. Only release policy/docs changed afterward; final main CPU/security checks must also pass before publication."
+    },
+    {
+      "id": "release-reporting-provenance-ownership",
+      "status": "pass",
+      "scope": "Owner confirmed MFA and explicitly authorized discussed source-only prerelease. Protected main/tags, read-only workflow defaults, protected-branch release environment and private reporting rechecked. Eligible for protected provenance generation; verifying final signed subjects and hosted checks is a mandatory post-workflow publication check, not a claim that local artifacts are signed."
+    }
+  ],
+  "security_review_addendum": "release-review-provenance-2026-10-25.json",
+  "release_mode": "gpu-unverified-preview",
+  "gpu_verified": false,
+  "publication_scope": "GitHub source-only 0.1.0-rc.1 prerelease only; attestations and final hosted checks must verify before publication; crates.io remains disabled",
+  "preview_authorization": "../release/preview-authorization-2026-10-25.json",
+  "previous_gate": "release-gate-pre-preview-2026-10-25.json"
+}

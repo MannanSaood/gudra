@@ -1,0 +1,4 @@
+COMMAND: scripts/check-ui.py
+EXIT: 0
+PASS cpu/pass.rs: compiles
+PASS cpu/alias_rhs.rs: ['E0502']

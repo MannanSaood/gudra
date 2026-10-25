@@ -1,3 +1,23 @@
+# Verification evidence navigation
+
+For current feature-by-feature status, use [the evidence index](validation-status.md).
+The release candidate below predates the timestep, Laplacian and standalone halo
+prototype; its PASS is bound to that reviewed source. Later results are linked
+separately in the index. Historical blocks below retain their original observations.
+
+# Current release-candidate verification
+
+Public candidate `c5f3322515834ea646e191acede544241e9a4328` passed hosted
+CPU/security run 36244844661 and clean release-evidence run 36244888865. The
+downloaded source archive checksum passed, its CycloneDX SBOM records the complete
+locked Rust graph, and GitHub attestations for the archive, SBOM, and manifest
+verified with GitHub CLI 2.101.0. The candidate changes no runtime, dependency,
+GPU policy, or GPU test code after the clean pinned `4debea7` device run that
+passed all 24 required commands, including the fault seam and sanitizers.
+
+The technical release gate is **PASS** under the owner-authorized solo-maintainer
+governance policy. Publication remains disabled and separately unauthorized.
+
 # Chat 05 verification results
 
 > Historical evidence only. The current candidate changes `cuda-async`,

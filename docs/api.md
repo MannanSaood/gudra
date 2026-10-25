@@ -1,4 +1,4 @@
-# One weighted Jacobi step
+# Public API guide
 
 Gudra implements the canonical operation on row-major `f32` data:
 
@@ -109,12 +109,26 @@ unsafe-code faults. Real-device fault injection is part of the release gate.
 
 ## Verification status
 
-CPU checks pass locally. The current GPU candidate and patched dependency paths
-must be compiled and executed on the final Linux/CUDA worker. See
-[GPU candidate testing](gpu-candidate-testing.md) for the exact commands and
-[verification results](verification-results.md) for historical evidence; older
-GPU runs do not validate this revision.
+CPU checks and the clean-source walkthrough are recorded in [the evidence index](validation-status.md).
+Returned Chat 09 results validate the manifest-matched single-GPU additions on
+the stated Arch experimental configuration. The historical base release gate
+and two-GPU prototype have separate scopes. Local Windows GPU compilation remains
+blocked by missing CUDA; it is not counted as a passing GPU check.
 
 Generate public API documentation with `cargo doc --locked --no-default-features
 --no-deps`, or `cargo doc --locked --features gpu --no-deps` in the supported CUDA
 environment. The latter includes the GPU surface without requiring a GPU launch.
+
+## Timestep runtime
+
+See [the timestep runtime guide](timestep-runtime.md) for `Gpu::double_grid`,
+`DoubleGrid::advance`, `advance_async`, and consuming `observe`. It documents
+fixed boundaries, ownership, errors/drop, Send/Sync, graph deferral, validation,
+and the direct-launch timing comparison.
+
+## Five-point Laplacian
+
+`LaplacianParams::new(h_squared)`, `reference::laplacian_into`, and
+`Gpu::laplacian_into` reuse the existing shape and storage types. See the
+[operator matrix and numerical conventions](operators.md); the new GPU kernel
+passed its scoped Arch experimental acceptance run (see the Chat 09 handoff).

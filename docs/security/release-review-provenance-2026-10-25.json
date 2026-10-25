@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-25",
+  "scan_id": "41459c4a-9bdc-4813-b084-ee6d6c6a6355",
+  "status": "completed",
+  "findings": 0,
+  "coverage": "complete for the one-file provenance helper patch",
+  "base_revision": "3307fff38107d39ccd1ea044908748816f58f956",
+  "workbench_snapshot_digest": "codex-security-snapshot/v1:sha256:97e8948b29f6766083d69f1fd86015c120eb778df2919ade5435a04ee54b868d",
+  "sealed_findings_sha256": "922a2c2704063550917cd28711be6a729f457b8e96f83834870f43880242acfd",
+  "sealed_coverage_sha256": "db4c7ae6356b7915798e40d637df1c57bb668dfc4aa33d0c23696665e9a95f54",
+  "file": "scripts/release-manifest.py",
+  "sha256": "abd5c39e87cfdabf372ceb11869b071bc5ad947f4ec13fd8f1c7fc4055a56bff",
+  "lf_normalized_sha256": "abd5c39e87cfdabf372ceb11869b071bc5ad947f4ec13fd8f1c7fc4055a56bff",
+  "change": "Resolve metadata for all features and reject any locked dependency missing from metadata, so optional GPU dependencies retain source/license identities.",
+  "publication_authorized": false,
+  "full_release_approved": false
+}

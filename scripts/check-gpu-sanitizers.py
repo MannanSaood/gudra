@@ -28,9 +28,9 @@ def main():
         artifact["target"]["name"]: artifact["executable"]
         for artifact in artifacts
         if artifact.get("executable") and artifact["profile"]["test"]
-        and artifact["target"]["name"] in ("gudra", "gpu_jacobi")
+        and artifact["target"]["name"] in ("gudra", "gpu_jacobi", "gpu_laplacian")
     }
-    if set(executables) != {"gudra", "gpu_jacobi"}:
+    if set(executables) != {"gudra", "gpu_jacobi", "gpu_laplacian"}:
         raise RuntimeError(f"Missing GPU test executables: {executables}")
     for name, executable in sorted(executables.items()):
         for tool in ("memcheck", "initcheck"):
@@ -40,7 +40,7 @@ def main():
             command += [executable, "--test-threads=1"]
             print(f"RUN {name}: {tool}", flush=True)
             subprocess.run(command, cwd=ROOT, check=True)
-    print("PASS: both GPU test executables passed memcheck and initcheck.", flush=True)
+    print("PASS: all three GPU test executables passed memcheck and initcheck.", flush=True)
 
 
 if __name__ == "__main__":

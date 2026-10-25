@@ -33,7 +33,10 @@ The project pins the following validation environment:
 
 The dependency's CUDA floor is documented in the
 [cuTile 0.3.1 release](https://github.com/NVlabs/cutile-rs/releases/tag/v0.3.1).
-The table above is the project's reviewed compatibility range. Consult NVIDIA's [CUDA installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/)
+The table above is the project's reviewed compatibility range. A prior clean
+candidate passed the normal Arch/CUDA 13.4 lane; the final disposable fault lane
+must run again on the current revision. Consult NVIDIA's
+[CUDA installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/)
 for driver and toolkit installation.
 
 ### Native setup
@@ -66,13 +69,14 @@ cargo doc --locked --features gpu --no-deps
 cargo test --locked --features gpu --doc
 ```
 
-With supported GPU hardware:
+With supported GPU hardware, start runtime commands with private JIT temporary
+storage (see [SECURITY.md](../SECURITY.md)):
 
 ```sh
-cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
-cargo test --locked --features gpu --lib -- --test-threads=1
-CUDA_ASYNC_SPIN_BUDGET_US=0 cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
-cargo run --locked --features gpu --example poisson_step
+python3 scripts/run-private-gpu.py -- cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
+python3 scripts/run-private-gpu.py -- cargo test --locked --features gpu --lib -- --test-threads=1
+CUDA_ASYNC_SPIN_BUDGET_US=0 python3 scripts/run-private-gpu.py -- cargo test --locked --features gpu --test gpu_jacobi -- --test-threads=1
+python3 scripts/run-private-gpu.py -- cargo run --locked --features gpu --example poisson_step
 ```
 
 The Poisson example checks 323 output cells against the CPU reference and exits
@@ -89,9 +93,33 @@ they do not silently skip. First launch may compile the kernel with `tileiras`.
 
 ## Validation status
 
-See [verification results](verification-results.md) for current commands and
-results, including the local incomplete Rust installation workaround. The GPU
-dependency build is blocked by missing CUDA before facade type-checking. Numerical,
-directional, UI, and async GPU tests remain unverified. Run
-`bash scripts/verify-gpu.sh` for the complete gate, including library view tests,
-repetitions, and memcheck/initcheck; see [the strategy](test-strategy.md).
+See [the evidence index](validation-status.md) and [performed walkthrough](new-user-walkthrough.md).
+The clean-source CPU path was run on Windows using the documented mixed-toolchain
+workaround; the pinned installation here lacks Cargo. The GPU dependency build
+is locally blocked by missing CUDA. Returned single-GPU results passed on the
+manifest-matched Chat 09 Arch experimental configuration; the broad prerequisites
+table above is not a tested hardware matrix. Two-GPU native validation remains open.
+
+Run `bash scripts/verify-gpu.sh` for the documented full GPU gate, including UI,
+library view tests, repetitions and memcheck/initcheck. The candidate evidence
+runner records the additional operators and timestep checks. Use trusted source
+on an isolated worker without production credentials; inspect and redact output
+before sharing. See [troubleshooting](troubleshooting.md) and
+[report data](community/reporting.md).
+
+## Diagnose setup before evaluating results
+
+```sh
+rustup show active-toolchain
+rustc --version
+cargo --version
+python3 --version
+cargo fetch --locked
+```
+
+On Windows use `python` if needed and install native C++/linker build tools.
+`cargo fetch --locked` populates the dependency cache; offline commands require
+that cache. GPU diagnostics are `bash scripts/check-gpu-env.sh`, `nvcc --version`,
+`tileiras --version`, and selected driver/model data. Do not post full machine or
+environment dumps. For a clean build after dependency fetch, select an empty
+CARGO_TARGET_DIR; the walkthrough records exactly how its disposable source was prepared.

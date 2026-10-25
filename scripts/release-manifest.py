@@ -36,12 +36,14 @@ def main():
     tools = identities(args.tool, resolve_symlinks=True)
     lock_packages = tomllib.loads((ROOT/'Cargo.lock').read_text())['package']
     metadata = json.loads(subprocess.check_output(
-        ['cargo', 'metadata', '--locked', '--format-version', '1'], cwd=ROOT, text=True
+        ['cargo', 'metadata', '--locked', '--all-features', '--format-version', '1'], cwd=ROOT, text=True
     ))
     metadata_by_key = {(p['name'], p['version']): p for p in metadata['packages']}
 
     def component(package):
-        info = metadata_by_key.get((package['name'], package['version']), {})
+        info = metadata_by_key.get((package['name'], package['version']))
+        if info is None:
+            raise SystemExit('FAIL: locked package absent from complete dependency metadata')
         result = {
             'type': 'library',
             'bom-ref': f"pkg:cargo/{package['name']}@{package['version']}",
@@ -75,7 +77,8 @@ def main():
                 'signed':False,'release_authorization':False,
                 'sbom_scope':'complete locked Rust graph and vendored sources; external native tools recorded separately; CUDA toolkit and driver are prerequisites and are not redistributed'}
     (args.output/'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
-    (args.output/'SHA256SUMS').write_text(''.join(f"{e['sha256']}  {e['name']}\n" for e in artifacts))
+    checksummed = artifacts + identities([args.output/'sbom.cdx.json', args.output/'manifest.json'])
+    (args.output/'SHA256SUMS').write_text(''.join(f"{e['sha256']}  {e['name']}\n" for e in checksummed))
     print('Unsigned evidence generated; protected workflow attestation remains required.')
 
 if __name__ == '__main__':

@@ -1,0 +1,69 @@
+{
+  "base_revision": "f38c5666fe5b4047a02d9afd47026f206dfa1a29",
+  "dirty": true,
+  "date": "2026-09-22",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "+stable",
+        "test",
+        "--locked",
+        "--offline",
+        "--release"
+      ],
+      "exit_code": 0,
+      "output": "    Finished `release` profile [optimized] target(s) in 0.11s\n     Running unittests src\\lib.rs (target\\release\\deps\\gudra-664f0ad25ef9e8c3.exe)\n\nrunning 11 tests\ntest completion::tests::only_success_restores_readiness ... ok\ntest limits::admission::tests::rejects_huge_requests_without_allocating_and_releases_reservations ... ok\ntest completion::tests::unwind_keeps_output_unavailable ... ok\ntest limits::admission::tests::count_limit_and_overflow_fail_closed ... ok\ntest params::tests::coefficient_domain ... ok\ntest limits::tests::rejects_zero_limits_and_large_shape_without_allocation ... ok\ntest limits::admission::tests::unwind_releases_and_forget_retains_charge ... ok\ntest shape::tests::bounds_total_elements_and_each_grid_axis ... ok\ntest shape::tests::rectangular_geometry_and_ceil_grid ... ok\ntest shape::tests::rejects_zero_before_overflow ... ok\ntest limits::admission::tests::concurrent_admission_is_atomic ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n     Running tests\\numerical.rs (target\\release\\deps\\numerical-172fe150e78b4321.exe)\n\nrunning 7 tests\ntest coefficients_report_the_rejected_parameter ... ok\ntest every_checked_arithmetic_stage_rejects_without_allocation ... ok\ntest nonfinite_data_policy_is_explicit_and_zero_does_not_short_circuit ... ok\ntest short_and_long_buffers_fail_atomically ... ok\ntest seeded_zero_weight_preserves_every_finite_center ... ok\ntest deterministic_properties_cover_tile_boundaries_and_quadratic_solution ... ok\ntest oracle_matches_independent_f64_windows_over_shape_and_parameter_matrix ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n     Running tests\\reference.rs (target\\release\\deps\\reference-2d899940d3aabde6.exe)\n\nrunning 5 tests\ntest rectangular_row_major_indexing_and_weighting ... ok\ntest narrow_and_partial_domains_preserve_constant_field ... ok\ntest zero_weight_does_not_hide_nan ... ok\ntest wrong_lengths_leave_output_untouched ... ok\ntest one_cell_uses_all_four_halos_and_negative_rhs_term ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests gudra\n\nrunning 1 test\ntest src\\reference.rs - reference::jacobi_into (line 25) ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.44s\n\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "+stable",
+        "doc",
+        "--locked",
+        "--offline",
+        "--no-deps"
+      ],
+      "exit_code": 0,
+      "output": " Documenting gudra v0.0.0 (<repo>)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.86s\n   Generated <repo>\\target\\doc\\gudra\\index.html\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check-ui.py"
+      ],
+      "exit_code": 0,
+      "output": "PASS cpu/pass.rs: compiles\nPASS cpu/alias_rhs.rs: ['E0502']\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test-security-tools.py"
+      ],
+      "exit_code": 0,
+      "output": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.005s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check-dependency-policy.py"
+      ],
+      "exit_code": 0,
+      "output": "PASS: 134 reviewed dependencies; only the pinned compiler path override is allowed; capability inventory unchanged.\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "+stable",
+        "check",
+        "--locked",
+        "--offline",
+        "--features",
+        "gpu",
+        "--all-targets"
+      ],
+      "exit_code": 101,
+      "output": "   Compiling cuda-bindings v0.3.1\n   Compiling cutile-compiler v0.3.1 (<repo>\\vendor\\cutile-compiler)\nerror: failed to run custom build command for `cuda-bindings v0.3.1`\n\nCaused by:\n  process didn't exit successfully: `<repo>\\target\\debug\\build\\cuda-bindings-a3a83b5565600d04\\build-script-build` (exit code: 1)\n  --- stdout\n  cargo:rerun-if-changed=wrapper.h\n  cargo:rerun-if-changed=toolkit_target.rs\n  cargo:rerun-if-env-changed=CUDA_TOOLKIT_PATH\n  cargo:rerun-if-env-changed=CUDA_HOME\n  cargo:rerun-if-env-changed=CUDA_TOOLKIT_TARGET_DIR\n  cargo:rerun-if-env-changed=CUTILE_SETUP_DIAGNOSTICS\n\n  --- stderr\n  Neither CUDA_TOOLKIT_PATH nor CUDA_HOME is set, and no CUDA 13.0+ toolkit was found in default locations:\n    - C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.3: C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.3 is not a directory\n    - C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2: C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2 is not a directory\n  Set CUDA_TOOLKIT_PATH or CUDA_HOME to a CUDA 13.0+ toolkit directory.\nwarning: build failed, waiting for other jobs to finish...\n"
+    }
+  ]
+}
