@@ -15,8 +15,12 @@ GitHub Sigstore/SLSA attestations use short-lived OIDC, not a stored signing key
 Verify `sha256sum --check SHA256SUMS` and `gh attestation verify <artifact> -R
 MannanSaood/gudra` for source, SBOM and manifest, then match the attested SHA and
 workflow/ref to the approved commit. Checksums authenticate bytes only when the
-checksum file/provenance origin is verified. Local Chat 12 archives are unsigned
-dirty snapshots; never describe them as signed/reproducible commit releases.
+checksum file/provenance origin is verified. Early Chat 12 archives were unsigned
+dirty snapshots. The final local candidate is generated from a clean immutable
+commit and checked against its Git contents, but remains unsigned and GPU
+unverified. Local checksum evidence does not close protected attestation gates.
+On Windows set `PYTHONUTF8=1` when running Python release helpers: Cargo metadata
+contains UTF-8 text that the legacy Windows code page cannot reliably decode.
 Keep verified artifacts and gate/GPU evidence beyond the 14-day Actions retention
 in maintainer-controlled release storage after authorized publication.
 
@@ -46,7 +50,7 @@ If a future crates.io version is defective, the authorized crate owner runs
 does not delete source or remove existing lockfile selections. Ship a fixed new
 version and guidance for affected lockfiles. `cargo yank --undo` is a separate
 reviewed owner action after a mistaken yank. No yank applies to this unpublished
-`0.0.0` development candidate. Do not claim automatic runtime rollback; GPU faults
+`0.1.0-rc.1` source candidate. Do not claim automatic runtime rollback; GPU faults
 require replacing the aborted worker and reinitializing trusted state.
 
 ## Security response

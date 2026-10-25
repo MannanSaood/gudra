@@ -66,7 +66,8 @@ Expected terminal output: `old center=4 new center=3.5`. No GPU fallback is
 implied: this explicitly calls the CPU reference. See [setup and diagnostics](docs/setup.md),
 [troubleshooting](docs/troubleshooting.md), and the
 [performed clean-source walkthrough](docs/new-user-walkthrough.md) for measured
-results, including this host's incomplete pinned-toolchain workaround.
+results. The [current release status](docs/release/status-2026-10-25.md) records
+the subsequent complete pinned-toolchain verification.
 
 ## Aliasing fails before execution
 

@@ -2,7 +2,7 @@
 
 | Configuration | Admission/support intent | Evidence and release status |
 |---|---|---|
-| CPU, Windows x86_64 MSVC | Rust 1.89 minimum; default features; native linker | Local 1.89 rustc/rustdoc with Cargo 1.90; stable 1.90 lint tools; exact pinned installation incomplete |
+| CPU, Windows x86_64 MSVC | Rust 1.89 minimum; default features; native linker | Complete pinned Rust/Cargo/rustfmt/Clippy 1.89.0 CPU, UI, docs and package checks passed locally; final hosted SHA still pending |
 | CPU, Linux x86_64 | Rust/Cargo/rustfmt/Clippy 1.89.0; hosted Ubuntu 24.04 | Historical hosted pass; current final immutable candidate must rerun |
 | GPU, Linux NVIDIA | Rust 1.89.0, patched cuTile 0.3.1, full CUDA 13.3+ within 13.x, matching nvcc/tileiras, R610+ driver, CC 8.0+, Clang/libclang 18+ | Admission range, not a tested cross-product; current candidate unverified |
 | Recorded single GPU | Arch Linux, RTX 5060 Laptop, CC 12.0, CUDA/tileiras 13.4, driver 615.71.09, Clang/libclang 22 | Historical base and manifest-matched Chat 09 evidence; not final release attestation |
