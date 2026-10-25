@@ -36,12 +36,14 @@ def main():
     tools = identities(args.tool, resolve_symlinks=True)
     lock_packages = tomllib.loads((ROOT/'Cargo.lock').read_text())['package']
     metadata = json.loads(subprocess.check_output(
-        ['cargo', 'metadata', '--locked', '--format-version', '1'], cwd=ROOT, text=True
+        ['cargo', 'metadata', '--locked', '--all-features', '--format-version', '1'], cwd=ROOT, text=True
     ))
     metadata_by_key = {(p['name'], p['version']): p for p in metadata['packages']}
 
     def component(package):
-        info = metadata_by_key.get((package['name'], package['version']), {})
+        info = metadata_by_key.get((package['name'], package['version']))
+        if info is None:
+            raise SystemExit('FAIL: locked package absent from complete dependency metadata')
         result = {
             'type': 'library',
             'bom-ref': f"pkg:cargo/{package['name']}@{package['version']}",

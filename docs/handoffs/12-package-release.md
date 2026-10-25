@@ -9,7 +9,9 @@ The complete pinned Rust 1.89 CPU/package checks passed, exact public-checksum
 scanner exceptions and negative controls pass, fresh dependency/scanner/Linux
 launcher checks pass, and the maintained-source security diff review completed
 with no findings. The release candidate is `0.1.0-rc.1`, source-only, with all
-three safety overrides retained; crates.io remains disabled.
+three safety overrides retained; crates.io remains disabled. The provenance
+helper completeness fix also passed a separate completed security review; see
+`docs/security/release-review-provenance-2026-10-25.json`.
 
 The current gate is explicitly HOLD for final immutable GPU execution, protected
 hosted CI, owner MFA confirmation, signed provenance and publication authorization.

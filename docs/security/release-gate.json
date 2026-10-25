@@ -4,7 +4,7 @@
   "channel": "source-only GitHub candidate",
   "version": "0.1.0-rc.1",
   "baseline": "September approval plus completed current static diff review; execution/provenance gates remain open",
-  "source_sha256": "d412b5d24d9ab50a88d4cbf659a6634f587e2af46249cbbf2c349d719f5e9225",
+  "source_sha256": "bd3fa529c8fb42e149d05054bb9526831d1eb70eef0c911b25944d50e2d84478",
   "security_review": "release-review-2026-10-25.json",
   "historical_gate": "release-gate-2026-09-26.json",
   "publication_authorized": false,
@@ -39,5 +39,6 @@
       "status": "pending",
       "scope": "Repository controls freshly checked read-only; MFA field unavailable and requires owner confirmation. Final protected provenance and explicit public release authorization remain outstanding."
     }
-  ]
+  ],
+  "security_review_addendum": "release-review-provenance-2026-10-25.json"
 }

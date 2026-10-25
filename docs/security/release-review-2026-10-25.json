@@ -14,7 +14,16 @@
   },
   "sealed_findings_sha256": "55595bdf30e559986c1838d34184abe35745427e6f60dec619432e195ddc32dd",
   "sealed_coverage_sha256": "8492039e0ffd897622bfbc1cac133b1b05252dc9a258fff6793a3e689bfde21b",
-  "program_files_unchanged_since_review": [
+  "post_review_changes": "20 original program/workflow files unchanged under LF normalization; release-manifest.py completeness fix separately reviewed in release-review-provenance-2026-10-25.json; other changes are release documentation and gate references.",
+  "physical_checkout_warning": "Temporary checkout was replaced; restored cryptographic snapshot matches. Workbench remediation against replaced directory is unavailable.",
+  "full_release_approved": false,
+  "publication_authorized": false,
+  "usage": {
+    "goal_tokens": 331784,
+    "active_goal_seconds": 1322,
+    "workbench_rollout_telemetry": "partial; includes cached thread history"
+  },
+  "original_reviewed_program_files": [
     {
       "path": ".github/workflows/release-evidence.yml",
       "sha256": "212bf8958fdb1711f51407d72cecb1289438e47c614525cb3e7dc6f087977024",
@@ -121,13 +130,5 @@
       "lf_normalized_sha256": "2aced48a4f939f3921417b20d9b550a5a2321d9cfb2ae5b9e7fe92b3b3453f16"
     }
   ],
-  "post_review_changes": "Release status/policy documentation and gate bookkeeping only; no program, dependency, workflow or safety-policy expansion.",
-  "physical_checkout_warning": "Temporary checkout was replaced; restored cryptographic snapshot matches. Workbench remediation against replaced directory is unavailable.",
-  "full_release_approved": false,
-  "publication_authorized": false,
-  "usage": {
-    "goal_tokens": 331784,
-    "active_goal_seconds": 1322,
-    "workbench_rollout_telemetry": "partial; includes cached thread history"
-  }
+  "followup_review": "release-review-provenance-2026-10-25.json"
 }
